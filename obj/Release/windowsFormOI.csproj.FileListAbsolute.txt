@@ -1,0 +1,21 @@
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.csproj.AssemblyReference.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.csproj.ResolveComReference.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.Form1.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.Properties.Resources.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.csproj.GenerateResource.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.csproj.CoreCompileInputs.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\Newtonsoft.Json.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\Newtonsoft.Json.xml
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsF.90F19CC8.Up2Date
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\Orçamento Industrial.pdb
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\Orçamento Industrial.pdb
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\Orçamento Industrial.exe.config
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\Orçamento Industrial.exe
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\Orçamento Industrial.exe
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\PdfiumViewer.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\PdfiumViewer.xml
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\nl\PdfiumViewer.resources.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.Form2.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.pdb
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.xml
