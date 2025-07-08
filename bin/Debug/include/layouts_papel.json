@@ -1,0 +1,81 @@
+{
+    "A4 Retrato": {
+      "fundo": "assets/timbrado/A4_retrato.pdf",
+      "repetido": "assets/timbrado/A4_Branco_retrato.pdf",
+      "tamanho": [595, 842],
+      "topMarg": 98,
+      "botMarg": 84,
+      "leftMarg": 56,
+      "rightMarg": 28,
+      "papel": 9,
+      "orientacao": 1,
+      "cabecalho":"$1:$8",
+      "ajuste": "D:G"
+    },
+    "A3 Paisagem": {
+      "fundo": "assets/timbrado/A3_paisagem.pdf",
+      "repetido": "assets/timbrado/A3_branco_paisagem.pdf",
+      "tamanho": [1190, 841],
+      "topMarg": 98,
+      "botMarg": 98,
+      "leftMarg": 56,
+      "rightMarg": 28,
+      "papel": 8,
+      "orientacao": 2,
+      "cabecalho":"$1:$3",
+      "ajuste": "J"
+    },
+    "A4 Paisagem": {
+      "fundo": "assets/timbrado/A4_Paisagem.pdf",
+      "repetido": "assets/timbrado/A4_Branco_paisagem.pdf",
+      "tamanho": [842, 595],
+      "topMarg": 56,
+      "botMarg": 28,
+      "leftMarg": 84,
+      "rightMarg": 98,
+      "papel": 9,
+      "orientacao": 2,
+      "cabecalho":"$1:$9",
+      "ajuste": "E:L"
+    },
+    "A4 Retrato Assinado": {
+      "fundo": "assets/timbrado/A4_retrato_Assinado.pdf",
+      "repetido": "assets/timbrado/A4_Branco_retrato.pdf",
+      "tamanho": [595, 842],
+      "topMarg": 98,
+      "botMarg": 84,
+      "leftMarg": 56,
+      "rightMarg": 28,
+      "papel": 9,
+      "orientacao": 1,
+      "cabecalho":"$1:$8",
+      "ajuste": "D:G"
+    },
+    "A3 Paisagem Assinado": {
+      "fundo": "assets/timbrado/A3_paisagem_assinada.pdf",
+      "repetido": "assets/timbrado/A3_branco_paisagem.pdf",
+      "tamanho": [1190, 841],
+      "topMarg": 98,
+      "botMarg": 98,
+      "leftMarg": 56,
+      "rightMarg": 28,
+      "papel": 8,
+      "orientacao": 2,
+      "cabecalho":"$1:$3",
+      "ajuste": "J"
+    },
+    "A4 Paisagem Assianada": {
+      "fundo": "assets/timbrado/A4_Paisagem_assinado.pdf",
+      "repetido": "assets/timbrado/A4_Branco_paisagem.pdf",
+      "tamanho": [842, 595],
+      "topMarg": 56,
+      "botMarg": 28,
+      "leftMarg": 84,
+      "rightMarg": 98,
+      "papel": 9,
+      "orientacao": 2,
+      "cabecalho":"$1:$9",
+      "ajuste": "E:L"
+    }
+  }
+  
