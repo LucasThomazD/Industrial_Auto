@@ -1,5 +1,13 @@
+# Pastas de IDE e build
 /.vs/
+
+
+# Arquivos de objeto apenas em Release
 /bin/Release/**/*.o
+
+# Bibliotecas em Debug
 /bin/Debug/libs/**
+/bin/Debug/out/**/*.o
+
 
 
