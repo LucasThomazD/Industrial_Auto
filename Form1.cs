@@ -1,27 +1,28 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json;
+using PdfiumViewer;
+using System;
 using System.Collections.Generic;
-
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
-using ClosedXML.Excel;
+using System.Linq.Expressions;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Drawing.Drawing2D;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.IO;
-using System.Drawing.Imaging;
-using Microsoft.Office.Interop.Excel;
-using Newtonsoft.Json;
-using System.Net.Sockets;
-using System.Diagnostics;
-using System.Drawing.Text;
-using System.Threading;
-using PdfiumViewer;
-using System.Diagnostics.Eventing.Reader;
 
 
 
@@ -39,25 +40,19 @@ namespace windowsFormOI
         private string ultimoStatus = "";
         private string caminhoArquivo = "include/log.txt"; // Caminho do arquiv
         private PdfViewer pdfViewer = new PdfViewer();
+        private string caminhoConfig = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.json");
+        private Configuracao config;
+        
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true; // Evita flickering (tremulação)
             LoadLayouts();
             LayoutComboBox();
-            checkTimbrado.Enabled = false;
-            checkBranco.Enabled = false;
-            comboBranco.Enabled = false;
-            comboTim.Enabled = false;
-            PanelConsolidar.Enabled = false;
-            PanelFiltrar.Enabled = false;
-            PanelBuscar.Enabled = false;
-            checkBox2.Visible = false;
-            checkBox4.Visible = false;
-            checkBox3.Visible = false;
-            checkFiltrar.Visible = false;
-            panel1.Enabled = false;
-            panel9.Enabled = false;
+            bloqueador();
+            CarregarConfiguracao();
+            PreencherCampos();
+
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
 
@@ -67,12 +62,140 @@ namespace windowsFormOI
             timer1.Tick += Timer1_Tick;
 
             dataGridView1.KeyDown += dataGridView1_KeyDown;
-            boxModeloPDF.SelectedIndexChanged += boxModeloPDF_SelectedIndexChanged;
-            checkTimbrado.CheckedChanged += checkTimbrado_CheckedChanged;
-            checkBranco.CheckedChanged += checkBranco_CheckedChanged;
-  
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.Appearance = TabAppearance.FlatButtons;
+            tabControl1.ItemSize = new Size(0, 1);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.BackColor = Color.Transparent;
+            
+
+
             //SetRoundedBorder(15, button1, button2, button3, button4, botUnificar, bArquivo, bAplicarInfo, bUnico, bElet, bCBINC, bMentos, bInst, bTub, bSupTub, bMulti, bConsolidado);
-            SetRoundedBorder(10, PanelFiltrar, BtFis, panel4, panel6, panel7, panel8, PanelBuscar, PanelConsolidar,panel1,panel2);
+            SetRoundedBorder(10, PanelFiltrar, BtFis, panel4, panel7, panel8, PanelBuscar, PanelConsolidar, panel1, panel2);
+        }
+        private void CarregarConfiguracao()
+        {
+            if (File.Exists(caminhoConfig))
+            {
+                string json = File.ReadAllText(caminhoConfig);
+                config = JsonConvert.DeserializeObject<Configuracao>(json);
+            }
+            else
+            {
+                
+                config = new Configuracao();
+                CreatConfig();
+            }
+        }
+
+        private void CreatConfig() {
+            padraoSalvar();
+            padraoPDF();
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+        }
+
+        private void padraoSalvar()
+        {
+            config.Salvar.salvarFornecimento = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "fornecimento");
+            config.Salvar.SalvarFisico = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "fisico");
+            config.Salvar.SalvarConsolidado = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Consolidado");
+            config.Salvar.SalvarTimbrado = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Timbrado");
+            config.Salvar.SalvarCapas = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Capas");
+            config.Salvar.SalvarTemplates = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Templates");
+        }
+
+        private void padraoPDF()
+        {
+            config.PDF.Cat_letra_Size = "18";
+            config.PDF.Sub_letra_Size = "16";
+            config.PDF.Fornecedor_letra_Size = "20";
+            config.PDF.Cat_Espa_Size = "15";
+            config.PDF.Sub1_Espa_Size = "6";
+            config.PDF.Sub2_Espa_Size = "7";
+            
+        }
+
+        private void PreencherCampos()
+        {
+
+            // PDF
+            TamL_Cat.Text = config.PDF.Cat_letra_Size.ToString();
+            TamL_Sub.Text = config.PDF.Sub_letra_Size.ToString();
+            TamL_Fornecedor.Text = config.PDF.Fornecedor_letra_Size.ToString();
+            Espa_Cat.Text = config.PDF.Cat_Espa_Size.ToString();
+            Espa_sub1.Text = config.PDF.Sub1_Espa_Size.ToString();
+            Espa_sub2.Text = config.PDF.Sub2_Espa_Size.ToString();
+
+
+            // Geral
+            ImpressoraBox.Text = config.Geral.Impressora;
+            TemaBox.Text = config.Geral.tema;
+
+            // Salvar
+            Sav_Excel_1.Text = config.Salvar.salvarFornecimento;
+            Sav_Excel_2.Text = config.Salvar.SalvarFisico;
+            Sav_Excel_3.Text = config.Salvar.SalvarConsolidado;
+            Sav_PDF_1.Text = config.Salvar.SalvarTimbrado;
+            Sav_PDF_2.Text = config.Salvar.SalvarCapas;
+            Sav_PPQ_1.Text = config.Salvar.SalvarTemplates;
+        }
+
+        private void bot_sav_Click_1(object sender, EventArgs e)
+        {
+            // Salvar
+            config.Salvar.salvarFornecimento = Sav_Excel_1.Text;
+            config.Salvar.SalvarFisico = Sav_Excel_2.Text;
+            config.Salvar.SalvarConsolidado = Sav_Excel_3.Text;
+            config.Salvar.SalvarTimbrado = Sav_PDF_1.Text;
+            config.Salvar.SalvarCapas = Sav_PDF_2.Text;
+            config.Salvar.SalvarTemplates = Sav_PPQ_1.Text;
+
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+            
+
+
+        }
+        private void bot_reset_Click(object sender, EventArgs e)
+        {
+            padraoSalvar();
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+            PreencherCampos();
+        }
+
+        private void Capas_Reset_Bot_Click(object sender, EventArgs e)
+        {
+            padraoPDF();
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+            PreencherCampos();
+        }
+
+        private void Capas_Sav_Bot_Click(object sender, EventArgs e)
+        {
+            config.PDF.Cat_letra_Size = TamL_Cat.Text;
+            config.PDF.Sub_letra_Size = TamL_Sub.Text;
+            config.PDF.Fornecedor_letra_Size = TamL_Fornecedor.Text;
+            config.PDF.Cat_Espa_Size = Espa_Cat.Text;
+            config.PDF.Sub1_Espa_Size = Espa_sub1.Text;
+            config.PDF.Sub2_Espa_Size = Espa_sub2.Text;
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+        }
+
+        private void Geral_Sav_Bot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Geral_Reset_Bot_Click(object sender, EventArgs e)
+        {
+
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+            PreencherCampos();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -128,7 +251,7 @@ namespace windowsFormOI
             }
             catch (Exception ex)
             {
-                AtualizarStatus($"Erro ao calcular o índice: {ex.Message}",0);
+                AtualizarStatus($"Erro ao calcular o índice: {ex.Message}", 0);
                 valorDeIndice.Text = "Erro";
             }
         }
@@ -195,7 +318,7 @@ namespace windowsFormOI
                 }
             }
         }
-
+        
 
 
         private void botoespdf(System.Windows.Forms.Button button2, System.Windows.Forms.Button button4, System.Windows.Forms.Button botUnificar)
@@ -241,9 +364,30 @@ namespace windowsFormOI
         Process pythonProcess;
         string perso = "Personalizar";
 
+        private void bloqueador()
+        {
+            Sav_Excel_1.Enabled = false;
+            Sav_Excel_2.Enabled = false;
+            Sav_Excel_3.Enabled = false;
+            Sav_PDF_1.Enabled = false;
+            Sav_PDF_2.Enabled = false;
+            Sav_PPQ_1.Enabled = false;
+
+            //
+
+            PanelConsolidar.Enabled = false;
+            PanelFiltrar.Enabled = false;
+            PanelBuscar.Enabled = false;
+            checkBox2.Visible = false;
+            checkBox4.Visible = false;
+            checkBox3.Visible = false;
+            checkFiltrar.Visible = false;
+            panel9.Enabled = false;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount =12; // Define 8 colunas
+            dataGridView1.ColumnCount = 12; // Define 8 colunas
             dataGridView1.Columns[0].Name = "Entrega";
             dataGridView1.Columns[0].Width = 50;
             dataGridView1.Columns[1].Name = "RM";
@@ -260,8 +404,8 @@ namespace windowsFormOI
             dataGridView1.Columns[9].Width = 50;
             dataGridView1.Columns[10].Name = "Valor";
             dataGridView1.Columns[11].Name = "Indice Item";
-            
-            
+
+
 
 
 
@@ -337,9 +481,7 @@ namespace windowsFormOI
             BoxModelo.Items.Add("Resumo Fis.");
             BoxModelo.SelectedIndex = 0;
 
-            comboBranco.Items.Add("A3 Paisagem");
-            comboBranco.Items.Add("A4 Retrato");
-            comboBranco.Items.Add("A4 Paisagem");
+
 
 
             comboBox2.Items.Add("1000");
@@ -361,9 +503,6 @@ namespace windowsFormOI
             comboBox2.Items.Add("8000");
 
 
-            boxModeloPDF.Items.Add("Personalizar");
-            boxModeloPDF.SelectedIndex = 0;
-
             //Configurar ToolTip
             this.toolTip1.AutoPopDelay = 5000;
             this.toolTip1.InitialDelay = 1000;
@@ -377,14 +516,16 @@ namespace windowsFormOI
             this.toolTip1.SetToolTip(bAplicarInfo, "Iniciar o arquivo Excel e atualiza as informações de cabeçalho ");
             this.toolTip1.SetToolTip(bDerrubar, "Fecha o Excel");
             this.toolTip1.SetToolTip(BtArquivoUnico, "Busca Apenas um arquivo, quando não há o mesmo no TA anterior");
-            this.toolTip1.SetToolTip(PB_buscar_1, "Inicia o diálogo de diretorio permitindo a busca manual do caminho com os arquivos");
+            //this.toolTip1.SetToolTip(PB_buscar_1, "Inicia o diálogo de diretorio permitindo a busca manual do caminho com os arquivos");
             this.toolTip1.SetToolTip(PathBox, "Cole aqui o caminho da pasta com os arquivos a serem unificados");
-            this.toolTip1.SetToolTip(button2, "Gera arquivos PDF a partir de uma planilha excel, usando as margens continadas nos modelos");
-            this.toolTip1.SetToolTip(button4, "Aplica mesclagens no PDF, adicionando timbrado e página em branco");
+            //this.toolTip1.SetToolTip(button2, "Gera arquivos PDF a partir de uma planilha excel, usando as margens continadas nos modelos");
+            //this.toolTip1.SetToolTip(button4, "Aplica mesclagens no PDF, adicionando timbrado e página em branco");
             this.toolTip1.SetToolTip(button1, "Inicia um PopUp Contendo a ferramenta de Conversão de números");
             this.toolTip1.SetToolTip(labelCabeçalho1, "Indica em que Linha Começar a Copiar no Primeiro Arquivo");
+            this.toolTip1.SetToolTip(bot_sav,"Salvar");
+            this.toolTip1.SetToolTip(bot_reset,"Resetar Configurações");
         }
-        public  void filtrarDisciplinas(string disciplina, string texto)
+        public void filtrarDisciplinas(string disciplina, string texto)
         {
             try
             {
@@ -457,7 +598,7 @@ namespace windowsFormOI
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked) 
+            if (checkBox3.Checked)
             {
                 checkBox4.Checked = false; // Desmarca a outra CheckBox
                 checkBox2.Checked = false;
@@ -472,70 +613,26 @@ namespace windowsFormOI
                 checkBox3.Checked = false; // Desmarca a outra CheckBox
                 checkBox4.Checked = false;
             }
-           
+
             PanelFiltrar.Enabled = checkBox2.Checked;
             PanelBuscar.Enabled = true;
         }
         private void LayoutComboBox()
         {
             // Suponha que você tenha uma ComboBox chamada comboBoxLayouts no formulário
-            boxModeloPDF.Items.Clear();
-            comboTim.Items.Clear();
+            BoxTimbrado.Items.Clear();
+           
 
             if (layouts != null)
             {
                 foreach (string key in layouts.Keys)
                 {
-                    boxModeloPDF.Items.Add(key);
-                    comboTim.Items.Add(key);
+                    BoxTimbrado.Items.Add(key);
+
                 }
             }
         }
-        private void boxModeloPDF_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Verifica se a opção "Personalizar" está selecionada
-            if (boxModeloPDF.SelectedItem != null && boxModeloPDF.SelectedItem.ToString() == "Personalizar")
-            {
-                // Habilita os CheckedListBox
-                checkTimbrado.Enabled = true;
-                checkBranco.Enabled = true;
-            }
-            else
-            {
-                // Desabilita os CheckedListBox
-                checkTimbrado.Enabled = false;
-                checkBranco.Enabled = false;
 
-                // Opcional: Limpa as seleções
-                checkTimbrado.Checked = false;
-                checkBranco.Checked = false;
-            }
-        }
-
-        private void checkTimbrado_CheckedChanged(object sender, EventArgs e)
-        {
-            // Habilita ou desabilita a ComboBox com base no estado do CheckBox
-            if (checkTimbrado.Checked)
-            {
-                checkBranco.Checked = false; // Desmarca a outra CheckBox
-
-            }
-
-            // Habilita ou desabilita a ComboBox com base no estado do CheckBox
-            comboTim.Enabled = checkTimbrado.Checked;
-        }
-
-        private void checkBranco_CheckedChanged(object sender, EventArgs e)
-        {
-            // Habilita ou desabilita a ComboBox com base no estado do CheckBox
-            if (checkBranco.Checked)
-            {
-                checkTimbrado.Checked = false; // Desmarca a outra CheckBox
-            }
-
-            // Habilita ou desabilita a ComboBox com base no estado do CheckBox
-            comboBranco.Enabled = checkBranco.Checked;
-        }
 
 
 
@@ -670,7 +767,7 @@ namespace windowsFormOI
                 //System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
 
 
-                AtualizarStatus("Excel fechado com sucesso!",0);
+                AtualizarStatus("Excel fechado com sucesso!", 0);
             }
             catch (Exception ex)
             {
@@ -775,9 +872,9 @@ namespace windowsFormOI
                             AtualizarStatus("Erro ao buscar arquivos", 0);
                             checkFiltrar.Checked = false;
                         }
-                        
+
                     }
-                    else if(checkBox3.Checked == true)
+                    else if (checkBox3.Checked == true)
                     {
                         if (BtArquivos.Checked == true)
                         {
@@ -789,7 +886,7 @@ namespace windowsFormOI
                             AtualizarStatus($"Comparativo Físico-Financeiro Gerado", 0);
                             checkFiltrar.Checked = true;
                         }
-                        else if(BtArquivoUnico.Checked == true)
+                        else if (BtArquivoUnico.Checked == true)
 
                         {
                             AtualizarStatus($"Em desenvolvimento", 0);
@@ -826,10 +923,10 @@ namespace windowsFormOI
 
         }
 
-      
+
         private void bElet_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 if (checkFiltrar.Checked == true)
                 {
@@ -841,7 +938,7 @@ namespace windowsFormOI
                     AtualizarStatus("Por Favor, Selecione Buscar para encontrar os itens arquivos comparaveis");
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 AtualizarStatus($"Error{ex}");
             }
@@ -856,17 +953,17 @@ namespace windowsFormOI
                 {
                     filtrarDisciplinas("CBINC", "Combate à Incêndio");
                 }
-            else
-            {
-                AtualizarStatus("Por Favor, Selecione Buscar para encontrar os itens arquivos comparaveis");
+                else
+                {
+                    AtualizarStatus("Por Favor, Selecione Buscar para encontrar os itens arquivos comparaveis");
+                }
             }
-        }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 AtualizarStatus($"Error{ex}");
-    }
+            }
 
-}
+        }
 
         private void bMentos_Click(object sender, EventArgs e)
         {
@@ -876,22 +973,23 @@ namespace windowsFormOI
                 {
                     filtrarDisciplinas("instrumentos", "Intrumentos");
                 }
-            
-            else
-            {
-                AtualizarStatus("Por Favor, Selecione Buscar para encontrar os itens arquivos comparaveis");
+
+                else
+                {
+                    AtualizarStatus("Por Favor, Selecione Buscar para encontrar os itens arquivos comparaveis");
+                }
             }
-        }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 AtualizarStatus($"Error{ex}");
-    }
+            }
 
-}
+        }
 
         private void bInst_Click(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 if (checkFiltrar.Checked == true)
                 {
                     filtrarDisciplinas("instrumentacao", "Intrumentação");
@@ -1046,13 +1144,7 @@ namespace windowsFormOI
             }
             else if (radioPasta.Checked) // Quando o RadioButton para pasta é selecionado
             {
-                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                folderBrowserDialog.Description = "Selecione uma pasta";
-
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                {
-                    resultado = folderBrowserDialog.SelectedPath; // Armazena o caminho da pasta
-                }
+                resultado = Pathpdfs.Text;
             }
 
             return resultado; // Retorna o valor selecionado
@@ -1075,14 +1167,7 @@ namespace windowsFormOI
             }
             else if (radioPasta.Checked) // Quando o RadioButton para pasta é selecionado
             {
-                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                folderBrowserDialog.Description = "Selecione uma pasta";
-
-
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                {
-                    resultado = folderBrowserDialog.SelectedPath; // Armazena o caminho da pasta
-                }
+                resultado = Pathpdfs.Text;
             }
 
             return resultado; // Retorna o valor selecionado
@@ -1120,35 +1205,7 @@ namespace windowsFormOI
                 AtualizarStatus("Erro Ao Selecionar Pasta ou Arquivo!", 0);
             }
         }
-        private void iniciarPython(System.Windows.Forms.ComboBox boxModeloPDF)
 
-        {
-            timer1.Start();
-            string selecionado = SelecionarArquivoOuPastaPDF();
-
-            if (selecionado != null)
-            {
-                string par1 = boxModeloPDF.SelectedItem.ToString();
-                string imprimirpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Imprimir");
-
-                string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "InserirModelo.py");
-
-
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-                startInfo.Arguments = $"\"{scriptpath}\" \"{par1}\" \"{imprimirpath}\" \"{selecionado}\""; // Substitua pelo caminho do seu script Python
-                startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                startInfo.UseShellExecute = false;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.CreateNoWindow = true;
-
-                pythonProcess = Process.Start(startInfo);
-            }
-            else
-            {
-                AtualizarStatus("Erro Ao Selecionar Pasta ou Arquivo!", 0);
-            }
-        }
         private void unificar(System.Windows.Forms.TextBox PathBox)
         {
             timer1.Start();
@@ -1168,99 +1225,172 @@ namespace windowsFormOI
         }
 
 
-        private void pythonPerso(System.Windows.Forms.ComboBox comboTim, System.Windows.Forms.ComboBox comboBranco)
+        private void pythonEscolha(string imprimir, string item, int escolha)
         {
             timer1.Start();
-            string selecionado = SelecionarArquivoOuPastaPDF();
+            string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "Excel_PDF_Timbrado.py");
+            string par1 = BoxTimbrado.SelectedItem.ToString();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
+            startInfo.Arguments = $"\"{scriptpath}\" \"{par1}\" \"{imprimir}\" \"{item}\" \"{escolha}\""; // Substitua pelo caminho do seu script Python
+            startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.CreateNoWindow = true;
 
-            if (selecionado != null)
+            pythonProcess = Process.Start(startInfo);
+        }
+        private string verificar()
+        {
+            string verificar = "";
+            if (radioArquivo.Checked == true)
             {
+                verificar = "Arquivo";
+                return verificar;
 
+            }
+            else if (radioPasta.Checked == true)
+            {
+                verificar = "Pasta";
+                return verificar;
 
-                string imprimirpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Imprimir");
-                string scriptpath1 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "timbrado.py");
-                string scriptpath2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "PaginaRepetida.py");
-
-                if (checkTimbrado.Checked == true && comboTim.SelectedItem.ToString() != null) {
-                    string par1 = comboTim.SelectedItem.ToString();
-                    ProcessStartInfo startInfo = new ProcessStartInfo();
-                    startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-                    startInfo.Arguments = $"\"{scriptpath1}\" \"{par1}\" \"{imprimirpath}\" \"{selecionado}\""; // Substitua pelo caminho do seu script Python
-                    startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    startInfo.UseShellExecute = false;
-                    startInfo.RedirectStandardOutput = true;
-                    startInfo.CreateNoWindow = true;
-                    pythonProcess = Process.Start(startInfo);
-
-                }
-                else if (checkBranco.Checked == true && comboBranco.Text != null)
+            }
+            return verificar;
+        }
+        private string salvarPDF()
+        {
+            string caminho = "";
+            if (checkBox5.Checked == true)
+            {
+                caminho = PathSalvar.Text;
+                if (!Directory.Exists(caminho))
                 {
-                    string par2 = comboBranco.SelectedItem.ToString();
-                    ProcessStartInfo startInfo = new ProcessStartInfo();
-                    startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-                    startInfo.Arguments = $"\"{scriptpath2}\" \"{par2}\" \"{imprimirpath}\" \"{selecionado}\""; // Substitua pelo caminho do seu script Python
-                    startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    startInfo.UseShellExecute = false;
-                    startInfo.RedirectStandardOutput = true;
-                    startInfo.CreateNoWindow = true;
-                    pythonProcess = Process.Start(startInfo);
+                    caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "imprimir");
                 }
-
-                else
-                {
-                    AtualizarStatus("Lembre-se de Escolher um Item Na ComboBox", 0);
-                    timer1.Stop();
-                }
-
-
             }
             else
             {
-                AtualizarStatus("Erro Ao Selecionar Pasta ou Arquivo!", 0);
+                caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "imprimir");
+                if (!Directory.Exists(caminho))
+                {
+                    Directory.CreateDirectory(caminho);
+                }
+                return caminho;
+            }
+            return caminho;
+            }
+    
+        
+        private void genPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
+                string ver = verificar();
+                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
+                {
+                    AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
+                    string imprimirpath = salvarPDF();
+                    string Escolha = SelecionarArquivoOuPastaExcel();
+                    if (Escolha != null)
+                    {
+                        AtualizarStatus("Inicianto script");
+
+                        pythonEscolha(imprimirpath, Escolha, 1);
+                    }
+                    else
+                    {
+                        AtualizarStatus("Falha ao selecionar o arquivo(s)");
+                        timer1.Stop();
+                    }
+
+                }
+                else
+                {
+                    AtualizarStatus("Por Favor, Selecione um Modelo e um Arquivo ou Pasta para Gerar o PDF", 0);
+                    timer1.Stop();
+                }
+            }
+            catch (Exception ex)
+            {
+                AtualizarStatus($"Erro {ex.Message}");
+                timer1.Stop();
+            }
+        }
+        private void btTimbrado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string ver = verificar();
+                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
+                {
+                    AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
+                    string imprimirpath = salvarPDF();
+                    string Escolha = SelecionarArquivoOuPastaPDF();
+                    if (Escolha != null)
+                    {
+                        AtualizarStatus("Inicianto script");
+              
+                        pythonEscolha(imprimirpath, Escolha, 2);
+                    }
+                    else
+                    {
+                        AtualizarStatus("Falha ao selecionar o arquivo(s)");
+                        timer1.Stop();
+                    }
+
+                }
+                else
+                {
+                    AtualizarStatus("Por Favor, Selecione um Modelo e um Arquivo ou Pasta para Gerar o PDF", 0);
+                    timer1.Stop();
+                }
+            }
+            catch (Exception ex)
+            {
+                AtualizarStatus($"Erro {ex.Message}");
                 timer1.Stop();
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btBranco_Click(object sender, EventArgs e)
         {
-            AtualizarStatus("Nada Atribuido a Este Botão Ainda!");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-
             try
             {
 
-                if (radioArquivo.Checked || radioPasta.Checked)
+                string ver = verificar();
+                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
                 {
-                    if (boxModeloPDF.SelectedItem.ToString() == perso) {
-
-                        pythonPerso(comboTim, comboBranco);
-                    }
-                    else if (boxModeloPDF.SelectedItem.ToString() != perso)
+                    AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
+                    string imprimirpath = salvarPDF();
+                    string Escolha = SelecionarArquivoOuPastaPDF();
+                    if (Escolha != null)
                     {
-
-                        iniciarPython(boxModeloPDF);
-
-
+                        AtualizarStatus("Inicianto script");
+             
+                        pythonEscolha(imprimirpath, Escolha, 3);
                     }
+                    else
+                    {
+                        AtualizarStatus("Falha ao selecionar o arquivo(s)");
+                        timer1.Stop();
+                    }
+
                 }
                 else
                 {
-                    AtualizarStatus("Lembre-se de selecionar umas das opções: Pasta ou Arquivo");
-
+                    AtualizarStatus("Por Favor, Selecione um Modelo e um Arquivo ou Pasta para Gerar o PDF", 0);
+                    timer1.Stop();
                 }
             }
-
-
-            catch
+            catch (Exception ex)
             {
-
+                AtualizarStatus($"Erro {ex.Message}");
+                timer1.Stop();
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1277,38 +1407,7 @@ namespace windowsFormOI
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (radioArquivo.Checked || radioPasta.Checked)
-                {
-                    if (boxModeloPDF.SelectedItem.ToString() != perso)
-                    {
-                        AtualizarStatus("Iniciando Processo");
-                        iniciarPythonExcel(boxModeloPDF);
-                    }
-
-
-                    else
-                    {
-                        AtualizarStatus("Modelo Incompativel Com Essa Tarefa");
-                    }
-                }
-                else
-                {
-                    AtualizarStatus("Lembre-se de selecionar umas das opções: Pasta ou Arquivo");
-
-                }
-            }
-
-
-            catch
-            {
-
-            }
-        }
+       
 
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -1381,7 +1480,7 @@ namespace windowsFormOI
         }
         private void caminhoPDFs_Click(object sender, EventArgs e)
          {
-            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "imprimir");
+            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out");
             AbrirGerenciadorArquivos(caminho);
         }
         private void gerarPDFHelp_Click(object sender, EventArgs e)
@@ -1584,17 +1683,31 @@ namespace windowsFormOI
         {
             try
             {
-                AbrirMacros();
-                System.Threading.Thread.Sleep(5000);
-                excelApp.Run("exportarTemp");
-                excelApp.Visible = true;
-                var wbOriginal = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "macros.xlsm");
-                excelApp.ScreenUpdating = true;
-                excelApp.WindowState = XlWindowState.xlMaximized;
-                excelApp.ActiveWindow.WindowState = XlWindowState.xlNormal;
-                excelApp.ActiveWindow.WindowState = XlWindowState.xlMaximized;
-               
-             
+                string caminhoOriginal = Path.Combine(Directory.GetCurrentDirectory(), @"assets\Template", "TemplatePPQ.xlsx");          
+                string nomeArquivo = "Template.xlsx";
+                string caminhoDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string caminhoNovo = System.IO.Path.Combine(caminhoDesktop, nomeArquivo);
+
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbookOriginal = excelApp.Workbooks.Open(caminhoOriginal);
+
+                // Cria uma cópia em memória
+                workbookOriginal.SaveCopyAs(caminhoNovo);
+
+                // Fecha sem salvar alterações
+                workbookOriginal.Close(false);
+                excelApp.Quit();
+
+                Excel.Application excelApp2 = new Excel.Application();
+                excelApp2.Visible = true;
+
+                // Abre o novo workbook
+                Excel.Workbook workbookNovo2 = excelApp2.Workbooks.Open(caminhoNovo);
+                excelApp2.WindowState = Excel.XlWindowState.xlNormal;
+
+                // Libera recursos
+                //Marshal.ReleaseComObject(workbookOriginal);
+                //Marshal.ReleaseComObject(excelApp);
 
 
 
@@ -1742,6 +1855,110 @@ namespace windowsFormOI
                 AtualizarStatus("Por Favor, Selecione Pelo Menos Uma Opção Para Gerar a Capa");
             }
         }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked == true)
+            {
+                // Se o checkbox estiver marcado, habilita o TextBox
+                PathSalvar.Enabled = true;
+            }
+            else if (checkBox5.Checked == false)
+            {
+                // Se o checkbox não estiver marcado, desabilita o TextBox
+                PathSalvar.Enabled = false;
+            }
+        }
+
+        
+
+        private void pDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = PDF_Config;
+        }
+
+        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = Salvar_Config;
+        }
+
+
+       
+
+        private void Sav_Excel_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Sav_Excel_01.Checked == true)
+            {
+                Sav_Excel_1.Enabled = true;
+            }
+            else
+            {
+                Sav_Excel_1.Enabled = false;
+            }
+        }
+        
+
+        private void Sav_Excel_02_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sav_Excel_02.Checked == true)
+            {
+                Sav_Excel_2.Enabled = true;
+            }
+            else
+            {
+                Sav_Excel_2.Enabled = false;
+            }
+        }
+
+        private void Sav_Excel_03_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sav_Excel_03.Checked == true)
+            {
+                Sav_Excel_3.Enabled = true;
+            }
+            else
+            {
+                Sav_Excel_3.Enabled = false;
+            }
+        }
+
+        private void Sav_PDF_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sav_PDF_01.Checked == true)
+            {
+                Sav_PDF_1.Enabled = true;
+            }
+            else
+            {
+                Sav_PDF_1.Enabled = false;
+            }
+        }
+
+        private void Sav_PDF_02_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sav_PDF_02.Checked == true)
+            {
+                Sav_PDF_2.Enabled = true;
+            }
+            else
+            {
+                Sav_PDF_2.Enabled = false;
+            }
+        }
+
+        private void Sav_PPQ_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Sav_PPQ_01.Checked == true)
+            {
+                Sav_PPQ_1.Enabled = true;
+            }
+            else
+            {
+                Sav_PPQ_1.Enabled = false;
+            }
+        }
+
+        
     }
     public class Layout
     {

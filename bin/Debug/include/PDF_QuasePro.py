@@ -1,7 +1,7 @@
 import PyPDF2, sys, os, time
 from manipular import GerenciadorArquivo
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "libs"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "../libs"))
 
 class alterar_pag:
     def remover_pagina(pdf_entrada, pdf_saida, pagina_remover):

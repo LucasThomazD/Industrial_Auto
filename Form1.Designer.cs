@@ -126,8 +126,8 @@ namespace windowsFormOI
             this.buscarunicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linhasDeCabeçalhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.BTCapa = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BTCapa = new System.Windows.Forms.Button();
             this.ClPropTecnica = new System.Windows.Forms.CheckBox();
             this.ClPropComercial = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -141,31 +141,21 @@ namespace windowsFormOI
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TBPropComercial = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.PathSalvar = new System.Windows.Forms.TextBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.genPDF = new System.Windows.Forms.Button();
+            this.btTimbrado = new System.Windows.Forms.Button();
+            this.Pathpdfs = new System.Windows.Forms.TextBox();
+            this.btBranco = new System.Windows.Forms.Button();
+            this.radioArquivo = new System.Windows.Forms.RadioButton();
+            this.radioPasta = new System.Windows.Forms.RadioButton();
+            this.BoxTimbrado = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.botUnificar = new System.Windows.Forms.Button();
-            this.PB_buscar_1 = new System.Windows.Forms.PictureBox();
             this.PathBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.boxModeloPDF = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboTim = new System.Windows.Forms.ComboBox();
-            this.checkTimbrado = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboBranco = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.checkBranco = new System.Windows.Forms.CheckBox();
-            this.radioArquivo = new System.Windows.Forms.RadioButton();
-            this.radioPasta = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualizarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,7 +165,7 @@ namespace windowsFormOI
             this.unificarPDFsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerarPDFsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mesclarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPPQ = new System.Windows.Forms.TabControl();
+            this.Config_Save = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
             this.valorDeIndice = new System.Windows.Forms.TextBox();
@@ -188,7 +178,77 @@ namespace windowsFormOI
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.PDF_Config = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.TemaBox = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.Geral_Reset_Bot = new System.Windows.Forms.PictureBox();
+            this.Geral_Sav_Bot = new System.Windows.Forms.PictureBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ImpressoraBox = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Capas_Reset_Bot = new System.Windows.Forms.PictureBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.Capas_Sav_Bot = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.TamL_Fornecedor = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Espa_sub2 = new System.Windows.Forms.TextBox();
+            this.TamL_Cat = new System.Windows.Forms.TextBox();
+            this.Espa_sub1 = new System.Windows.Forms.TextBox();
+            this.TamL_Sub = new System.Windows.Forms.TextBox();
+            this.Espa_Cat = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Salvar_Config = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.bot_reset = new System.Windows.Forms.PictureBox();
+            this.bot_sav = new System.Windows.Forms.PictureBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.Sav_PPQ_1 = new System.Windows.Forms.TextBox();
+            this.Sav_PPQ_01 = new System.Windows.Forms.CheckBox();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.Sav_PDF_02 = new System.Windows.Forms.CheckBox();
+            this.Sav_PDF_2 = new System.Windows.Forms.TextBox();
+            this.Sav_PDF_1 = new System.Windows.Forms.TextBox();
+            this.Sav_PDF_01 = new System.Windows.Forms.CheckBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.Sav_Excel_03 = new System.Windows.Forms.CheckBox();
+            this.Sav_Excel_02 = new System.Windows.Forms.CheckBox();
+            this.Sav_Excel_3 = new System.Windows.Forms.TextBox();
+            this.Sav_Excel_2 = new System.Windows.Forms.TextBox();
+            this.Sav_Excel_1 = new System.Windows.Forms.TextBox();
+            this.Sav_Excel_01 = new System.Windows.Forms.CheckBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -210,12 +270,35 @@ namespace windowsFormOI
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_buscar_1)).BeginInit();
-            this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabPPQ.SuspendLayout();
+            this.Config_Save.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.PDF_Config.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Sav_Bot)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Capas_Reset_Bot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Capas_Sav_Bot)).BeginInit();
+            this.Salvar_Config.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_reset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_sav)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.menuStrip3.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -1314,7 +1397,6 @@ namespace windowsFormOI
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel7);
-            this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.Controls.Add(this.menuStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -1322,20 +1404,6 @@ namespace windowsFormOI
             this.tabPage1.Size = new System.Drawing.Size(1092, 474);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PDF";
-            // 
-            // BTCapa
-            // 
-            this.BTCapa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
-            this.BTCapa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BTCapa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.BTCapa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTCapa.Location = new System.Drawing.Point(143, 344);
-            this.BTCapa.Name = "BTCapa";
-            this.BTCapa.Size = new System.Drawing.Size(128, 32);
-            this.BTCapa.TabIndex = 10;
-            this.BTCapa.Text = "GERAR CAPA";
-            this.BTCapa.UseVisualStyleBackColor = false;
-            this.BTCapa.Click += new System.EventHandler(this.BTCapa_Click);
             // 
             // panel2
             // 
@@ -1353,15 +1421,29 @@ namespace windowsFormOI
             this.panel2.Controls.Add(this.richTextBox2);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Controls.Add(this.TBPropComercial);
-            this.panel2.Location = new System.Drawing.Point(606, 56);
+            this.panel2.Location = new System.Drawing.Point(547, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(406, 392);
+            this.panel2.Size = new System.Drawing.Size(395, 363);
             this.panel2.TabIndex = 9;
+            // 
+            // BTCapa
+            // 
+            this.BTCapa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.BTCapa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BTCapa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.BTCapa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BTCapa.Location = new System.Drawing.Point(134, 311);
+            this.BTCapa.Name = "BTCapa";
+            this.BTCapa.Size = new System.Drawing.Size(128, 32);
+            this.BTCapa.TabIndex = 10;
+            this.BTCapa.Text = "GERAR CAPA";
+            this.BTCapa.UseVisualStyleBackColor = false;
+            this.BTCapa.Click += new System.EventHandler(this.BTCapa_Click);
             // 
             // ClPropTecnica
             // 
             this.ClPropTecnica.AutoSize = true;
-            this.ClPropTecnica.Location = new System.Drawing.Point(29, 287);
+            this.ClPropTecnica.Location = new System.Drawing.Point(29, 259);
             this.ClPropTecnica.Name = "ClPropTecnica";
             this.ClPropTecnica.Size = new System.Drawing.Size(15, 14);
             this.ClPropTecnica.TabIndex = 18;
@@ -1371,7 +1453,7 @@ namespace windowsFormOI
             // ClPropComercial
             // 
             this.ClPropComercial.AutoSize = true;
-            this.ClPropComercial.Location = new System.Drawing.Point(29, 224);
+            this.ClPropComercial.Location = new System.Drawing.Point(29, 196);
             this.ClPropComercial.Name = "ClPropComercial";
             this.ClPropComercial.Size = new System.Drawing.Size(15, 14);
             this.ClPropComercial.TabIndex = 17;
@@ -1383,7 +1465,7 @@ namespace windowsFormOI
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(243, 82);
+            this.label24.Location = new System.Drawing.Point(245, 74);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(98, 16);
             this.label24.TabIndex = 16;
@@ -1394,7 +1476,7 @@ namespace windowsFormOI
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(77, 82);
+            this.label23.Location = new System.Drawing.Point(79, 74);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(48, 16);
             this.label23.TabIndex = 15;
@@ -1402,14 +1484,14 @@ namespace windowsFormOI
             // 
             // TB_Descri
             // 
-            this.TB_Descri.Location = new System.Drawing.Point(217, 104);
+            this.TB_Descri.Location = new System.Drawing.Point(219, 96);
             this.TB_Descri.Name = "TB_Descri";
             this.TB_Descri.Size = new System.Drawing.Size(149, 20);
             this.TB_Descri.TabIndex = 14;
             // 
             // TB_Area
             // 
-            this.TB_Area.Location = new System.Drawing.Point(29, 104);
+            this.TB_Area.Location = new System.Drawing.Point(31, 96);
             this.TB_Area.Name = "TB_Area";
             this.TB_Area.Size = new System.Drawing.Size(149, 20);
             this.TB_Area.TabIndex = 13;
@@ -1427,7 +1509,7 @@ namespace windowsFormOI
             // 
             // TBPropTecnica
             // 
-            this.TBPropTecnica.Location = new System.Drawing.Point(53, 284);
+            this.TBPropTecnica.Location = new System.Drawing.Point(53, 256);
             this.TBPropTecnica.Name = "TBPropTecnica";
             this.TBPropTecnica.ReadOnly = true;
             this.TBPropTecnica.Size = new System.Drawing.Size(106, 20);
@@ -1438,7 +1520,7 @@ namespace windowsFormOI
             // 
             this.CBOnlySub.AutoSize = true;
             this.CBOnlySub.Font = new System.Drawing.Font("Arial Narrow", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBOnlySub.Location = new System.Drawing.Point(29, 156);
+            this.CBOnlySub.Location = new System.Drawing.Point(29, 137);
             this.CBOnlySub.Name = "CBOnlySub";
             this.CBOnlySub.Size = new System.Drawing.Size(185, 26);
             this.CBOnlySub.TabIndex = 10;
@@ -1448,7 +1530,7 @@ namespace windowsFormOI
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(179, 271);
+            this.richTextBox2.Location = new System.Drawing.Point(179, 243);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(187, 46);
             this.richTextBox2.TabIndex = 9;
@@ -1456,7 +1538,7 @@ namespace windowsFormOI
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(179, 207);
+            this.richTextBox1.Location = new System.Drawing.Point(179, 179);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(187, 46);
             this.richTextBox1.TabIndex = 8;
@@ -1464,7 +1546,7 @@ namespace windowsFormOI
             // 
             // TBPropComercial
             // 
-            this.TBPropComercial.Location = new System.Drawing.Point(53, 221);
+            this.TBPropComercial.Location = new System.Drawing.Point(53, 193);
             this.TBPropComercial.Name = "TBPropComercial";
             this.TBPropComercial.ReadOnly = true;
             this.TBPropComercial.Size = new System.Drawing.Size(106, 20);
@@ -1474,276 +1556,91 @@ namespace windowsFormOI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton4);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.PathSalvar);
+            this.panel1.Controls.Add(this.checkBox5);
+            this.panel1.Controls.Add(this.genPDF);
+            this.panel1.Controls.Add(this.btTimbrado);
+            this.panel1.Controls.Add(this.Pathpdfs);
+            this.panel1.Controls.Add(this.btBranco);
+            this.panel1.Controls.Add(this.radioArquivo);
+            this.panel1.Controls.Add(this.radioPasta);
+            this.panel1.Controls.Add(this.BoxTimbrado);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(300, 167);
+            this.panel1.Location = new System.Drawing.Point(178, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 136);
+            this.panel1.Size = new System.Drawing.Size(351, 210);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button3
+            // PathSalvar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(192, 94);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 24);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "INICIAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.PathSalvar.Enabled = false;
+            this.PathSalvar.Location = new System.Drawing.Point(180, 98);
+            this.PathSalvar.Name = "PathSalvar";
+            this.PathSalvar.Size = new System.Drawing.Size(149, 20);
+            this.PathSalvar.TabIndex = 22;
             // 
-            // radioButton3
+            // checkBox5
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioButton3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(24, 96);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 20);
-            this.radioButton3.TabIndex = 16;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ARQUIVO";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox5.Location = new System.Drawing.Point(27, 97);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(138, 21);
+            this.checkBox5.TabIndex = 21;
+            this.checkBox5.Text = "Salvar Personalizado";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
-            // radioButton4
+            // genPDF
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioButton4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(112, 96);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(59, 20);
-            this.radioButton4.TabIndex = 15;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "PASTA";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.genPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.genPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.genPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.genPDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.genPDF.Location = new System.Drawing.Point(27, 168);
+            this.genPDF.Name = "genPDF";
+            this.genPDF.Size = new System.Drawing.Size(81, 24);
+            this.genPDF.TabIndex = 20;
+            this.genPDF.Text = "GERAR PDF";
+            this.genPDF.UseVisualStyleBackColor = false;
+            this.genPDF.Click += new System.EventHandler(this.genPDF_Click);
             // 
-            // comboBox1
+            // btTimbrado
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(113, 21);
-            this.comboBox1.TabIndex = 14;
+            this.btTimbrado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.btTimbrado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btTimbrado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.btTimbrado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btTimbrado.Location = new System.Drawing.Point(137, 168);
+            this.btTimbrado.Name = "btTimbrado";
+            this.btTimbrado.Size = new System.Drawing.Size(81, 24);
+            this.btTimbrado.TabIndex = 19;
+            this.btTimbrado.Text = "TIMBRADO";
+            this.btTimbrado.UseVisualStyleBackColor = false;
+            this.btTimbrado.Click += new System.EventHandler(this.btTimbrado_Click);
             // 
-            // label10
+            // Pathpdfs
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(24, 56);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 17);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "MODELO";
+            this.Pathpdfs.Location = new System.Drawing.Point(180, 133);
+            this.Pathpdfs.Name = "Pathpdfs";
+            this.Pathpdfs.Size = new System.Drawing.Size(149, 20);
+            this.Pathpdfs.TabIndex = 18;
             // 
-            // label6
+            // btBranco
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(40, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(210, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "EXCEL COM TIMBRADO";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
-            this.panel7.Controls.Add(this.botUnificar);
-            this.panel7.Controls.Add(this.PB_buscar_1);
-            this.panel7.Controls.Add(this.PathBox);
-            this.panel7.Controls.Add(this.label12);
-            this.panel7.Location = new System.Drawing.Point(300, 56);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(288, 96);
-            this.panel7.TabIndex = 5;
-            // 
-            // botUnificar
-            // 
-            this.botUnificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
-            this.botUnificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.botUnificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.botUnificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.botUnificar.Location = new System.Drawing.Point(200, 54);
-            this.botUnificar.Name = "botUnificar";
-            this.botUnificar.Size = new System.Drawing.Size(72, 24);
-            this.botUnificar.TabIndex = 14;
-            this.botUnificar.Text = "INICIAR";
-            this.botUnificar.UseVisualStyleBackColor = false;
-            this.botUnificar.Click += new System.EventHandler(this.botUnificar_Click);
-            // 
-            // PB_buscar_1
-            // 
-            this.PB_buscar_1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_buscar_1.Image = ((System.Drawing.Image)(resources.GetObject("PB_buscar_1.Image")));
-            this.PB_buscar_1.Location = new System.Drawing.Point(232, 8);
-            this.PB_buscar_1.Name = "PB_buscar_1";
-            this.PB_buscar_1.Size = new System.Drawing.Size(38, 32);
-            this.PB_buscar_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PB_buscar_1.TabIndex = 10;
-            this.PB_buscar_1.TabStop = false;
-            this.PB_buscar_1.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // PathBox
-            // 
-            this.PathBox.Location = new System.Drawing.Point(24, 56);
-            this.PathBox.Name = "PathBox";
-            this.PathBox.Size = new System.Drawing.Size(168, 20);
-            this.PathBox.TabIndex = 6;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(40, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 20);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "UNIFICAR PDF\'s";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
-            this.panel6.Controls.Add(this.button4);
-            this.panel6.Controls.Add(this.boxModeloPDF);
-            this.panel6.Controls.Add(this.label13);
-            this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.comboTim);
-            this.panel6.Controls.Add(this.checkTimbrado);
-            this.panel6.Controls.Add(this.label15);
-            this.panel6.Controls.Add(this.comboBranco);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Controls.Add(this.checkBranco);
-            this.panel6.Controls.Add(this.radioArquivo);
-            this.panel6.Controls.Add(this.radioPasta);
-            this.panel6.Controls.Add(this.button2);
-            this.panel6.Location = new System.Drawing.Point(82, 56);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(200, 392);
-            this.panel6.TabIndex = 4;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(40, 344);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 32);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "MESCLAR";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // boxModeloPDF
-            // 
-            this.boxModeloPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.boxModeloPDF.FormattingEnabled = true;
-            this.boxModeloPDF.Location = new System.Drawing.Point(40, 104);
-            this.boxModeloPDF.Name = "boxModeloPDF";
-            this.boxModeloPDF.Size = new System.Drawing.Size(113, 21);
-            this.boxModeloPDF.TabIndex = 12;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(8, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(181, 25);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "EXCEL E TIMBRADO";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(40, 80);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 16);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "MODELO";
-            // 
-            // comboTim
-            // 
-            this.comboTim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboTim.FormattingEnabled = true;
-            this.comboTim.Location = new System.Drawing.Point(40, 168);
-            this.comboTim.Name = "comboTim";
-            this.comboTim.Size = new System.Drawing.Size(113, 21);
-            this.comboTim.TabIndex = 10;
-            // 
-            // checkTimbrado
-            // 
-            this.checkTimbrado.AutoSize = true;
-            this.checkTimbrado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkTimbrado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkTimbrado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkTimbrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkTimbrado.Location = new System.Drawing.Point(152, 145);
-            this.checkTimbrado.Name = "checkTimbrado";
-            this.checkTimbrado.Size = new System.Drawing.Size(13, 12);
-            this.checkTimbrado.TabIndex = 6;
-            this.checkTimbrado.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(40, 144);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 16);
-            this.label15.TabIndex = 9;
-            this.label15.Text = "TIMBRADO";
-            // 
-            // comboBranco
-            // 
-            this.comboBranco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBranco.FormattingEnabled = true;
-            this.comboBranco.Location = new System.Drawing.Point(40, 232);
-            this.comboBranco.Name = "comboBranco";
-            this.comboBranco.Size = new System.Drawing.Size(113, 21);
-            this.comboBranco.TabIndex = 7;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(40, 208);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 16);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "EM BRANCO";
-            // 
-            // checkBranco
-            // 
-            this.checkBranco.AutoSize = true;
-            this.checkBranco.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBranco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBranco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBranco.Location = new System.Drawing.Point(152, 209);
-            this.checkBranco.Name = "checkBranco";
-            this.checkBranco.Size = new System.Drawing.Size(13, 12);
-            this.checkBranco.TabIndex = 5;
-            this.checkBranco.UseVisualStyleBackColor = true;
+            this.btBranco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.btBranco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBranco.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.btBranco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btBranco.Location = new System.Drawing.Point(247, 168);
+            this.btBranco.Name = "btBranco";
+            this.btBranco.Size = new System.Drawing.Size(81, 24);
+            this.btBranco.TabIndex = 17;
+            this.btBranco.Text = "BRANCO";
+            this.btBranco.UseVisualStyleBackColor = false;
+            this.btBranco.Click += new System.EventHandler(this.btBranco_Click);
             // 
             // radioArquivo
             // 
@@ -1751,10 +1648,10 @@ namespace windowsFormOI
             this.radioArquivo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioArquivo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioArquivo.Location = new System.Drawing.Point(32, 270);
+            this.radioArquivo.Location = new System.Drawing.Point(27, 133);
             this.radioArquivo.Name = "radioArquivo";
             this.radioArquivo.Size = new System.Drawing.Size(74, 20);
-            this.radioArquivo.TabIndex = 6;
+            this.radioArquivo.TabIndex = 16;
             this.radioArquivo.TabStop = true;
             this.radioArquivo.Text = "ARQUIVO";
             this.radioArquivo.UseVisualStyleBackColor = true;
@@ -1765,27 +1662,87 @@ namespace windowsFormOI
             this.radioPasta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioPasta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.radioPasta.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioPasta.Location = new System.Drawing.Point(120, 270);
+            this.radioPasta.Location = new System.Drawing.Point(115, 133);
             this.radioPasta.Name = "radioPasta";
             this.radioPasta.Size = new System.Drawing.Size(59, 20);
-            this.radioPasta.TabIndex = 5;
+            this.radioPasta.TabIndex = 15;
             this.radioPasta.TabStop = true;
             this.radioPasta.Text = "PASTA";
             this.radioPasta.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BoxTimbrado
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(40, 304);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 32);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "GERAR PDF";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BoxTimbrado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BoxTimbrado.FormattingEnabled = true;
+            this.BoxTimbrado.Location = new System.Drawing.Point(180, 62);
+            this.BoxTimbrado.Name = "BoxTimbrado";
+            this.BoxTimbrado.Size = new System.Drawing.Size(113, 21);
+            this.BoxTimbrado.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(92, 62);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 17);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "MODELO";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(73, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(210, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "EXCEL COM TIMBRADO";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.panel7.Controls.Add(this.botUnificar);
+            this.panel7.Controls.Add(this.PathBox);
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Location = new System.Drawing.Point(178, 333);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(351, 86);
+            this.panel7.TabIndex = 5;
+            // 
+            // botUnificar
+            // 
+            this.botUnificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.botUnificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.botUnificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.botUnificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botUnificar.Location = new System.Drawing.Point(256, 47);
+            this.botUnificar.Name = "botUnificar";
+            this.botUnificar.Size = new System.Drawing.Size(72, 24);
+            this.botUnificar.TabIndex = 14;
+            this.botUnificar.Text = "INICIAR";
+            this.botUnificar.UseVisualStyleBackColor = false;
+            this.botUnificar.Click += new System.EventHandler(this.botUnificar_Click);
+            // 
+            // PathBox
+            // 
+            this.PathBox.Location = new System.Drawing.Point(27, 50);
+            this.PathBox.Name = "PathBox";
+            this.PathBox.Size = new System.Drawing.Size(202, 20);
+            this.PathBox.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(101, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(147, 20);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "UNIFICAR PDF\'s";
             // 
             // menuStrip1
             // 
@@ -1861,17 +1818,18 @@ namespace windowsFormOI
             this.mesclarToolStripMenuItem.Text = "Mesclar";
             this.mesclarToolStripMenuItem.Click += new System.EventHandler(this.mesclarHelp_Click);
             // 
-            // tabPPQ
+            // Config_Save
             // 
-            this.tabPPQ.Controls.Add(this.tabPage1);
-            this.tabPPQ.Controls.Add(this.tabPage2);
-            this.tabPPQ.Controls.Add(this.tabPage4);
-            this.tabPPQ.Controls.Add(this.tabPage3);
-            this.tabPPQ.Location = new System.Drawing.Point(40, 144);
-            this.tabPPQ.Name = "tabPPQ";
-            this.tabPPQ.SelectedIndex = 0;
-            this.tabPPQ.Size = new System.Drawing.Size(1100, 500);
-            this.tabPPQ.TabIndex = 0;
+            this.Config_Save.Controls.Add(this.tabPage1);
+            this.Config_Save.Controls.Add(this.tabPage2);
+            this.Config_Save.Controls.Add(this.tabPage4);
+            this.Config_Save.Controls.Add(this.tabPage3);
+            this.Config_Save.Controls.Add(this.tabPage5);
+            this.Config_Save.Location = new System.Drawing.Point(40, 144);
+            this.Config_Save.Name = "Config_Save";
+            this.Config_Save.SelectedIndex = 0;
+            this.Config_Save.Size = new System.Drawing.Size(1100, 500);
+            this.Config_Save.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -1927,7 +1885,7 @@ namespace windowsFormOI
             this.butImpTemplate.Name = "butImpTemplate";
             this.butImpTemplate.Size = new System.Drawing.Size(120, 23);
             this.butImpTemplate.TabIndex = 8;
-            this.butImpTemplate.Text = "Importar Template";
+            this.butImpTemplate.Text = "Exibir Template";
             this.butImpTemplate.UseVisualStyleBackColor = true;
             this.butImpTemplate.Click += new System.EventHandler(this.butImpTemplate_Click);
             // 
@@ -1999,6 +1957,723 @@ namespace windowsFormOI
             this.dataGridView1.Size = new System.Drawing.Size(1048, 352);
             this.dataGridView1.TabIndex = 0;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.tabPage5.Controls.Add(this.tabControl1);
+            this.tabPage5.Controls.Add(this.menuStrip3);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1092, 474);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Configurações";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.PDF_Config);
+            this.tabControl1.Controls.Add(this.Salvar_Config);
+            this.tabControl1.Location = new System.Drawing.Point(179, 40);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(0, 0);
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(742, 406);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // PDF_Config
+            // 
+            this.PDF_Config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.PDF_Config.Controls.Add(this.panel5);
+            this.PDF_Config.Controls.Add(this.panel3);
+            this.PDF_Config.Location = new System.Drawing.Point(4, 25);
+            this.PDF_Config.Name = "PDF_Config";
+            this.PDF_Config.Padding = new System.Windows.Forms.Padding(3);
+            this.PDF_Config.Size = new System.Drawing.Size(734, 377);
+            this.PDF_Config.TabIndex = 1;
+            this.PDF_Config.Text = "PDF";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel5.Controls.Add(this.panel21);
+            this.panel5.Controls.Add(this.TemaBox);
+            this.panel5.Controls.Add(this.label30);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.ImpressoraBox);
+            this.panel5.Location = new System.Drawing.Point(24, 33);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(441, 315);
+            this.panel5.TabIndex = 16;
+            // 
+            // TemaBox
+            // 
+            this.TemaBox.FormattingEnabled = true;
+            this.TemaBox.Location = new System.Drawing.Point(219, 104);
+            this.TemaBox.Name = "TemaBox";
+            this.TemaBox.Size = new System.Drawing.Size(102, 21);
+            this.TemaBox.TabIndex = 21;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(242, 71);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(57, 20);
+            this.label30.TabIndex = 20;
+            this.label30.Text = "TEMA";
+            // 
+            // Geral_Reset_Bot
+            // 
+            this.Geral_Reset_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Geral_Reset_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Geral_Reset_Bot.Image")));
+            this.Geral_Reset_Bot.Location = new System.Drawing.Point(392, 7);
+            this.Geral_Reset_Bot.Name = "Geral_Reset_Bot";
+            this.Geral_Reset_Bot.Size = new System.Drawing.Size(30, 31);
+            this.Geral_Reset_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Geral_Reset_Bot.TabIndex = 19;
+            this.Geral_Reset_Bot.TabStop = false;
+            this.Geral_Reset_Bot.Click += new System.EventHandler(this.Geral_Reset_Bot_Click);
+            // 
+            // Geral_Sav_Bot
+            // 
+            this.Geral_Sav_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Geral_Sav_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Geral_Sav_Bot.Image")));
+            this.Geral_Sav_Bot.Location = new System.Drawing.Point(351, 7);
+            this.Geral_Sav_Bot.Name = "Geral_Sav_Bot";
+            this.Geral_Sav_Bot.Size = new System.Drawing.Size(30, 31);
+            this.Geral_Sav_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Geral_Sav_Bot.TabIndex = 18;
+            this.Geral_Sav_Bot.TabStop = false;
+            this.Geral_Sav_Bot.Click += new System.EventHandler(this.Geral_Sav_Bot_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(75, 10);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(258, 25);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "INFORMAÇÕES GERAIS";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(38, 71);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(127, 20);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "IMPRESSORA";
+            // 
+            // ImpressoraBox
+            // 
+            this.ImpressoraBox.FormattingEnabled = true;
+            this.ImpressoraBox.Location = new System.Drawing.Point(34, 104);
+            this.ImpressoraBox.Name = "ImpressoraBox";
+            this.ImpressoraBox.Size = new System.Drawing.Size(135, 21);
+            this.ImpressoraBox.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.Controls.Add(this.panel23);
+            this.panel3.Controls.Add(this.panel22);
+            this.panel3.Controls.Add(this.panel20);
+            this.panel3.Controls.Add(this.label28);
+            this.panel3.Controls.Add(this.label29);
+            this.panel3.Controls.Add(this.label33);
+            this.panel3.Controls.Add(this.label27);
+            this.panel3.Controls.Add(this.label26);
+            this.panel3.Controls.Add(this.label25);
+            this.panel3.Controls.Add(this.TamL_Fornecedor);
+            this.panel3.Controls.Add(this.Espa_sub2);
+            this.panel3.Controls.Add(this.TamL_Cat);
+            this.panel3.Controls.Add(this.Espa_sub1);
+            this.panel3.Controls.Add(this.TamL_Sub);
+            this.panel3.Controls.Add(this.Espa_Cat);
+            this.panel3.Location = new System.Drawing.Point(471, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(236, 315);
+            this.panel3.TabIndex = 15;
+            // 
+            // Capas_Reset_Bot
+            // 
+            this.Capas_Reset_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Capas_Reset_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Capas_Reset_Bot.Image")));
+            this.Capas_Reset_Bot.Location = new System.Drawing.Point(191, 5);
+            this.Capas_Reset_Bot.Name = "Capas_Reset_Bot";
+            this.Capas_Reset_Bot.Size = new System.Drawing.Size(30, 31);
+            this.Capas_Reset_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Capas_Reset_Bot.TabIndex = 19;
+            this.Capas_Reset_Bot.TabStop = false;
+            this.Capas_Reset_Bot.Click += new System.EventHandler(this.Capas_Reset_Bot_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(19, 276);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(139, 15);
+            this.label28.TabIndex = 21;
+            this.label28.Text = "Entre SubCategorias";
+            // 
+            // Capas_Sav_Bot
+            // 
+            this.Capas_Sav_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Capas_Sav_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Capas_Sav_Bot.Image")));
+            this.Capas_Sav_Bot.Location = new System.Drawing.Point(150, 5);
+            this.Capas_Sav_Bot.Name = "Capas_Sav_Bot";
+            this.Capas_Sav_Bot.Size = new System.Drawing.Size(30, 31);
+            this.Capas_Sav_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Capas_Sav_Bot.TabIndex = 18;
+            this.Capas_Sav_Bot.TabStop = false;
+            this.Capas_Sav_Bot.Click += new System.EventHandler(this.Capas_Sav_Bot_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(19, 250);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(110, 15);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "Categoria e Sub";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(19, 224);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(153, 15);
+            this.label33.TabIndex = 19;
+            this.label33.Text = "Cabeçalho e Categoria";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(19, 155);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(117, 15);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "Capa Fornecedor";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(19, 129);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 15);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Sub Categorias";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(19, 103);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(76, 15);
+            this.label25.TabIndex = 16;
+            this.label25.Text = "Categorias";
+            // 
+            // TamL_Fornecedor
+            // 
+            this.TamL_Fornecedor.Location = new System.Drawing.Point(179, 153);
+            this.TamL_Fornecedor.Name = "TamL_Fornecedor";
+            this.TamL_Fornecedor.Size = new System.Drawing.Size(36, 20);
+            this.TamL_Fornecedor.TabIndex = 15;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(49, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 29);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "CAPAS";
+            // 
+            // Espa_sub2
+            // 
+            this.Espa_sub2.Location = new System.Drawing.Point(179, 274);
+            this.Espa_sub2.Name = "Espa_sub2";
+            this.Espa_sub2.Size = new System.Drawing.Size(36, 20);
+            this.Espa_sub2.TabIndex = 14;
+            // 
+            // TamL_Cat
+            // 
+            this.TamL_Cat.Location = new System.Drawing.Point(179, 101);
+            this.TamL_Cat.Name = "TamL_Cat";
+            this.TamL_Cat.Size = new System.Drawing.Size(36, 20);
+            this.TamL_Cat.TabIndex = 5;
+            // 
+            // Espa_sub1
+            // 
+            this.Espa_sub1.Location = new System.Drawing.Point(179, 248);
+            this.Espa_sub1.Name = "Espa_sub1";
+            this.Espa_sub1.Size = new System.Drawing.Size(36, 20);
+            this.Espa_sub1.TabIndex = 13;
+            // 
+            // TamL_Sub
+            // 
+            this.TamL_Sub.Location = new System.Drawing.Point(179, 127);
+            this.TamL_Sub.Name = "TamL_Sub";
+            this.TamL_Sub.Size = new System.Drawing.Size(36, 20);
+            this.TamL_Sub.TabIndex = 6;
+            // 
+            // Espa_Cat
+            // 
+            this.Espa_Cat.Location = new System.Drawing.Point(179, 222);
+            this.Espa_Cat.Name = "Espa_Cat";
+            this.Espa_Cat.Size = new System.Drawing.Size(36, 20);
+            this.Espa_Cat.TabIndex = 12;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(22, 6);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(192, 20);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "TAMANHO DA LETRA:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(13, 6);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(210, 20);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "ESPAÇAMENTO ENTRE:";
+            // 
+            // Salvar_Config
+            // 
+            this.Salvar_Config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.Salvar_Config.Controls.Add(this.panel6);
+            this.Salvar_Config.Location = new System.Drawing.Point(4, 25);
+            this.Salvar_Config.Name = "Salvar_Config";
+            this.Salvar_Config.Size = new System.Drawing.Size(734, 377);
+            this.Salvar_Config.TabIndex = 2;
+            this.Salvar_Config.Text = "Salvar";
+            // 
+            // panel6
+            // 
+            this.panel6.AutoScroll = true;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.panel6.Controls.Add(this.panel24);
+            this.panel6.Controls.Add(this.panel18);
+            this.panel6.Controls.Add(this.panel16);
+            this.panel6.Controls.Add(this.panel14);
+            this.panel6.Controls.Add(this.panel13);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(734, 377);
+            this.panel6.TabIndex = 0;
+            // 
+            // bot_reset
+            // 
+            this.bot_reset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bot_reset.Image = ((System.Drawing.Image)(resources.GetObject("bot_reset.Image")));
+            this.bot_reset.Location = new System.Drawing.Point(624, 4);
+            this.bot_reset.Name = "bot_reset";
+            this.bot_reset.Size = new System.Drawing.Size(30, 31);
+            this.bot_reset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bot_reset.TabIndex = 17;
+            this.bot_reset.TabStop = false;
+            this.bot_reset.Click += new System.EventHandler(this.bot_reset_Click);
+            // 
+            // bot_sav
+            // 
+            this.bot_sav.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bot_sav.Image = ((System.Drawing.Image)(resources.GetObject("bot_sav.Image")));
+            this.bot_sav.Location = new System.Drawing.Point(583, 4);
+            this.bot_sav.Name = "bot_sav";
+            this.bot_sav.Size = new System.Drawing.Size(30, 31);
+            this.bot_sav.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bot_sav.TabIndex = 16;
+            this.bot_sav.TabStop = false;
+            this.bot_sav.Click += new System.EventHandler(this.bot_sav_Click_1);
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel18.Controls.Add(this.Sav_PPQ_1);
+            this.panel18.Controls.Add(this.Sav_PPQ_01);
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Controls.Add(this.label44);
+            this.panel18.Location = new System.Drawing.Point(53, 432);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(610, 88);
+            this.panel18.TabIndex = 15;
+            // 
+            // Sav_PPQ_1
+            // 
+            this.Sav_PPQ_1.Location = new System.Drawing.Point(306, 49);
+            this.Sav_PPQ_1.Name = "Sav_PPQ_1";
+            this.Sav_PPQ_1.Size = new System.Drawing.Size(297, 20);
+            this.Sav_PPQ_1.TabIndex = 18;
+            // 
+            // Sav_PPQ_01
+            // 
+            this.Sav_PPQ_01.AutoSize = true;
+            this.Sav_PPQ_01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_PPQ_01.Location = new System.Drawing.Point(11, 53);
+            this.Sav_PPQ_01.Name = "Sav_PPQ_01";
+            this.Sav_PPQ_01.Size = new System.Drawing.Size(15, 14);
+            this.Sav_PPQ_01.TabIndex = 17;
+            this.Sav_PPQ_01.UseVisualStyleBackColor = true;
+            this.Sav_PPQ_01.CheckedChanged += new System.EventHandler(this.Sav_PPQ_01_CheckedChanged);
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.Silver;
+            this.panel19.Controls.Add(this.label40);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(610, 32);
+            this.panel19.TabIndex = 16;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(277, 4);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(57, 25);
+            this.label40.TabIndex = 12;
+            this.label40.Text = "PPQ";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(37, 49);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(132, 20);
+            this.label44.TabIndex = 13;
+            this.label44.Text = "Templates PPQ";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel16.Controls.Add(this.Sav_PDF_02);
+            this.panel16.Controls.Add(this.Sav_PDF_2);
+            this.panel16.Controls.Add(this.Sav_PDF_1);
+            this.panel16.Controls.Add(this.Sav_PDF_01);
+            this.panel16.Controls.Add(this.panel17);
+            this.panel16.Controls.Add(this.label41);
+            this.panel16.Controls.Add(this.label42);
+            this.panel16.Location = new System.Drawing.Point(53, 277);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(610, 133);
+            this.panel16.TabIndex = 14;
+            // 
+            // Sav_PDF_02
+            // 
+            this.Sav_PDF_02.AutoSize = true;
+            this.Sav_PDF_02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_PDF_02.Location = new System.Drawing.Point(11, 95);
+            this.Sav_PDF_02.Name = "Sav_PDF_02";
+            this.Sav_PDF_02.Size = new System.Drawing.Size(15, 14);
+            this.Sav_PDF_02.TabIndex = 21;
+            this.Sav_PDF_02.UseVisualStyleBackColor = true;
+            this.Sav_PDF_02.CheckedChanged += new System.EventHandler(this.Sav_PDF_02_CheckedChanged);
+            // 
+            // Sav_PDF_2
+            // 
+            this.Sav_PDF_2.Location = new System.Drawing.Point(306, 91);
+            this.Sav_PDF_2.Name = "Sav_PDF_2";
+            this.Sav_PDF_2.Size = new System.Drawing.Size(297, 20);
+            this.Sav_PDF_2.TabIndex = 19;
+            // 
+            // Sav_PDF_1
+            // 
+            this.Sav_PDF_1.Location = new System.Drawing.Point(306, 49);
+            this.Sav_PDF_1.Name = "Sav_PDF_1";
+            this.Sav_PDF_1.Size = new System.Drawing.Size(297, 20);
+            this.Sav_PDF_1.TabIndex = 18;
+            // 
+            // Sav_PDF_01
+            // 
+            this.Sav_PDF_01.AutoSize = true;
+            this.Sav_PDF_01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_PDF_01.Location = new System.Drawing.Point(11, 53);
+            this.Sav_PDF_01.Name = "Sav_PDF_01";
+            this.Sav_PDF_01.Size = new System.Drawing.Size(15, 14);
+            this.Sav_PDF_01.TabIndex = 17;
+            this.Sav_PDF_01.UseVisualStyleBackColor = true;
+            this.Sav_PDF_01.CheckedChanged += new System.EventHandler(this.Sav_PDF_01_CheckedChanged);
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Silver;
+            this.panel17.Controls.Add(this.label39);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(610, 32);
+            this.panel17.TabIndex = 16;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(277, 4);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(54, 25);
+            this.label39.TabIndex = 12;
+            this.label39.Text = "PDF";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(37, 91);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(147, 20);
+            this.label41.TabIndex = 14;
+            this.label41.Text = "PDF\'s das Capas";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(37, 49);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(227, 20);
+            this.label42.TabIndex = 13;
+            this.label42.Text = "Planilhas do Timbrado / Etc";
+            // 
+            // panel14
+            // 
+            this.panel14.Location = new System.Drawing.Point(53, 541);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(610, 31);
+            this.panel14.TabIndex = 13;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel13.Controls.Add(this.Sav_Excel_03);
+            this.panel13.Controls.Add(this.Sav_Excel_02);
+            this.panel13.Controls.Add(this.Sav_Excel_3);
+            this.panel13.Controls.Add(this.Sav_Excel_2);
+            this.panel13.Controls.Add(this.Sav_Excel_1);
+            this.panel13.Controls.Add(this.Sav_Excel_01);
+            this.panel13.Controls.Add(this.panel15);
+            this.panel13.Controls.Add(this.label38);
+            this.panel13.Controls.Add(this.label37);
+            this.panel13.Controls.Add(this.label36);
+            this.panel13.Location = new System.Drawing.Point(53, 87);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(610, 172);
+            this.panel13.TabIndex = 12;
+            // 
+            // Sav_Excel_03
+            // 
+            this.Sav_Excel_03.AutoSize = true;
+            this.Sav_Excel_03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_Excel_03.Location = new System.Drawing.Point(11, 135);
+            this.Sav_Excel_03.Name = "Sav_Excel_03";
+            this.Sav_Excel_03.Size = new System.Drawing.Size(15, 14);
+            this.Sav_Excel_03.TabIndex = 22;
+            this.Sav_Excel_03.UseVisualStyleBackColor = true;
+            this.Sav_Excel_03.CheckedChanged += new System.EventHandler(this.Sav_Excel_03_CheckedChanged);
+            // 
+            // Sav_Excel_02
+            // 
+            this.Sav_Excel_02.AutoSize = true;
+            this.Sav_Excel_02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_Excel_02.Location = new System.Drawing.Point(11, 95);
+            this.Sav_Excel_02.Name = "Sav_Excel_02";
+            this.Sav_Excel_02.Size = new System.Drawing.Size(15, 14);
+            this.Sav_Excel_02.TabIndex = 21;
+            this.Sav_Excel_02.UseVisualStyleBackColor = true;
+            this.Sav_Excel_02.CheckedChanged += new System.EventHandler(this.Sav_Excel_02_CheckedChanged);
+            // 
+            // Sav_Excel_3
+            // 
+            this.Sav_Excel_3.Location = new System.Drawing.Point(306, 132);
+            this.Sav_Excel_3.Name = "Sav_Excel_3";
+            this.Sav_Excel_3.Size = new System.Drawing.Size(297, 20);
+            this.Sav_Excel_3.TabIndex = 20;
+            // 
+            // Sav_Excel_2
+            // 
+            this.Sav_Excel_2.Location = new System.Drawing.Point(306, 91);
+            this.Sav_Excel_2.Name = "Sav_Excel_2";
+            this.Sav_Excel_2.Size = new System.Drawing.Size(297, 20);
+            this.Sav_Excel_2.TabIndex = 19;
+            // 
+            // Sav_Excel_1
+            // 
+            this.Sav_Excel_1.Location = new System.Drawing.Point(306, 49);
+            this.Sav_Excel_1.Name = "Sav_Excel_1";
+            this.Sav_Excel_1.Size = new System.Drawing.Size(297, 20);
+            this.Sav_Excel_1.TabIndex = 18;
+            // 
+            // Sav_Excel_01
+            // 
+            this.Sav_Excel_01.AutoSize = true;
+            this.Sav_Excel_01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sav_Excel_01.Location = new System.Drawing.Point(11, 53);
+            this.Sav_Excel_01.Name = "Sav_Excel_01";
+            this.Sav_Excel_01.Size = new System.Drawing.Size(15, 14);
+            this.Sav_Excel_01.TabIndex = 17;
+            this.Sav_Excel_01.UseVisualStyleBackColor = true;
+            this.Sav_Excel_01.CheckedChanged += new System.EventHandler(this.Sav_Excel_01_CheckedChanged);
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Silver;
+            this.panel15.Controls.Add(this.label35);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(610, 32);
+            this.panel15.TabIndex = 16;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(264, 4);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(83, 25);
+            this.label35.TabIndex = 12;
+            this.label35.Text = "EXCEL";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(37, 130);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(117, 20);
+            this.label38.TabIndex = 15;
+            this.label38.Text = "Consolidados";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(37, 91);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(251, 20);
+            this.label37.TabIndex = 14;
+            this.label37.Text = "Comparativo Físico-Financeiro";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(37, 49);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(249, 20);
+            this.label36.TabIndex = 13;
+            this.label36.Text = "Comparativo de Fornecimento";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(163, 7);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(385, 25);
+            this.label34.TabIndex = 11;
+            this.label34.Text = "OS ARQUIVOS SERÃO SALVOS EM:";
+            // 
+            // menuStrip3
+            // 
+            this.menuStrip3.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFToolStripMenuItem,
+            this.salvarToolStripMenuItem});
+            this.menuStrip3.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(104, 24);
+            this.menuStrip3.TabIndex = 0;
+            this.menuStrip3.Text = "menuStrip3";
+            // 
+            // pDFToolStripMenuItem
+            // 
+            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.pDFToolStripMenuItem.Text = "Geral";
+            this.pDFToolStripMenuItem.Click += new System.EventHandler(this.pDFToolStripMenuItem_Click);
+            // 
+            // salvarToolStripMenuItem
+            // 
+            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.salvarToolStripMenuItem.Text = "Salvar";
+            this.salvarToolStripMenuItem.Click += new System.EventHandler(this.salvarToolStripMenuItem_Click);
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.Silver;
+            this.panel20.Controls.Add(this.Capas_Reset_Bot);
+            this.panel20.Controls.Add(this.label13);
+            this.panel20.Controls.Add(this.Capas_Sav_Bot);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(236, 44);
+            this.panel20.TabIndex = 22;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.Silver;
+            this.panel21.Controls.Add(this.label31);
+            this.panel21.Controls.Add(this.Geral_Sav_Bot);
+            this.panel21.Controls.Add(this.Geral_Reset_Bot);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(441, 44);
+            this.panel21.TabIndex = 22;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.LightGray;
+            this.panel22.Controls.Add(this.label14);
+            this.panel22.Location = new System.Drawing.Point(0, 66);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(236, 32);
+            this.panel22.TabIndex = 23;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.LightGray;
+            this.panel23.Controls.Add(this.label16);
+            this.panel23.Location = new System.Drawing.Point(0, 184);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(236, 32);
+            this.panel23.TabIndex = 24;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.Gray;
+            this.panel24.Controls.Add(this.label34);
+            this.panel24.Controls.Add(this.bot_reset);
+            this.panel24.Controls.Add(this.bot_sav);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(717, 41);
+            this.panel24.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2010,14 +2685,14 @@ namespace windowsFormOI
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.tabPPQ);
+            this.Controls.Add(this.Config_Save);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1200, 740);
             this.MinimumSize = new System.Drawing.Size(1200, 740);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Versão 2.3.0";
+            this.Text = "Versão 2.6.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2058,15 +2733,52 @@ namespace windowsFormOI
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_buscar_1)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabPPQ.ResumeLayout(false);
+            this.Config_Save.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.PDF_Config.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Sav_Bot)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Capas_Reset_Bot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Capas_Sav_Bot)).EndInit();
+            this.Salvar_Config.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bot_reset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bot_sav)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.menuStrip3.ResumeLayout(false);
+            this.menuStrip3.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2118,23 +2830,8 @@ namespace windowsFormOI
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button botUnificar;
-        private System.Windows.Forms.PictureBox PB_buscar_1;
         private System.Windows.Forms.TextBox PathBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox boxModeloPDF;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboTim;
-        private System.Windows.Forms.CheckBox checkTimbrado;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBranco;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox checkBranco;
-        private System.Windows.Forms.RadioButton radioArquivo;
-        private System.Windows.Forms.RadioButton radioPasta;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem visualizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visualizarPDFToolStripMenuItem;
@@ -2144,7 +2841,7 @@ namespace windowsFormOI
         private System.Windows.Forms.ToolStripMenuItem unificarPDFsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerarPDFsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mesclarToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabPPQ;
+        private System.Windows.Forms.TabControl Config_Save;
         private System.Windows.Forms.Button Bt_Organizar;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label LBCataMilho;
@@ -2196,10 +2893,10 @@ namespace windowsFormOI
         private System.Windows.Forms.Button BtFisico;
         private System.Windows.Forms.CheckBox checkFiltrar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btBranco;
+        private System.Windows.Forms.RadioButton radioArquivo;
+        private System.Windows.Forms.RadioButton radioPasta;
+        private System.Windows.Forms.ComboBox BoxTimbrado;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage3;
@@ -2229,6 +2926,81 @@ namespace windowsFormOI
         private System.Windows.Forms.Button BTCapa;
         private System.Windows.Forms.CheckBox ClPropTecnica;
         private System.Windows.Forms.CheckBox ClPropComercial;
+        private System.Windows.Forms.TextBox Pathpdfs;
+        private System.Windows.Forms.Button genPDF;
+        private System.Windows.Forms.Button btTimbrado;
+        private System.Windows.Forms.TextBox PathSalvar;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.MenuStrip menuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage PDF_Config;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox ImpressoraBox;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox TamL_Fornecedor;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox Espa_sub2;
+        private System.Windows.Forms.TextBox TamL_Cat;
+        private System.Windows.Forms.TextBox Espa_sub1;
+        private System.Windows.Forms.TextBox TamL_Sub;
+        private System.Windows.Forms.TextBox Espa_Cat;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabPage Salvar_Config;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox bot_reset;
+        private System.Windows.Forms.PictureBox bot_sav;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.TextBox Sav_PPQ_1;
+        private System.Windows.Forms.CheckBox Sav_PPQ_01;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.CheckBox Sav_PDF_02;
+        private System.Windows.Forms.TextBox Sav_PDF_2;
+        private System.Windows.Forms.TextBox Sav_PDF_1;
+        private System.Windows.Forms.CheckBox Sav_PDF_01;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.CheckBox Sav_Excel_03;
+        private System.Windows.Forms.CheckBox Sav_Excel_02;
+        private System.Windows.Forms.TextBox Sav_Excel_3;
+        private System.Windows.Forms.TextBox Sav_Excel_2;
+        private System.Windows.Forms.TextBox Sav_Excel_1;
+        private System.Windows.Forms.CheckBox Sav_Excel_01;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.PictureBox Geral_Reset_Bot;
+        private System.Windows.Forms.PictureBox Geral_Sav_Bot;
+        private System.Windows.Forms.PictureBox Capas_Reset_Bot;
+        private System.Windows.Forms.PictureBox Capas_Sav_Bot;
+        private System.Windows.Forms.ComboBox TemaBox;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel24;
     }
 }
 

@@ -1,4 +1,4 @@
-import os, sys, shutil, re, time
+import os, shutil, re, time
 from pathlib import Path
 from manipular import GerenciadorArquivo
 

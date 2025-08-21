@@ -1,0 +1,22 @@
+{
+  "PDF": {
+    "Cat_letra_Size": "18",
+    "Sub_letra_Size": "16",
+    "Fornecedor_letra_Size": "20",
+    "Cat_Espa_Size": "15",
+    "Sub1_Espa_Size": "6",
+    "Sub2_Espa_Size": "7"
+  },
+  "Geral": {
+    "tema": null,
+    "Impressora": null
+  },
+  "Salvar": {
+    "salvarFornecimento": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\fornecimento",
+    "SalvarFisico": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\fisico",
+    "SalvarTimbrado": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\Timbrado",
+    "SalvarCapas": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\Capas",
+    "SalvarConsolidado": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\Consolidado",
+    "SalvarTemplates": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\Templates"
+  }
+}

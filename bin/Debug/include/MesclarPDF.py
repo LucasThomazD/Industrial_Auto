@@ -1,10 +1,6 @@
-import os
-import sys
-import PyPDF2
-import time
+import os, sys, PyPDF2, time
 from manipular import *
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "libs"))
 
 def unir_pdfs(pasta, nome_saida="PDF_Unificado.pdf"):
 
