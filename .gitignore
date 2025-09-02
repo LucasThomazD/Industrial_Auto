@@ -9,6 +9,6 @@
 /bin/Debug/libs/**
 /bin/Debug/out/**/*.o
 *.db
-
+*.xlsx
 
 
