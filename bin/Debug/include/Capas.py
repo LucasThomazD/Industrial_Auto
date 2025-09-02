@@ -1,4 +1,4 @@
-import json, os, sys
+import json, os, sys, time
 from fpdf import FPDF
 from pathlib import Path
 from manipular import GerenciadorArquivo
@@ -20,12 +20,8 @@ class LayoutPDF(FPDF):
         fname=os.path.join(os.getcwd(),"assets","font","DejaVuSansMNerdFont-Regular.ttf"), # caminho para o arquivo .ttf
         uni=True                # habilita Unicode
         )
-        
-        
     
 
-    # def __init__(self):
-    #     super().__init__()
 
     def header(self):
         # Linhas horizontais e verticais para ver a posição
@@ -77,19 +73,19 @@ class LayoutPDF(FPDF):
             self.cell(w=largura_texto, h=altura_linha, txt=linha, ln=1)
             y_texto += altura_linha
 
-    def adicionar_categorias_sub(self, dados, x_inicio=20, y_inicio=60):
+    def adicionar_categorias_sub(self, dados,catLetra,subLetra,espCat,espsub1,espsub2, x_inicio=20, y_inicio=60):
         # Define o ponto de partida
         self.set_xy(x_inicio, y_inicio)
 
         for categoria, lista_subcats in dados.items():
             # Categoria (fonte grande)
             self.set_x(x_inicio)
-            self.set_font("Arial", "B", size= 18)
+            self.set_font("Arial", "B", size= catLetra)
             self.set_text_color(31, 73, 125)
             self.cell(0, 10, categoria, ln=True)
 
             # Pequeno espaço antes das subcategorias
-            self.ln(6)
+            self.ln(espCat)
 
             # Subcategorias (fonte média) com recuo
             for subcategoria in lista_subcats:
@@ -97,22 +93,22 @@ class LayoutPDF(FPDF):
                 self.set_text_color(31, 73, 125)
 
                 # Seta com DejaVu
-                self.set_font("DejaVu", size=16)
+                self.set_font("DejaVu", size=subLetra)
                 self.write(8, "➤  ")
 
                 # Subcategoria com Arial
-                self.set_font("Arial", size=16)
+                self.set_font("Arial", size=subLetra)
                 self.multi_cell(w=0, h=8, txt=subcategoria)  # h=8 para espaçamento entre linhas internas
 
-                self.ln(7)  # espaçamento entre subcategorias diferentes
+                self.ln(espsub1)  # espaçamento entre subcategorias diferentes
 
 
 
             # Espaço extra antes da próxima categoria
-            self.ln(6)
+            self.ln(espsub2)
 
     
-    def adicionar_categorias(self, dados, x_inicio=20, y_inicio=60):
+    def adicionar_categorias(self, dados,catLetra,subLetra,espCat,espsub1, x_inicio=20, y_inicio=60):
         
 
         for categoria, lista_subcats in dados.items():
@@ -120,27 +116,27 @@ class LayoutPDF(FPDF):
             self.add_page()
             self.add_layout_elements()
             self.set_xy(x_inicio, y_inicio)
-            self.set_font("Arial","B", size= 18)
+            self.set_font("Arial","B", size= catLetra)
             self.set_text_color(31, 73, 125)
             self.cell(0, 10, categoria, ln=True) 
 
-            self.ln(6)
+            self.ln(espCat)
 
             for subcategoria in lista_subcats:
                 self.set_x(x_inicio + 15)
                 self.set_text_color(31, 73, 125)
 
                 # Seta com DejaVu
-                self.set_font("DejaVu", size=16)
+                self.set_font("DejaVu", size=subLetra)
                 self.write(8, "➤  ")
 
                 # Subcategoria com Arial
-                self.set_font("Arial", size=16)
+                self.set_font("Arial", size=subLetra)
                 self.multi_cell(w=0, h=8, txt=subcategoria)  # h=8 para espaçamento entre linhas internas
 
-                self.ln(7)  # espaçamento entre subcategorias diferentes
+                self.ln(espsub1)  # espaçamento entre subcategorias diferentes
 
-    def adicionar_SubCategoria(self, dados, x_inicio=20, y_inicio=60):
+    def adicionar_SubCategoria(self, dados,subLetra,espsub1, x_inicio=20, y_inicio=60):
         
 
         for categoria, lista_subcats in dados.items():
@@ -152,16 +148,16 @@ class LayoutPDF(FPDF):
                 self.set_text_color(31, 73, 125)
 
                 # Seta com DejaVu
-                self.set_font("DejaVu", size=16)
+                self.set_font("DejaVu", size=subLetra)
                 self.write(8, "➤  ")
 
                 # Subcategoria com Arial
-                self.set_font("Arial", size=16)
+                self.set_font("Arial", size=subLetra)
                 self.multi_cell(w=0, h=8, txt=subcategoria)  # h=8 para espaçamento entre linhas internas
 
-                self.ln(7)  # espaçamento entre subcategorias diferentes
+                self.ln(espsub1)  # espaçamento entre subcategorias diferentes
 
-    def itemApenas(self, dados, x_inicio=20, y_inicio=60):
+    def itemApenas(self, dados,subLetra,espsub1, x_inicio=20, y_inicio=60):
         
         self.set_xy(x_inicio + 15, y_inicio)
         for categoria, lista_subcats in dados.items():
@@ -171,40 +167,100 @@ class LayoutPDF(FPDF):
                 self.set_text_color(31, 73, 125)
 
                 # Seta com DejaVu
-                self.set_font("DejaVu", size=16)
-                self.write(15, "➤  ")
+                self.set_font("DejaVu", size=subLetra)
+                self.write(8, "➤  ")
 
                 # Subcategoria com Arial
-                self.set_font("Arial",size= 16)
-                self.write(15, subcategoria)
+                self.set_font("Arial",size= subLetra)
+                self.multi_cell(w=0, h=8, txt=subcategoria)
 
-                self.ln(15)
+                self.ln(espsub1)
 
+    def fornecedores(self, dados, letraFornecedor,  y_inicio=110):
+        for categoria, lista in dados.items():
+            for item in lista:
+                self.add_page()
+                self.add_layout_elements()
+                # self.set_xy(x_inicio, y_inicio)
+                self.set_text_color(31, 73, 125)
+                self.set_font("Arial", "B", size=letraFornecedor)
+                
+                
+                # Texto completo
+                
+                texto = f"FORNECEDOR: {item}".strip()
 
-                    
+                # Calcula largura do texto
+                cell_width = self.get_string_width(texto) + 4  # margem extra
+                page_width = self.w
+                x_centralizado = (page_width - cell_width) / 2
+
+                # Define posição e escreve em uma única linha
+                self.set_xy(x_centralizado, y_inicio)
+                
+                self.cell(w=cell_width, h=12, txt=categoria, border=0, ln=0, align='C')
+
+                self.set_xy(x_centralizado, y_inicio+12)
+                self.cell(w=cell_width, h=12, txt=texto, border=0, ln=0, align='C')
+        
+        self.add_page()
+        self.add_layout_elements()
+        # self.set_xy(x_inicio, y_inicio)
+        self.set_text_color(31, 73, 125)
+        self.set_font("Arial", "B", size=letraFornecedor)
+        
+        dec = "DECLÍNIOS"
+        cell_width = self.get_string_width(dec) + 4  # margem extra
+        page_width = self.w
+        x_centralizado = (page_width - cell_width) / 2
+        # Define posição e escreve em uma única linha
+        self.set_xy(x_centralizado, y_inicio)
+        self.cell(w=cell_width, h=12, txt=dec, border=0, ln=0, align='C')            
 
     def draw_test_layout(self,escolha):
         with open("include/categorias.json", "r", encoding="utf-8") as f:
             dados = json.load(f)
+        
+        with open("config.json", "r", encoding="utf-8") as f:
+            configPDF = json.load(f)
+            config = configPDF["PDF"]
+            
+        cls = int(config["Cat_letra_Size"])
+        sls = int(config["Sub_letra_Size"])
+        fls = int(config["Fornecedor_letra_Size"])
+        ces = int(config["Cat_Espa_Size"])
+        ses1 =int(config["Sub1_Espa_Size"])
+        ses2 = int(config["Sub2_Espa_Size"])
+        
         match(escolha):
             case 1:
+                arquivotxt.atualizar_arquivo("Gerando Índices Técnico e Comercial")
                 self.add_page()
                 self.add_layout_elements()
-                self.adicionar_categorias_sub(dados)
-                self.adicionar_categorias(dados)
-                self.adicionar_SubCategoria(dados)
+                self.adicionar_categorias_sub(dados, catLetra=cls,subLetra=sls,espCat=ces,espsub1=ses1,espsub2=ses2)
+                self.adicionar_categorias(dados,catLetra=cls,subLetra=sls,espCat=ces,espsub1=ses1)
+                self.adicionar_SubCategoria(dados,subLetra=sls,espsub1=ses1)
+                
             case 2:                
-                self.adicionar_categorias(dados)
-                self.adicionar_SubCategoria(dados)
-            case 3:
+                arquivotxt.atualizar_arquivo("Gerando Índices")
+                self.adicionar_categorias(dados,catLetra=cls,subLetra=sls,espCat=ces,espsub1=ses1)
+                self.adicionar_SubCategoria(dados,subLetra=sls,espsub1=ses1)
+            case 4:
+                arquivotxt.atualizar_arquivo("Gerando Índices Simples")
                 self.add_page()
                 self.add_layout_elements()
-                self.itemApenas(dados)
-                self.adicionar_SubCategoria(dados)
+                self.itemApenas(dados,subLetra=sls,espsub1=ses1)
+                self.adicionar_SubCategoria(dados,subLetra=sls,espsub1=ses1)
+            case 3:
+                arquivotxt.atualizar_arquivo("Gerando Capas do Fornecedor")
+                self.fornecedores(dados,letraFornecedor=fls)   
 
 def main():
-    
-    pasta = os.path.join(os.getcwd(),"out", "capas")
+    with open("config.json", "r", encoding="utf-8") as f:
+            configSalvar = json.load(f)
+            config = configSalvar["Salvar"]
+    caminho = config["SalvarCapas"]
+    pasta = os.path.join(os.getcwd(),caminho)
     pasta_destino = Path(pasta)
     pasta_destino.mkdir(parents=True, exist_ok=True)
     pdf = LayoutPDF()
@@ -212,7 +268,11 @@ def main():
     pdf.draw_test_layout(escolha=modo)
     pdf.output(f"{pasta_destino}/Indices - Capas - Área {area}.pdf")
 
+    arquivotxt.atualizar_arquivo(f"Arquivos Referentes à {area} Gerados")
+    time.sleep(2)
     arquivotxt.atualizar_arquivo("Tarefa Concluida")
+    time.sleep(2)
+    arquivotxt.limpar_arquivo()
 
 arquivotxt = GerenciadorArquivo("include/log.txt")
 area = sys.argv[1]

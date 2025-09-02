@@ -6,7 +6,7 @@ from PyPDF2 import PdfReader, PdfWriter, PageObject
 with open("include/layouts_papel.json", "r", encoding="utf-8") as arquivo:
     layouts = json.load(arquivo)
 
-win32print.SetDefaultPrinter(f"\\\prosub-srv01\prosub-ch")
+win32print.SetDefaultPrinter(r"\\prosub-srv01\prosub-ch")
 # win32print.GetDefaultPrinter()
 
 class Pdf_Bonito:

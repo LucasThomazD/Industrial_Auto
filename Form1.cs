@@ -6,11 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
@@ -52,6 +54,7 @@ namespace windowsFormOI
             bloqueador();
             CarregarConfiguracao();
             PreencherCampos();
+            CarregarTabelas();
 
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
@@ -95,6 +98,104 @@ namespace windowsFormOI
             File.WriteAllText(caminhoConfig, json);
         }
 
+        // TABEELAS
+        private void CarregarTabelas()
+        {
+            try
+            {
+                string caminhoBanco = CaminhoDB.Text;// ajuste aqui
+                string conexaoString = $"Data Source={caminhoBanco};Version=3;";
+
+                using (SQLiteConnection conexao = new SQLiteConnection(conexaoString))
+                {
+                    conexao.Open();
+                    string query = "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;";
+
+                    using (SQLiteCommand comando = new SQLiteCommand(query, conexao))
+                    using (SQLiteDataReader leitor = comando.ExecuteReader())
+                    {
+                        while (leitor.Read())
+                        {
+                            ATTabelaBox.Items.Add(leitor["name"].ToString());
+                            DeletarTabelaBox.Items.Add(leitor["name"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AtualizarStatus($"Erro ao carregar tabelas: {ex.Message}");
+            }
+        }
+        string nometabela;
+        
+   
+        private void DeletarTabelabt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DeletarTabelabt.Checked == true)
+            {
+                
+                ModeloVarredura.Text = "Deletar";
+            }
+            else 
+            {
+                ModeloVarredura.Text = "Selecione";
+            }
+        }
+        private void verificarVarredura() 
+        {
+            if (ATTabelaBt.Checked == true) 
+            {
+                nometabela = ATTabelaBox.Text;
+            }
+            else if (NewTabelaBt.Checked == true)
+            {
+                nometabela = NewTabelaBox.Text;
+            }
+            else if (DeletarTabelabt.Checked == true)
+            {
+                nometabela = DeletarTabelaBox.Text;
+            }
+            
+        }
+ 
+
+        private void DB_BT_Click(object sender, EventArgs e)
+        {
+            if (DeletarTabelabt.Checked == true || NewTabelaBt.Checked == true || ATTabelaBt.Checked == true)
+            {
+                verificarVarredura();
+                string modoTab = ModeloVarredura.Text;
+
+                string caminhotab = CaminhoVarredura.Text;
+                timer1.Start();
+                string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "vasculhar.py");
+                AtualizarStatus("", 0);
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
+                startInfo.Arguments = $"\"{scriptpath}\" \"{modoTab}\" \"{nometabela}\" \"{caminhotab}"; // Substitua pelo caminho do seu script Python
+                startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                startInfo.UseShellExecute = false;
+                startInfo.RedirectStandardOutput = true;
+                startInfo.CreateNoWindow = true;
+                pythonProcess = Process.Start(startInfo);
+            } 
+            else
+            {
+                AtualizarStatus("Selecione um modo de tabela");
+            }
+        }
+
+        private void RecarregarTab_Click(object sender, EventArgs e)
+        {
+            ATTabelaBox.Items.Clear();
+            DeletarTabelaBox.Items.Clear();
+            CarregarTabelas();
+        }
+
+
+        // PADRÕES
+
         private void padraoSalvar()
         {
             config.Salvar.salvarFornecimento = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "fornecimento");
@@ -105,17 +206,69 @@ namespace windowsFormOI
             config.Salvar.SalvarTemplates = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "Templates");
         }
 
+
         private void padraoPDF()
         {
             config.PDF.Cat_letra_Size = "18";
             config.PDF.Sub_letra_Size = "16";
-            config.PDF.Fornecedor_letra_Size = "20";
-            config.PDF.Cat_Espa_Size = "15";
+            config.PDF.Fornecedor_letra_Size = "30";
+            config.PDF.Cat_Espa_Size = "7";
             config.PDF.Sub1_Espa_Size = "6";
-            config.PDF.Sub2_Espa_Size = "7";
+            config.PDF.Sub2_Espa_Size = "6";
             
         }
 
+        private void padraoGeral()
+        {
+            impressoras();
+            config.Geral.Impressora = ImpressoraBox.Text;
+            config.Geral.tema = "Claro";
+            config.Geral.DataBase = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "src", "dados_arquivos.db");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string resultado = ""; // Variável para armazenar o resultado
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivos de Dados (*.db)|*.db"; // Filtro de arquivos
+            openFileDialog.Title = "Selecione um arquivo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                resultado = openFileDialog.FileName; // Armazena o caminho do arquivo
+                CaminhoDB.Text = resultado;
+            }
+
+
+        }
+
+        private void impressoras()
+        {
+            ImpressoraBox.Items.Clear();
+
+            foreach (string impressora in PrinterSettings.InstalledPrinters)
+            {
+                ImpressoraBox.Items.Add(impressora);
+            }
+
+            // Seleciona a impressora padrão, se estiver na lista
+            string impressoraPadrao = new PrinterSettings().PrinterName;
+            if (ImpressoraBox.Items.Contains(impressoraPadrao))
+            {
+                ImpressoraBox.SelectedItem = impressoraPadrao;
+            }
+        }
+
+        private void carregarImpressora()
+        {
+            ImpressoraBox.Items.Clear();
+
+            foreach (string impressora in PrinterSettings.InstalledPrinters)
+            {
+                ImpressoraBox.Items.Add(impressora);
+            }
+
+        }
         private void PreencherCampos()
         {
 
@@ -129,8 +282,10 @@ namespace windowsFormOI
 
 
             // Geral
+            carregarImpressora();
             ImpressoraBox.Text = config.Geral.Impressora;
             TemaBox.Text = config.Geral.tema;
+            CaminhoDB.Text = config.Geral.DataBase;
 
             // Salvar
             Sav_Excel_1.Text = config.Salvar.salvarFornecimento;
@@ -153,6 +308,7 @@ namespace windowsFormOI
 
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(caminhoConfig, json);
+            AtualizarStatus("Configuração Salva", 0);
             
 
 
@@ -163,6 +319,7 @@ namespace windowsFormOI
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(caminhoConfig, json);
             PreencherCampos();
+            AtualizarStatus("Configuração Reiniciada", 0);
         }
 
         private void Capas_Reset_Bot_Click(object sender, EventArgs e)
@@ -171,6 +328,7 @@ namespace windowsFormOI
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(caminhoConfig, json);
             PreencherCampos();
+            AtualizarStatus("Configuração Reiniciada", 0);
         }
 
         private void Capas_Sav_Bot_Click(object sender, EventArgs e)
@@ -183,19 +341,26 @@ namespace windowsFormOI
             config.PDF.Sub2_Espa_Size = Espa_sub2.Text;
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(caminhoConfig, json);
+            AtualizarStatus("Configuração Salva", 0);
         }
 
         private void Geral_Sav_Bot_Click(object sender, EventArgs e)
         {
-
+            config.Geral.Impressora = ImpressoraBox.Text;
+            config.Geral.tema = TemaBox.Text;
+            config.Geral.DataBase = CaminhoDB.Text;
+            string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(caminhoConfig, json);
+            AtualizarStatus("Configuração Salva", 0);
         }
 
         private void Geral_Reset_Bot_Click(object sender, EventArgs e)
         {
-
+            padraoGeral();
             string json = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(caminhoConfig, json);
             PreencherCampos();
+            AtualizarStatus("Configuração Reiniciada", 0);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -384,7 +549,7 @@ namespace windowsFormOI
             checkFiltrar.Visible = false;
             panel9.Enabled = false;
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.ColumnCount = 12; // Define 8 colunas
@@ -502,6 +667,12 @@ namespace windowsFormOI
             comboBox2.Items.Add("7818");
             comboBox2.Items.Add("8000");
 
+            ModeloVarredura.Items.Add("Arquivos e Data");
+            ModeloVarredura.Items.Add("Arquivos e Pastas");
+            ModeloVarredura.Items.Add("Apenas Pastas");
+            ModeloVarredura.SelectedIndex = 0;
+
+           
 
             //Configurar ToolTip
             this.toolTip1.AutoPopDelay = 5000;
@@ -689,6 +860,9 @@ namespace windowsFormOI
                 if (BoxTA1.SelectedIndex > 0 || BoxTA2.SelectedIndex > 0 || BoxArea.SelectedIndex > 0 || BoxArea.SelectedIndex > 0 || textFim.Text != null || textInicio.Text != null)
                 {
                     AtualizarStatus($"Atualizando Informações", 75);
+                    string json = File.ReadAllText(caminhoConfig);
+                    config = JsonConvert.DeserializeObject<Configuracao>(json);
+                    
 
 
                     // Define os valores em células específicas
@@ -698,6 +872,9 @@ namespace windowsFormOI
                     worksheet.Cells[2, 2] = textInicio.Text.ToString(); // Célula B2
                     worksheet.Cells[2, 3] = textFim.Text.ToString(); // Célula C2
                     worksheet.Cells[2, 1] = BoxModelo.SelectedItem.ToString(); // Célula A2
+                    worksheet.Cells[3, 1] = config.Salvar.salvarFornecimento; // Célula A3
+                    worksheet.Cells[3, 2] = config.Salvar.SalvarFisico; // Célula B3
+                    worksheet.Cells[3, 3] = config.Salvar.SalvarConsolidado; // Célula C3
                     AtualizarStatus($"Informações Atualizadas", 100);
                     System.Threading.Thread.Sleep(2000);
                     AtualizarStatus($"Pronto Para Buscar Arquivos Comparativos", 0);
@@ -1259,18 +1436,21 @@ namespace windowsFormOI
         }
         private string salvarPDF()
         {
+            string json = File.ReadAllText(caminhoConfig);
+            config = JsonConvert.DeserializeObject<Configuracao>(json);
             string caminho = "";
             if (checkBox5.Checked == true)
             {
                 caminho = PathSalvar.Text;
                 if (!Directory.Exists(caminho))
                 {
-                    caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "imprimir");
+
+                    caminho = config.Salvar.SalvarTimbrado; 
                 }
             }
             else
             {
-                caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out", "imprimir");
+                caminho = config.Salvar.SalvarTimbrado; 
                 if (!Directory.Exists(caminho))
                 {
                     Directory.CreateDirectory(caminho);
@@ -1726,26 +1906,38 @@ namespace windowsFormOI
         }
 
         int checarValor = 0;
+        string nomeCapa;
         private void checarMetodo()
         {
             if (ClPropComercial.Checked == true && ClPropTecnica.Checked == true)
             {
                 checarValor = 1;
-           
-                return;
-            }
-            else if (ClPropComercial.Checked == false && ClPropTecnica.Checked == true && CBOnlySub.Checked == false || ClPropComercial.Checked == true && ClPropTecnica.Checked == false && CBOnlySub.Checked == false)
-            {
-                checarValor = 2;
-      
-                return;
-            }
-            else if (ClPropComercial.Checked == true && CBOnlySub.Checked == true)
-            {
-                checarValor = 3;
+                nomeCapa = "Técnica/Comercial";
+              
 
                 return;
-               
+            }
+            else if (ClPropComercial.Checked == true ^ ClPropTecnica.Checked == true )
+            {
+                checarValor = 2;
+                nomeCapa = "Técnica/Comercial";
+
+                return;
+            }
+            else if (checkFornecedor.Checked == true)
+            {
+                checarValor = 3;
+                nomeCapa = "Fornecedores";
+
+                return;
+
+            }
+            else if (ClSubCat.Checked == true) {
+                
+                checarValor = 4;
+                nomeCapa = "Sub-Categorias";
+
+                return;
             }
         }
         private void CBPropComercial_CheckedChanged(object sender, EventArgs e)
@@ -1753,6 +1945,8 @@ namespace windowsFormOI
             if (ClPropComercial.Checked == true)
             {
                 TBPropComercial.ReadOnly = false;
+                ClSubCat.Checked = false;
+                checkFornecedor.Checked = false;
 
             }
             else if (ClPropComercial.Checked == false)
@@ -1767,6 +1961,8 @@ namespace windowsFormOI
             if (ClPropTecnica.Checked == true)
             {
                 TBPropTecnica.ReadOnly = false;
+                ClSubCat.Checked = false;
+                checkFornecedor.Checked = false;
 
             }
             else if (ClPropTecnica.Checked == false)
@@ -1775,18 +1971,31 @@ namespace windowsFormOI
                 TBPropTecnica.Text = "Proposta Técnica";
             }
         }
-
-        private void CBOnlySub_CheckedChanged(object sender, EventArgs e)
+        private void checkFornecedor_CheckedChanged(object sender, EventArgs e)
         {
-            if( CBOnlySub.Checked == true)
+            if (checkFornecedor.Checked == true)
             {
-                richTextBox2.Enabled = false;
+                ClSubCat.Checked = false;
+                ClPropTecnica.Checked = false;
+                ClPropComercial.Checked = false;
+                Capa_fornecedores.ReadOnly = false;
+                Capa_fornecedores.Text = "Insira a RM Aqui";
             }
-            else if (CBOnlySub.Checked == false)
+            else
             {
-                richTextBox2.Enabled = true;
+                Capa_fornecedores.ReadOnly = true;
+                Capa_fornecedores.Text = "Fornecedores";
             }
         }
+
+        private void ClSubCat_CheckedChanged(object sender, EventArgs e)
+        {
+            checkFornecedor.Checked = false;
+            ClPropTecnica.Checked = false;
+            ClPropComercial.Checked = false;
+        }
+
+
 
 
 
@@ -1810,7 +2019,7 @@ namespace windowsFormOI
 
         private void BTCapa_Click(object sender, EventArgs e)
         {
-            if (ClPropComercial.Checked == true || ClPropTecnica.Checked == true )
+            if (ClPropComercial.Checked == true || ClPropTecnica.Checked == true || checkFornecedor.Checked == true || ClSubCat.Checked == true)
             {
                 var categorias = new Dictionary<string, List<string>>();
 
@@ -1837,6 +2046,8 @@ namespace windowsFormOI
                 // Verifica cada bloco
                 AdicionarSeCheckMarcado(ClPropComercial, TBPropComercial, richTextBox1);
                 AdicionarSeCheckMarcado(ClPropTecnica, TBPropTecnica, richTextBox2);
+                AdicionarSeCheckMarcado(checkFornecedor, Capa_fornecedores, richTextBox3);
+                AdicionarSeCheckMarcado(ClSubCat, TxSubCat, richTextBox4);
 
                 if (categorias.Count == 0)
                 {
@@ -1849,7 +2060,8 @@ namespace windowsFormOI
                 File.WriteAllText("include/categorias.json", json);
                 checarMetodo();
                 pycapas();
-                AtualizarStatus("Capas Geradas Com Sucesso",0); return;
+                return;
+           
             }
             else { 
                 AtualizarStatus("Por Favor, Selecione Pelo Menos Uma Opção Para Gerar a Capa");

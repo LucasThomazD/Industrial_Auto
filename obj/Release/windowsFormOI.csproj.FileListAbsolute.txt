@@ -20,3 +20,5 @@ C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Releas
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.pdb
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.xml
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\Orçamento Industrial.exe.config
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\System.Data.SQLite.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\System.Data.SQLite.xml

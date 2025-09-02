@@ -21,6 +21,7 @@ namespace windowsFormOI
     {
         public string tema { get; set; }
         public string Impressora { get; set; }
+        public string DataBase { get; set; }
     }
     public class SalvarConfig
     {

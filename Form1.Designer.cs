@@ -42,6 +42,20 @@ namespace windowsFormOI
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.RecarregarTab = new System.Windows.Forms.PictureBox();
+            this.DeletarTabelaBox = new System.Windows.Forms.ComboBox();
+            this.DeletarTabelabt = new System.Windows.Forms.RadioButton();
+            this.DB_BT = new System.Windows.Forms.Button();
+            this.NewTabelaBox = new System.Windows.Forms.TextBox();
+            this.ATTabelaBox = new System.Windows.Forms.ComboBox();
+            this.NewTabelaBt = new System.Windows.Forms.RadioButton();
+            this.ATTabelaBt = new System.Windows.Forms.RadioButton();
+            this.label45 = new System.Windows.Forms.Label();
+            this.CaminhoVarredura = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.ModeloVarredura = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.boxPathOrg = new System.Windows.Forms.TextBox();
@@ -127,6 +141,13 @@ namespace windowsFormOI
             this.linhasDeCabeçalhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ClSubCat = new System.Windows.Forms.CheckBox();
+            this.TxSubCat = new System.Windows.Forms.TextBox();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.checkFornecedor = new System.Windows.Forms.CheckBox();
+            this.Capa_fornecedores = new System.Windows.Forms.TextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.BTCapa = new System.Windows.Forms.Button();
             this.ClPropTecnica = new System.Windows.Forms.CheckBox();
             this.ClPropComercial = new System.Windows.Forms.CheckBox();
@@ -136,7 +157,6 @@ namespace windowsFormOI
             this.TB_Area = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.TBPropTecnica = new System.Windows.Forms.TextBox();
-            this.CBOnlySub = new System.Windows.Forms.CheckBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TBPropComercial = new System.Windows.Forms.TextBox();
@@ -182,33 +202,44 @@ namespace windowsFormOI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PDF_Config = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.label47 = new System.Windows.Forms.Label();
+            this.CaminhoDB = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.Geral_Sav_Bot = new System.Windows.Forms.PictureBox();
+            this.Geral_Reset_Bot = new System.Windows.Forms.PictureBox();
             this.TemaBox = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.Geral_Reset_Bot = new System.Windows.Forms.PictureBox();
-            this.Geral_Sav_Bot = new System.Windows.Forms.PictureBox();
-            this.label31 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.ImpressoraBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.Capas_Reset_Bot = new System.Windows.Forms.PictureBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.Capas_Sav_Bot = new System.Windows.Forms.PictureBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.TamL_Fornecedor = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.Espa_sub2 = new System.Windows.Forms.TextBox();
             this.TamL_Cat = new System.Windows.Forms.TextBox();
             this.Espa_sub1 = new System.Windows.Forms.TextBox();
             this.TamL_Sub = new System.Windows.Forms.TextBox();
             this.Espa_Cat = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.Salvar_Config = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
             this.bot_reset = new System.Windows.Forms.PictureBox();
             this.bot_sav = new System.Windows.Forms.PictureBox();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -239,20 +270,16 @@ namespace windowsFormOI
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecarregarTab)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -278,13 +305,19 @@ namespace windowsFormOI
             this.tabControl1.SuspendLayout();
             this.PDF_Config.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).BeginInit();
+            this.panel27.SuspendLayout();
+            this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Geral_Sav_Bot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Capas_Reset_Bot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Capas_Sav_Bot)).BeginInit();
             this.Salvar_Config.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bot_reset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bot_sav)).BeginInit();
             this.panel18.SuspendLayout();
@@ -294,11 +327,6 @@ namespace windowsFormOI
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
             this.menuStrip3.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -363,6 +391,7 @@ namespace windowsFormOI
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.tabPage4.Controls.Add(this.panel26);
             this.tabPage4.Controls.Add(this.panel12);
             this.tabPage4.Controls.Add(this.panel9);
             this.tabPage4.Controls.Add(this.panel8);
@@ -374,6 +403,178 @@ namespace windowsFormOI
             this.tabPage4.Text = "Ferramentas";
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.panel26.Controls.Add(this.RecarregarTab);
+            this.panel26.Controls.Add(this.DeletarTabelaBox);
+            this.panel26.Controls.Add(this.DeletarTabelabt);
+            this.panel26.Controls.Add(this.DB_BT);
+            this.panel26.Controls.Add(this.NewTabelaBox);
+            this.panel26.Controls.Add(this.ATTabelaBox);
+            this.panel26.Controls.Add(this.NewTabelaBt);
+            this.panel26.Controls.Add(this.ATTabelaBt);
+            this.panel26.Controls.Add(this.label45);
+            this.panel26.Controls.Add(this.CaminhoVarredura);
+            this.panel26.Controls.Add(this.label43);
+            this.panel26.Controls.Add(this.ModeloVarredura);
+            this.panel26.Controls.Add(this.label32);
+            this.panel26.Location = new System.Drawing.Point(755, 4);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(332, 300);
+            this.panel26.TabIndex = 5;
+            // 
+            // RecarregarTab
+            // 
+            this.RecarregarTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecarregarTab.Image = ((System.Drawing.Image)(resources.GetObject("RecarregarTab.Image")));
+            this.RecarregarTab.Location = new System.Drawing.Point(288, 8);
+            this.RecarregarTab.Name = "RecarregarTab";
+            this.RecarregarTab.Size = new System.Drawing.Size(30, 31);
+            this.RecarregarTab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RecarregarTab.TabIndex = 29;
+            this.RecarregarTab.TabStop = false;
+            this.RecarregarTab.Click += new System.EventHandler(this.RecarregarTab_Click);
+            // 
+            // DeletarTabelaBox
+            // 
+            this.DeletarTabelaBox.BackColor = System.Drawing.Color.Crimson;
+            this.DeletarTabelaBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.DeletarTabelaBox.FormattingEnabled = true;
+            this.DeletarTabelaBox.Location = new System.Drawing.Point(157, 185);
+            this.DeletarTabelaBox.Name = "DeletarTabelaBox";
+            this.DeletarTabelaBox.Size = new System.Drawing.Size(161, 21);
+            this.DeletarTabelaBox.TabIndex = 28;
+            // 
+            // DeletarTabelabt
+            // 
+            this.DeletarTabelabt.AutoSize = true;
+            this.DeletarTabelabt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeletarTabelabt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeletarTabelabt.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeletarTabelabt.ForeColor = System.Drawing.Color.Black;
+            this.DeletarTabelabt.Location = new System.Drawing.Point(18, 185);
+            this.DeletarTabelabt.Name = "DeletarTabelabt";
+            this.DeletarTabelabt.Size = new System.Drawing.Size(98, 20);
+            this.DeletarTabelabt.TabIndex = 27;
+            this.DeletarTabelabt.TabStop = true;
+            this.DeletarTabelabt.Text = "Deletar Tabela";
+            this.DeletarTabelabt.UseVisualStyleBackColor = true;
+            this.DeletarTabelabt.CheckedChanged += new System.EventHandler(this.DeletarTabelabt_CheckedChanged);
+            // 
+            // DB_BT
+            // 
+            this.DB_BT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
+            this.DB_BT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DB_BT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
+            this.DB_BT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DB_BT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DB_BT.Location = new System.Drawing.Point(117, 260);
+            this.DB_BT.Name = "DB_BT";
+            this.DB_BT.Size = new System.Drawing.Size(104, 24);
+            this.DB_BT.TabIndex = 26;
+            this.DB_BT.Text = "Iniciar";
+            this.DB_BT.UseVisualStyleBackColor = false;
+            this.DB_BT.Click += new System.EventHandler(this.DB_BT_Click);
+            // 
+            // NewTabelaBox
+            // 
+            this.NewTabelaBox.Location = new System.Drawing.Point(157, 150);
+            this.NewTabelaBox.Name = "NewTabelaBox";
+            this.NewTabelaBox.Size = new System.Drawing.Size(161, 20);
+            this.NewTabelaBox.TabIndex = 25;
+            // 
+            // ATTabelaBox
+            // 
+            this.ATTabelaBox.FormattingEnabled = true;
+            this.ATTabelaBox.Location = new System.Drawing.Point(157, 117);
+            this.ATTabelaBox.Name = "ATTabelaBox";
+            this.ATTabelaBox.Size = new System.Drawing.Size(161, 21);
+            this.ATTabelaBox.TabIndex = 24;
+            // 
+            // NewTabelaBt
+            // 
+            this.NewTabelaBt.AutoSize = true;
+            this.NewTabelaBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NewTabelaBt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NewTabelaBt.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewTabelaBt.ForeColor = System.Drawing.Color.Black;
+            this.NewTabelaBt.Location = new System.Drawing.Point(18, 150);
+            this.NewTabelaBt.Name = "NewTabelaBt";
+            this.NewTabelaBt.Size = new System.Drawing.Size(88, 20);
+            this.NewTabelaBt.TabIndex = 23;
+            this.NewTabelaBt.TabStop = true;
+            this.NewTabelaBt.Text = "Nova Tabela";
+            this.NewTabelaBt.UseVisualStyleBackColor = true;
+            // 
+            // ATTabelaBt
+            // 
+            this.ATTabelaBt.AutoSize = true;
+            this.ATTabelaBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ATTabelaBt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ATTabelaBt.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ATTabelaBt.ForeColor = System.Drawing.Color.Black;
+            this.ATTabelaBt.Location = new System.Drawing.Point(18, 117);
+            this.ATTabelaBt.Name = "ATTabelaBt";
+            this.ATTabelaBt.Size = new System.Drawing.Size(106, 20);
+            this.ATTabelaBt.TabIndex = 22;
+            this.ATTabelaBt.TabStop = true;
+            this.ATTabelaBt.Text = "Atualizar Tabela";
+            this.ATTabelaBt.UseVisualStyleBackColor = true;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label45.Location = new System.Drawing.Point(15, 224);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(77, 18);
+            this.label45.TabIndex = 21;
+            this.label45.Text = "Caminho";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.label45, "Este é um label informativo.");
+            // 
+            // CaminhoVarredura
+            // 
+            this.CaminhoVarredura.Location = new System.Drawing.Point(102, 223);
+            this.CaminhoVarredura.Name = "CaminhoVarredura";
+            this.CaminhoVarredura.Size = new System.Drawing.Size(216, 20);
+            this.CaminhoVarredura.TabIndex = 20;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label43.Location = new System.Drawing.Point(15, 72);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(164, 18);
+            this.label43.TabIndex = 19;
+            this.label43.Text = "Modelo de Varredura";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // ModeloVarredura
+            // 
+            this.ModeloVarredura.FormattingEnabled = true;
+            this.ModeloVarredura.Location = new System.Drawing.Point(197, 71);
+            this.ModeloVarredura.Name = "ModeloVarredura";
+            this.ModeloVarredura.Size = new System.Drawing.Size(121, 21);
+            this.ModeloVarredura.TabIndex = 9;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label32.Location = new System.Drawing.Point(77, 7);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(191, 29);
+            this.label32.TabIndex = 8;
+            this.label32.Text = "BANCO DE DADOS";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.label32, "Ferramenta para transferir arquivos de um diretório para outro");
+            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
@@ -383,9 +584,9 @@ namespace windowsFormOI
             this.panel12.Controls.Add(this.radioButton1);
             this.panel12.Controls.Add(this.Bt_Organizar);
             this.panel12.Controls.Add(this.label7);
-            this.panel12.Location = new System.Drawing.Point(232, 315);
+            this.panel12.Location = new System.Drawing.Point(227, 310);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(232, 156);
+            this.panel12.Size = new System.Drawing.Size(232, 161);
             this.panel12.TabIndex = 4;
             // 
             // label18
@@ -482,7 +683,7 @@ namespace windowsFormOI
             this.panel9.Controls.Add(this.labelDestino);
             this.panel9.Controls.Add(this.labelRaiz);
             this.panel9.Controls.Add(this.LBCataMilho);
-            this.panel9.Location = new System.Drawing.Point(232, 3);
+            this.panel9.Location = new System.Drawing.Point(227, 3);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panel9.Size = new System.Drawing.Size(520, 301);
@@ -1407,7 +1608,15 @@ namespace windowsFormOI
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.ClSubCat);
+            this.panel2.Controls.Add(this.TxSubCat);
+            this.panel2.Controls.Add(this.richTextBox4);
+            this.panel2.Controls.Add(this.panel25);
+            this.panel2.Controls.Add(this.checkFornecedor);
+            this.panel2.Controls.Add(this.Capa_fornecedores);
+            this.panel2.Controls.Add(this.richTextBox3);
             this.panel2.Controls.Add(this.BTCapa);
             this.panel2.Controls.Add(this.ClPropTecnica);
             this.panel2.Controls.Add(this.ClPropComercial);
@@ -1417,7 +1626,6 @@ namespace windowsFormOI
             this.panel2.Controls.Add(this.TB_Area);
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.TBPropTecnica);
-            this.panel2.Controls.Add(this.CBOnlySub);
             this.panel2.Controls.Add(this.richTextBox2);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Controls.Add(this.TBPropComercial);
@@ -1426,13 +1634,78 @@ namespace windowsFormOI
             this.panel2.Size = new System.Drawing.Size(395, 363);
             this.panel2.TabIndex = 9;
             // 
+            // ClSubCat
+            // 
+            this.ClSubCat.AutoSize = true;
+            this.ClSubCat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClSubCat.Location = new System.Drawing.Point(29, 351);
+            this.ClSubCat.Name = "ClSubCat";
+            this.ClSubCat.Size = new System.Drawing.Size(15, 14);
+            this.ClSubCat.TabIndex = 25;
+            this.ClSubCat.UseVisualStyleBackColor = true;
+            this.ClSubCat.CheckedChanged += new System.EventHandler(this.ClSubCat_CheckedChanged);
+            // 
+            // TxSubCat
+            // 
+            this.TxSubCat.Location = new System.Drawing.Point(53, 348);
+            this.TxSubCat.Name = "TxSubCat";
+            this.TxSubCat.ReadOnly = true;
+            this.TxSubCat.Size = new System.Drawing.Size(106, 20);
+            this.TxSubCat.TabIndex = 24;
+            this.TxSubCat.Text = "Apenas SubCat";
+            this.TxSubCat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Location = new System.Drawing.Point(179, 335);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(187, 46);
+            this.richTextBox4.TabIndex = 23;
+            this.richTextBox4.Text = "";
+            // 
+            // panel25
+            // 
+            this.panel25.Location = new System.Drawing.Point(3, 430);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(43, 28);
+            this.panel25.TabIndex = 22;
+            // 
+            // checkFornecedor
+            // 
+            this.checkFornecedor.AutoSize = true;
+            this.checkFornecedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkFornecedor.Location = new System.Drawing.Point(29, 289);
+            this.checkFornecedor.Name = "checkFornecedor";
+            this.checkFornecedor.Size = new System.Drawing.Size(15, 14);
+            this.checkFornecedor.TabIndex = 21;
+            this.checkFornecedor.UseVisualStyleBackColor = true;
+            this.checkFornecedor.CheckedChanged += new System.EventHandler(this.checkFornecedor_CheckedChanged);
+            // 
+            // Capa_fornecedores
+            // 
+            this.Capa_fornecedores.Location = new System.Drawing.Point(53, 286);
+            this.Capa_fornecedores.Name = "Capa_fornecedores";
+            this.Capa_fornecedores.ReadOnly = true;
+            this.Capa_fornecedores.Size = new System.Drawing.Size(106, 20);
+            this.Capa_fornecedores.TabIndex = 20;
+            this.Capa_fornecedores.Text = "Fornecedores";
+            this.Capa_fornecedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(179, 273);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(187, 46);
+            this.richTextBox3.TabIndex = 19;
+            this.richTextBox3.Text = "";
+            // 
             // BTCapa
             // 
             this.BTCapa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(143)))), ((int)(((byte)(79)))));
             this.BTCapa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTCapa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(222)))));
             this.BTCapa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTCapa.Location = new System.Drawing.Point(134, 311);
+            this.BTCapa.Location = new System.Drawing.Point(122, 404);
             this.BTCapa.Name = "BTCapa";
             this.BTCapa.Size = new System.Drawing.Size(128, 32);
             this.BTCapa.TabIndex = 10;
@@ -1443,7 +1716,8 @@ namespace windowsFormOI
             // ClPropTecnica
             // 
             this.ClPropTecnica.AutoSize = true;
-            this.ClPropTecnica.Location = new System.Drawing.Point(29, 259);
+            this.ClPropTecnica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClPropTecnica.Location = new System.Drawing.Point(29, 226);
             this.ClPropTecnica.Name = "ClPropTecnica";
             this.ClPropTecnica.Size = new System.Drawing.Size(15, 14);
             this.ClPropTecnica.TabIndex = 18;
@@ -1453,7 +1727,8 @@ namespace windowsFormOI
             // ClPropComercial
             // 
             this.ClPropComercial.AutoSize = true;
-            this.ClPropComercial.Location = new System.Drawing.Point(29, 196);
+            this.ClPropComercial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClPropComercial.Location = new System.Drawing.Point(29, 165);
             this.ClPropComercial.Name = "ClPropComercial";
             this.ClPropComercial.Size = new System.Drawing.Size(15, 14);
             this.ClPropComercial.TabIndex = 17;
@@ -1501,7 +1776,7 @@ namespace windowsFormOI
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(142, 18);
+            this.label22.Location = new System.Drawing.Point(132, 18);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(128, 25);
             this.label22.TabIndex = 12;
@@ -1509,28 +1784,17 @@ namespace windowsFormOI
             // 
             // TBPropTecnica
             // 
-            this.TBPropTecnica.Location = new System.Drawing.Point(53, 256);
+            this.TBPropTecnica.Location = new System.Drawing.Point(53, 223);
             this.TBPropTecnica.Name = "TBPropTecnica";
             this.TBPropTecnica.ReadOnly = true;
             this.TBPropTecnica.Size = new System.Drawing.Size(106, 20);
             this.TBPropTecnica.TabIndex = 11;
             this.TBPropTecnica.Text = "Proposta Técnica";
-            // 
-            // CBOnlySub
-            // 
-            this.CBOnlySub.AutoSize = true;
-            this.CBOnlySub.Font = new System.Drawing.Font("Arial Narrow", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBOnlySub.Location = new System.Drawing.Point(29, 137);
-            this.CBOnlySub.Name = "CBOnlySub";
-            this.CBOnlySub.Size = new System.Drawing.Size(185, 26);
-            this.CBOnlySub.TabIndex = 10;
-            this.CBOnlySub.Text = "Apenas subcategorias";
-            this.CBOnlySub.UseVisualStyleBackColor = true;
-            this.CBOnlySub.CheckedChanged += new System.EventHandler(this.CBOnlySub_CheckedChanged);
+            this.TBPropTecnica.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(179, 243);
+            this.richTextBox2.Location = new System.Drawing.Point(179, 210);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(187, 46);
             this.richTextBox2.TabIndex = 9;
@@ -1538,7 +1802,7 @@ namespace windowsFormOI
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(179, 179);
+            this.richTextBox1.Location = new System.Drawing.Point(179, 148);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(187, 46);
             this.richTextBox1.TabIndex = 8;
@@ -1546,12 +1810,13 @@ namespace windowsFormOI
             // 
             // TBPropComercial
             // 
-            this.TBPropComercial.Location = new System.Drawing.Point(53, 193);
+            this.TBPropComercial.Location = new System.Drawing.Point(53, 162);
             this.TBPropComercial.Name = "TBPropComercial";
             this.TBPropComercial.ReadOnly = true;
             this.TBPropComercial.Size = new System.Drawing.Size(106, 20);
             this.TBPropComercial.TabIndex = 7;
             this.TBPropComercial.Text = "Proposta Comercial";
+            this.TBPropComercial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
@@ -1695,7 +1960,7 @@ namespace windowsFormOI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(73, 9);
+            this.label6.Location = new System.Drawing.Point(74, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(210, 25);
             this.label6.TabIndex = 5;
@@ -1994,7 +2259,9 @@ namespace windowsFormOI
             // 
             // panel5
             // 
+            this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel5.Controls.Add(this.panel27);
             this.panel5.Controls.Add(this.panel21);
             this.panel5.Controls.Add(this.TemaBox);
             this.panel5.Controls.Add(this.label30);
@@ -2005,35 +2272,77 @@ namespace windowsFormOI
             this.panel5.Size = new System.Drawing.Size(441, 315);
             this.panel5.TabIndex = 16;
             // 
-            // TemaBox
+            // panel27
             // 
-            this.TemaBox.FormattingEnabled = true;
-            this.TemaBox.Location = new System.Drawing.Point(219, 104);
-            this.TemaBox.Name = "TemaBox";
-            this.TemaBox.Size = new System.Drawing.Size(102, 21);
-            this.TemaBox.TabIndex = 21;
+            this.panel27.BackColor = System.Drawing.Color.LightGray;
+            this.panel27.Controls.Add(this.label47);
+            this.panel27.Controls.Add(this.CaminhoDB);
+            this.panel27.Controls.Add(this.button3);
+            this.panel27.Controls.Add(this.label46);
+            this.panel27.Location = new System.Drawing.Point(213, 66);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(217, 150);
+            this.panel27.TabIndex = 25;
             // 
-            // label30
+            // label47
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(242, 71);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(57, 20);
-            this.label30.TabIndex = 20;
-            this.label30.Text = "TEMA";
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(63, 55);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(87, 15);
+            this.label47.TabIndex = 18;
+            this.label47.Text = "Caminho DB";
             // 
-            // Geral_Reset_Bot
+            // CaminhoDB
             // 
-            this.Geral_Reset_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Geral_Reset_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Geral_Reset_Bot.Image")));
-            this.Geral_Reset_Bot.Location = new System.Drawing.Point(392, 7);
-            this.Geral_Reset_Bot.Name = "Geral_Reset_Bot";
-            this.Geral_Reset_Bot.Size = new System.Drawing.Size(30, 31);
-            this.Geral_Reset_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Geral_Reset_Bot.TabIndex = 19;
-            this.Geral_Reset_Bot.TabStop = false;
-            this.Geral_Reset_Bot.Click += new System.EventHandler(this.Geral_Reset_Bot_Click);
+            this.CaminhoDB.Location = new System.Drawing.Point(11, 77);
+            this.CaminhoDB.Name = "CaminhoDB";
+            this.CaminhoDB.Size = new System.Drawing.Size(196, 20);
+            this.CaminhoDB.TabIndex = 13;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(61, 110);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(91, 31);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Buscar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(26, 6);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(168, 20);
+            this.label46.TabIndex = 11;
+            this.label46.Text = "BANCO DE DADOS";
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.Gray;
+            this.panel21.Controls.Add(this.label31);
+            this.panel21.Controls.Add(this.Geral_Sav_Bot);
+            this.panel21.Controls.Add(this.Geral_Reset_Bot);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(441, 44);
+            this.panel21.TabIndex = 22;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(75, 10);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(258, 25);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "INFORMAÇÕES GERAIS";
             // 
             // Geral_Sav_Bot
             // 
@@ -2047,15 +2356,35 @@ namespace windowsFormOI
             this.Geral_Sav_Bot.TabStop = false;
             this.Geral_Sav_Bot.Click += new System.EventHandler(this.Geral_Sav_Bot_Click);
             // 
-            // label31
+            // Geral_Reset_Bot
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(75, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(258, 25);
-            this.label31.TabIndex = 10;
-            this.label31.Text = "INFORMAÇÕES GERAIS";
+            this.Geral_Reset_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Geral_Reset_Bot.Image = ((System.Drawing.Image)(resources.GetObject("Geral_Reset_Bot.Image")));
+            this.Geral_Reset_Bot.Location = new System.Drawing.Point(392, 7);
+            this.Geral_Reset_Bot.Name = "Geral_Reset_Bot";
+            this.Geral_Reset_Bot.Size = new System.Drawing.Size(30, 31);
+            this.Geral_Reset_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Geral_Reset_Bot.TabIndex = 19;
+            this.Geral_Reset_Bot.TabStop = false;
+            this.Geral_Reset_Bot.Click += new System.EventHandler(this.Geral_Reset_Bot_Click);
+            // 
+            // TemaBox
+            // 
+            this.TemaBox.FormattingEnabled = true;
+            this.TemaBox.Location = new System.Drawing.Point(53, 176);
+            this.TemaBox.Name = "TemaBox";
+            this.TemaBox.Size = new System.Drawing.Size(102, 21);
+            this.TemaBox.TabIndex = 21;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(76, 143);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(57, 20);
+            this.label30.TabIndex = 20;
+            this.label30.Text = "TEMA";
             // 
             // label15
             // 
@@ -2098,6 +2427,56 @@ namespace windowsFormOI
             this.panel3.Size = new System.Drawing.Size(236, 315);
             this.panel3.TabIndex = 15;
             // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.LightGray;
+            this.panel23.Controls.Add(this.label16);
+            this.panel23.Location = new System.Drawing.Point(0, 184);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(236, 32);
+            this.panel23.TabIndex = 24;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(13, 6);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(210, 20);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "ESPAÇAMENTO ENTRE:";
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.LightGray;
+            this.panel22.Controls.Add(this.label14);
+            this.panel22.Location = new System.Drawing.Point(0, 66);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(236, 32);
+            this.panel22.TabIndex = 23;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(22, 6);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(192, 20);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "TAMANHO DA LETRA:";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.Gray;
+            this.panel20.Controls.Add(this.Capas_Reset_Bot);
+            this.panel20.Controls.Add(this.label13);
+            this.panel20.Controls.Add(this.Capas_Sav_Bot);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(236, 44);
+            this.panel20.TabIndex = 22;
+            // 
             // Capas_Reset_Bot
             // 
             this.Capas_Reset_Bot.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -2110,15 +2489,15 @@ namespace windowsFormOI
             this.Capas_Reset_Bot.TabStop = false;
             this.Capas_Reset_Bot.Click += new System.EventHandler(this.Capas_Reset_Bot_Click);
             // 
-            // label28
+            // label13
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(19, 276);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(139, 15);
-            this.label28.TabIndex = 21;
-            this.label28.Text = "Entre SubCategorias";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(49, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 29);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "CAPAS";
             // 
             // Capas_Sav_Bot
             // 
@@ -2132,15 +2511,25 @@ namespace windowsFormOI
             this.Capas_Sav_Bot.TabStop = false;
             this.Capas_Sav_Bot.Click += new System.EventHandler(this.Capas_Sav_Bot_Click);
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(19, 276);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(139, 15);
+            this.label28.TabIndex = 21;
+            this.label28.Text = "Entre SubCategorias";
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(19, 250);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(110, 15);
+            this.label29.Size = new System.Drawing.Size(132, 15);
             this.label29.TabIndex = 20;
-            this.label29.Text = "Categoria e Sub";
+            this.label29.Text = "Categoria X SubCat";
             // 
             // label33
             // 
@@ -2148,9 +2537,9 @@ namespace windowsFormOI
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(19, 224);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(153, 15);
+            this.label33.Size = new System.Drawing.Size(148, 15);
             this.label33.TabIndex = 19;
-            this.label33.Text = "Cabeçalho e Categoria";
+            this.label33.Text = "Categoria X Categoria";
             // 
             // label27
             // 
@@ -2189,16 +2578,6 @@ namespace windowsFormOI
             this.TamL_Fornecedor.Size = new System.Drawing.Size(36, 20);
             this.TamL_Fornecedor.TabIndex = 15;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(49, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 29);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "CAPAS";
-            // 
             // Espa_sub2
             // 
             this.Espa_sub2.Location = new System.Drawing.Point(179, 274);
@@ -2234,26 +2613,6 @@ namespace windowsFormOI
             this.Espa_Cat.Size = new System.Drawing.Size(36, 20);
             this.Espa_Cat.TabIndex = 12;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(22, 6);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(192, 20);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "TAMANHO DA LETRA:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(13, 6);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(210, 20);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "ESPAÇAMENTO ENTRE:";
-            // 
             // Salvar_Config
             // 
             this.Salvar_Config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(194)))), ((int)(((byte)(63)))));
@@ -2279,6 +2638,28 @@ namespace windowsFormOI
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(734, 377);
             this.panel6.TabIndex = 0;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.Gray;
+            this.panel24.Controls.Add(this.label34);
+            this.panel24.Controls.Add(this.bot_reset);
+            this.panel24.Controls.Add(this.bot_sav);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(717, 41);
+            this.panel24.TabIndex = 25;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(163, 7);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(385, 25);
+            this.label34.TabIndex = 11;
+            this.label34.Text = "OS ARQUIVOS SERÃO SALVOS EM:";
             // 
             // bot_reset
             // 
@@ -2584,16 +2965,6 @@ namespace windowsFormOI
             this.label36.TabIndex = 13;
             this.label36.Text = "Comparativo de Fornecimento";
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(163, 7);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(385, 25);
-            this.label34.TabIndex = 11;
-            this.label34.Text = "OS ARQUIVOS SERÃO SALVOS EM:";
-            // 
             // menuStrip3
             // 
             this.menuStrip3.Dock = System.Windows.Forms.DockStyle.None;
@@ -2620,60 +2991,6 @@ namespace windowsFormOI
             this.salvarToolStripMenuItem.Text = "Salvar";
             this.salvarToolStripMenuItem.Click += new System.EventHandler(this.salvarToolStripMenuItem_Click);
             // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.Silver;
-            this.panel20.Controls.Add(this.Capas_Reset_Bot);
-            this.panel20.Controls.Add(this.label13);
-            this.panel20.Controls.Add(this.Capas_Sav_Bot);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(236, 44);
-            this.panel20.TabIndex = 22;
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.Silver;
-            this.panel21.Controls.Add(this.label31);
-            this.panel21.Controls.Add(this.Geral_Sav_Bot);
-            this.panel21.Controls.Add(this.Geral_Reset_Bot);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(0, 0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(441, 44);
-            this.panel21.TabIndex = 22;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.LightGray;
-            this.panel22.Controls.Add(this.label14);
-            this.panel22.Location = new System.Drawing.Point(0, 66);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(236, 32);
-            this.panel22.TabIndex = 23;
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.LightGray;
-            this.panel23.Controls.Add(this.label16);
-            this.panel23.Location = new System.Drawing.Point(0, 184);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(236, 32);
-            this.panel23.TabIndex = 24;
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.Gray;
-            this.panel24.Controls.Add(this.label34);
-            this.panel24.Controls.Add(this.bot_reset);
-            this.panel24.Controls.Add(this.bot_sav);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(717, 41);
-            this.panel24.TabIndex = 25;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2692,7 +3009,7 @@ namespace windowsFormOI
             this.MinimumSize = new System.Drawing.Size(1200, 740);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Versão 2.6.0";
+            this.Text = "Versão 4.3.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2701,6 +3018,9 @@ namespace windowsFormOI
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecarregarTab)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -2745,14 +3065,26 @@ namespace windowsFormOI
             this.PDF_Config.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).EndInit();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Geral_Sav_Bot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Geral_Reset_Bot)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Capas_Reset_Bot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Capas_Sav_Bot)).EndInit();
             this.Salvar_Config.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bot_reset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bot_sav)).EndInit();
             this.panel18.ResumeLayout(false);
@@ -2769,16 +3101,6 @@ namespace windowsFormOI
             this.panel15.PerformLayout();
             this.menuStrip3.ResumeLayout(false);
             this.menuStrip3.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2916,7 +3238,6 @@ namespace windowsFormOI
         private System.Windows.Forms.TextBox TBPropComercial;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.CheckBox CBOnlySub;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox TBPropTecnica;
         private System.Windows.Forms.Label label24;
@@ -3001,6 +3322,32 @@ namespace windowsFormOI
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.CheckBox checkFornecedor;
+        private System.Windows.Forms.TextBox Capa_fornecedores;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.CheckBox ClSubCat;
+        private System.Windows.Forms.TextBox TxSubCat;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox ModeloVarredura;
+        private System.Windows.Forms.RadioButton NewTabelaBt;
+        private System.Windows.Forms.RadioButton ATTabelaBt;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox CaminhoVarredura;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox NewTabelaBox;
+        private System.Windows.Forms.ComboBox ATTabelaBox;
+        private System.Windows.Forms.Button DB_BT;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ComboBox DeletarTabelaBox;
+        private System.Windows.Forms.RadioButton DeletarTabelabt;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox RecarregarTab;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox CaminhoDB;
     }
 }
 

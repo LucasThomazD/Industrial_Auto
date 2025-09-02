@@ -2,14 +2,15 @@
   "PDF": {
     "Cat_letra_Size": "18",
     "Sub_letra_Size": "16",
-    "Fornecedor_letra_Size": "20",
-    "Cat_Espa_Size": "15",
+    "Fornecedor_letra_Size": "30",
+    "Cat_Espa_Size": "7",
     "Sub1_Espa_Size": "6",
-    "Sub2_Espa_Size": "7"
+    "Sub2_Espa_Size": "6"
   },
   "Geral": {
-    "tema": null,
-    "Impressora": null
+    "tema": "Claro",
+    "Impressora": "\\\\prosub-srv02\\prosub-sp",
+    "DataBase": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\src\\dados_arquivos.db"
   },
   "Salvar": {
     "salvarFornecimento": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\out\\fornecimento",
