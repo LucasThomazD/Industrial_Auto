@@ -8,6 +8,8 @@
 # Bibliotecas em Debug
 /bin/Debug/libs/**
 /bin/Debug/out/**/*.o
+/bin/Debug/out/**
+/
 *.db
 *.xlsx
 

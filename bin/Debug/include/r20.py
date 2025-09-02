@@ -1,9 +1,16 @@
 import pandas as pd
-import gc, sqlite3, os
+import gc, sqlite3, os, glob
+from openpyxl import load_workbook
+from openpyxl.drawing.image import Image
+from openpyxl.styles import PatternFill, Font, Border, Side, Alignment
 
 
 pln1 = r"C:\Users\lucasduarte\Downloads\arquivos\R20 Tub-Sup-Sist_seg.xlsx"
 pln2 = r"C:\Users\lucasduarte\Downloads\arquivos\R20_GERAL_ELÉTRICA E INSTRUMENTAÇÃO - 28.08.2025.xlsx"
+
+imagem_Odebrecht = r"../assets/img/Imagem1.png" 
+imagem_Marinha = r"../assets/img/Imagem2.png" 
+pasta_planilhas = r"export_areas"
 
 # Nome do banco de dados
 db_path = "planilhas.db"
@@ -17,7 +24,7 @@ def export_planilhas(plan1, plan2, database):
     
 
     # Colunas que você realmente precisa
-    colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,48,49,50]
+    colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,49,50]
 
     # 1️⃣ Lê a primeira planilha (todas as linhas, só as colunas necessárias)
     df1 = pd.read_excel(plan1, usecols=colunas)
@@ -56,30 +63,30 @@ def ModDB(database):
     colunas_info = cursor.fetchall()
 
     # colunas_info retorna: [(cid, name, type, notnull, dflt_value, pk), ...]
-    coluna_32 = colunas_info[32][1]  # índice 33 → nome da coluna
-    coluna_33 = colunas_info[33][1]  # índice 34 → nome da coluna
+    coluna_31 = colunas_info[31][1]  # índice 33 → nome da coluna
+    coluna_32 = colunas_info[32][1]  # índice 34 → nome da coluna
 
+    coluna_31_sql = f'"{coluna_31}"'
     coluna_32_sql = f'"{coluna_32}"'
-    coluna_33_sql = f'"{coluna_33}"'
 
     # 1️⃣ Deleta linhas onde coluna_33 é NULL
     cursor.execute(f"""
     DELETE FROM {tabela}
-    WHERE {coluna_32_sql} IS NULL
-       OR {coluna_32_sql} = ?
-       OR {coluna_32_sql} = ?
+    WHERE {coluna_31_sql} IS NULL
+       OR {coluna_31_sql} = ?
+       OR {coluna_31_sql} = ?
     """,
     ("SAIU DO ORÇAMENTO", "#")
 )
     cursor.execute(f"""
     UPDATE {tabela}
-    SET {coluna_32_sql} = LTRIM({coluna_32_sql}, '#')
-    WHERE {coluna_32_sql} LIKE '#%';
+    SET {coluna_31_sql} = LTRIM({coluna_31_sql}, '#')
+    WHERE {coluna_31_sql} LIKE '#%';
 """)
 
 
     # 2️⃣ Deleta linhas onde coluna_34 NÃO é NULL
-    cursor.execute(f"DELETE FROM {tabela} WHERE {coluna_33_sql} IS NOT NULL")
+    cursor.execute(f"DELETE FROM {tabela} WHERE {coluna_32_sql} IS NOT NULL")
 
     # Salva as alterações
     conn.commit()
@@ -99,11 +106,11 @@ def trocando_Valores(database, areas, tabela):
     colunas_info = cursor.fetchall()
 
     coluna_3 = colunas_info[2][1]   # terceira coluna (índice 2)
-    coluna_33 = colunas_info[32][1] # coluna 33 (índice 33)
+    coluna_31 = colunas_info[31][1] # coluna 33 (índice 33)
 
     # Escapa nomes de colunas
     coluna_3_sql = f'"{coluna_3}"'
-    coluna_33_sql = f'"{coluna_33}"'
+    coluna_31_sql = f'"{coluna_31}"'
 
     # Monta placeholders para o IN
     placeholders = ",".join("?" for _ in areas)
@@ -114,9 +121,9 @@ def trocando_Valores(database, areas, tabela):
     # - SUBSTR(coluna_33, 13) → mantém do caractere 13 até o fim
     sql = f"""
     UPDATE {tabela}
-    SET {coluna_33_sql} = SUBSTR({coluna_33_sql}, 1, 8) 
+    SET {coluna_31_sql} = SUBSTR({coluna_31_sql}, 1, 8) 
                         || SUBSTR({coluna_3_sql}, 1, 4) 
-                        || SUBSTR({coluna_33_sql}, 13)
+                        || SUBSTR({coluna_31_sql}, 13)
     WHERE SUBSTR({coluna_3_sql}, 1, 4) IN ({placeholders})
     """
 
@@ -140,13 +147,13 @@ def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
     colunas_info = cursor.fetchall()
     colunas = [c[1] for c in colunas_info]
 
-    coluna_33 = colunas[32]  # índice 33 (34ª coluna)
+    coluna_31 = colunas[31]  # índice 33 (34ª coluna)
 
     # Lê tudo do banco
     df = pd.read_sql_query(f"SELECT * FROM {tabela}", conn)
 
     # Extrai código da posição 9–12 da coluna 33
-    df["codigo_area"] = df[coluna_33].astype(str).str.slice(8, 12)  # pandas é 0-based
+    df["codigo_area"] = df[coluna_31].astype(str).str.slice(8, 12)  # pandas é 0-based
 
     # 1️⃣ Filtros principais
     filtros = {
@@ -174,12 +181,144 @@ def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
     conn.close()
     print("Exportação concluída!")
 
-exportar_por_area_arquivos(
-    caminho_banco=db_path,
-    tabela=tabela,
-    array_areas=especificas,
-    pasta_saida="export_areas"
-)
+    
+
+def ajeitar(pasta,OEC,mb,ta):
+    # Configurações
+    coluna_formula = "AG"  # coluna onde a fórmula será aplicada
+    formula_excel = "=(Q{row}/100)*U{row}"  # fórmula (pode usar =SOMA(...) se preferir)
+    celula_ancora = "B2"  # célula de referência para a imagem
+    offset_x = 50  # deslocamento horizontal em pixels
+    offset_y = 30  # deslocamento vertical em pixels
+
+    # Loop por todas as planilhas .xlsx na pasta
+    for arquivo in glob.glob(f"{pasta}/*.xlsx"):
+        print(f"Processando: {arquivo}")
+        wb = load_workbook(arquivo)
+        ws = wb.active
+
+        # Última linha com dados
+        ultima_linha = ws.max_row
+
+        ws.delete_cols(33)
+
+        # Ajustar largura e altura
+        ws.column_dimensions['A'].width = 17
+        ws.column_dimensions['B'].width = 11
+        ws.column_dimensions['C'].width = 65
+        ws.column_dimensions['D'].width = 21
+        ws.column_dimensions['E'].width = 14
+        ws.column_dimensions['F'].width = 21
+        ws.column_dimensions['G'].width = 27
+        ws.column_dimensions['H'].width = 27
+        ws.column_dimensions['I'].width = 65
+        ws.column_dimensions['J'].width = 20
+        ws.column_dimensions['K'].width = 18
+        ws.column_dimensions['L'].width = 18
+        ws.column_dimensions['M'].width = 11
+        ws.column_dimensions['N'].width = 11
+        ws.column_dimensions['O'].width = 36
+        ws.column_dimensions['P'].width = 36
+        ws.column_dimensions['Q'].width = 15
+        ws.column_dimensions['R'].width = 40
+        ws.column_dimensions['S'].width = 50
+        ws.column_dimensions['T'].width = 25
+        ws.column_dimensions['U'].width = 10
+        ws.column_dimensions['V'].width = 10
+        ws.column_dimensions['X'].width = 22
+        ws.column_dimensions['Y'].width = 22
+        ws.column_dimensions['W'].width = 7
+        ws.column_dimensions['Z'].width = 22
+        ws.column_dimensions['AA'].width = 18
+        ws.column_dimensions['AB'].width = 6
+        ws.column_dimensions['AC'].width = 20
+        ws.column_dimensions['AD'].width = 20
+        ws.column_dimensions['AE'].width = 25
+        ws.column_dimensions['AF'].width = 26
+        ws.column_dimensions['AG'].width = 17
+      
+        
+
+        ws.row_dimensions[1].height = 20
+
+        # Bordas finas em toda a área de dados
+        borda_fina = Border(
+            left=Side(style="thin"),
+            right=Side(style="thin"),
+            top=Side(style="thin"),
+            bottom=Side(style="thin")
+        )
+        # Definir estilos
+        fonte_estilo = Font(bold=True, size=11, color="FFFFFF")  # negrito, tamanho 14, texto branco
+        preenchimento = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")  # fundo azul
+        # borda_grossa = Border(
+        #     left=Side(style="thick"),
+        #     right=Side(style="thick"),
+        #     top=Side(style="thick"),
+        #     bottom=Side(style="thick")
+        # )
+        alinhamento_centro = Alignment(horizontal="center", vertical="center")
+
+        ws.insert_rows(2)
+        # Aplicar no range A1:AG1
+        for row in ws.iter_rows(min_row=1, max_row=2, min_col=1, max_col=33):  # AG é a 33ª coluna
+            for cell in row:
+                cell.font = fonte_estilo
+                cell.fill = preenchimento
+                cell.border = borda_fina
+                cell.alignment = alinhamento_centro
+
+
+        for row in ws.iter_rows(min_row=2, max_row=ultima_linha + 1, min_col=1, max_col=33):
+            for cell in row:
+                cell.border = borda_fina
+        
+        ws.insert_rows(1)
+        ws.row_dimensions[1].height = 65
+
+        # Texto na primeira célula do intervalo
+        ws["A1"].value = f"TA - {ta} \nRELATÓRIO DE CALCULO DE SERVIÇO\nDETALHADO - MONTAGEM - REDES INDUSTRIAIS - BSIM-S\nÁREA 2000"
+        ws["A1"].font = Font(bold=True)
+        alinhamento_centro = Alignment(horizontal="centerContinuous", vertical="center", wrap_text=True)
+
+        # Percorrer todas as células do intervalo A1:AG1
+        for row in ws["A1:AG1"]:
+            for cell in row:
+                cell.alignment = alinhamento_centro
+        
+        # Inserir imagem flutuante com deslocamento
+        img_Oec = Image(OEC)
+        img_Oec.width = 180   # largura
+        img_Oec.height = 80  # altura
+        img_Oec.anchor = "B1"
+        ws.add_image(img_Oec)
+
+        img_mb = Image(mb)
+        img_mb.width = 170   # largura
+        img_mb.height = 80  # altura
+        img_mb.anchor = "AF1"
+        ws.add_image(img_mb)
+
+        ws["AG2"].value = "QUANTIDADE"
+
+        # Última linha com dados
+        ultima_linha = ws.max_row
+
+        # Aplicar fórmula da linha 2 até a última
+        for row in range(4, ultima_linha + 1):
+            ws[f"{coluna_formula}{row}"] = formula_excel.format(row=row)
+
+        # Salvar alterações
+        wb.save(arquivo)
+
+
+ajeitar(pasta_planilhas,imagem_Odebrecht,imagem_Marinha,ta=33)
+# exportar_por_area_arquivos(
+#     caminho_banco=db_path,
+#     tabela=tabela,
+#     array_areas=especificas,
+#     pasta_saida="export_areas"
+# )
 # trocando_Valores(database=db_path, areas= especificas, tabela=tabela)
 # export_planilhas(pln1,pln2,db_path)
 # ModDB(database= db_path)
