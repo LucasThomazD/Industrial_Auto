@@ -75,17 +75,18 @@ def deletar_tabela(nome_tabela, db_path):
         conn.close()
 
 # Caminho da pasta que você quer escanear
-caminho_diretorio = sys.argv[3]  # Altere para o seu caminho
-modo = sys.argv[1]
-tabela = sys.argv[2]
+caminho_diretorio = r"I:\PLANEJAMENTO\UFEM-02\PROPOSTA NOVA UFEM"  # Altere para o seu caminho
+modo = "Arquivos e Pastas"
+tabela = "UFEM-01"
 arquivoTxT = GerenciadorArquivo("log.txt")
 # Coletando os dados
 
 def iniciar_varredura(modo):
-    with open("config.json", "r", encoding="utf-8") as f:
+    with open("../config.json", "r", encoding="utf-8") as f:
             configPDF = json.load(f)
             config = configPDF["Geral"]
     db_path = config["DataBase"]
+    # db_path =
             
     match modo:
         case "Arquivos e Data":

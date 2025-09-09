@@ -1,5 +1,5 @@
 import pandas as pd
-import gc, sqlite3, os, glob
+import gc, sqlite3, os, glob, asyncio
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image
 from openpyxl.styles import PatternFill, Font, Border, Side, Alignment
@@ -19,7 +19,7 @@ especificas = ["2502", "2511", "2706", "2721", "2722", "2737", "2744", "7816", "
 
 tabela = "tabela_unica02"
 
-def export_planilhas(plan1, plan2, database):
+async def export_planilhas(plan1, plan2, database):
 
     
 
@@ -288,8 +288,8 @@ def ajeitar(pasta,OEC,mb,ta):
         
         # Inserir imagem flutuante com deslocamento
         img_Oec = Image(OEC)
-        img_Oec.width = 180   # largura
-        img_Oec.height = 80  # altura
+        img_Oec.width = 200   # largura
+        img_Oec.height = 70  # altura
         img_Oec.anchor = "B1"
         ws.add_image(img_Oec)
 
