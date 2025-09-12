@@ -567,11 +567,11 @@ namespace windowsFormOI
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label32.Location = new System.Drawing.Point(77, 7);
+            this.label32.Location = new System.Drawing.Point(56, 9);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(191, 29);
+            this.label32.Size = new System.Drawing.Size(222, 29);
             this.label32.TabIndex = 8;
-            this.label32.Text = "BANCO DE DADOS";
+            this.label32.Text = "GUARDAR CAMINHOS";
             this.label32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.label32, "Ferramenta para transferir arquivos de um diretório para outro");
             // 

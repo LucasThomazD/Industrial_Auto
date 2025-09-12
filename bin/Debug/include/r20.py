@@ -12,6 +12,8 @@ imagem_Odebrecht = r"../assets/img/Imagem1.png"
 imagem_Marinha = r"../assets/img/Imagem2.png" 
 pasta_planilhas = r"export_areas"
 
+path_tabelas = r"C:\Users\lucasduarte\Documents\tabelas"
+
 # Nome do banco de dados
 db_path = "planilhas.db"
 
@@ -49,10 +51,10 @@ async def export_planilhas(plan1, plan2, database):
     conn.close()
     gc.collect()
 
-def ModDB(database):
+async def ModDB(database,table):
     # Caminho do banco SQLite
     caminho_banco = database
-    tabela = "tabela_unica02"
+    tabela = table
 
     # Conecta ao banco
     conn = sqlite3.connect(caminho_banco)
@@ -66,8 +68,10 @@ def ModDB(database):
     coluna_31 = colunas_info[31][1]  # índice 33 → nome da coluna
     coluna_32 = colunas_info[32][1]  # índice 34 → nome da coluna
 
+
     coluna_31_sql = f'"{coluna_31}"'
     coluna_32_sql = f'"{coluna_32}"'
+
 
     # 1️⃣ Deleta linhas onde coluna_33 é NULL
     cursor.execute(f"""
@@ -88,6 +92,7 @@ def ModDB(database):
     # 2️⃣ Deleta linhas onde coluna_34 NÃO é NULL
     cursor.execute(f"DELETE FROM {tabela} WHERE {coluna_32_sql} IS NOT NULL")
 
+
     # Salva as alterações
     conn.commit()
 
@@ -96,7 +101,7 @@ def ModDB(database):
 
     print("Linhas deletadas com sucesso!")
 
-def trocando_Valores(database, areas, tabela):
+async def trocando_Valores(database, areas, tabela):
     # Conecta ao banco
     conn = sqlite3.connect(database)
     cursor = conn.cursor()
@@ -135,7 +140,7 @@ def trocando_Valores(database, areas, tabela):
 
     print("Atualização concluída!")
 
-def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
+async def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
     # Garante que a pasta de saída existe
     os.makedirs(pasta_saida, exist_ok=True)
 
@@ -155,7 +160,7 @@ def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
     # Extrai código da posição 9–12 da coluna 33
     df["codigo_area"] = df[coluna_31].astype(str).str.slice(8, 12)  # pandas é 0-based
 
-    # 1️⃣ Filtros principais
+    # 1 Filtros principais
     filtros = {
         "Área 1000": df[df["codigo_area"].str.startswith("1")],
         "Área 2000": df[df["codigo_area"].str.startswith("2") & (~df["codigo_area"].isin(array_areas))],
@@ -167,11 +172,11 @@ def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
         "Área 8000": df[df["codigo_area"].str.startswith("8")],
     }
 
-    # 2️⃣ Filtros para cada código específico do array
+    # 2 Filtros para cada código específico do array
     for codigo in array_areas:
         filtros[f"Área {codigo}"] = df[df["codigo_area"] == codigo]
 
-    # 3️⃣ Exporta cada filtro para um arquivo separado
+    # 3 Exporta cada filtro para um arquivo separado
     for nome_area, dados in filtros.items():
         if not dados.empty:
             caminho_arquivo = os.path.join(pasta_saida, f"{nome_area}.xlsx")
@@ -181,9 +186,8 @@ def exportar_por_area_arquivos(caminho_banco, tabela, array_areas, pasta_saida):
     conn.close()
     print("Exportação concluída!")
 
-    
 
-def ajeitar(pasta,OEC,mb,ta):
+async def ajeitar(pasta,OEC,mb,ta):
     # Configurações
     coluna_formula = "AG"  # coluna onde a fórmula será aplicada
     formula_excel = "=(Q{row}/100)*U{row}"  # fórmula (pode usar =SOMA(...) se preferir)
@@ -311,14 +315,17 @@ def ajeitar(pasta,OEC,mb,ta):
         # Salvar alterações
         wb.save(arquivo)
 
-
-ajeitar(pasta_planilhas,imagem_Odebrecht,imagem_Marinha,ta=33)
-# exportar_por_area_arquivos(
-#     caminho_banco=db_path,
-#     tabela=tabela,
-#     array_areas=especificas,
-#     pasta_saida="export_areas"
-# )
-# trocando_Valores(database=db_path, areas= especificas, tabela=tabela)
-# export_planilhas(pln1,pln2,db_path)
-# ModDB(database= db_path)
+async def main():
+    try:
+        await export_planilhas(pln1,pln2,db_path)
+        await ModDB(db_path,tabela)
+        await trocando_Valores(database=db_path, areas= especificas, tabela=tabela)
+        await exportar_por_area_arquivos(caminho_banco=db_path,tabela=tabela,array_areas=especificas,pasta_saida="export_areas")
+        await ajeitar(pasta_planilhas,imagem_Odebrecht,imagem_Marinha,ta=33)
+    
+        print("Tarefa Concluida")
+                    
+    except Exception as e:
+        print(f"Erro inesperado: {e}")
+                
+# asyncio.run(main())

@@ -50,7 +50,7 @@ def varredura_pastas(caminho_raiz):
     import pandas as pd
 
     dados = []
-
+    arquivoTxT.atualizar_arquivo("Realizando Varredura de arquivos")
     for pasta_atual, subpastas, arquivos in os.walk(caminho_raiz):
         for subpasta in subpastas:
             caminho_completo = os.path.join(pasta_atual, subpasta)
@@ -58,6 +58,7 @@ def varredura_pastas(caminho_raiz):
                 'nome_pasta': subpasta,
                 'caminho': caminho_completo
             })
+    arquivoTxT.atualizar_arquivo("Varredura Completa")
 
     return pd.DataFrame(dados)
 
@@ -68,16 +69,16 @@ def deletar_tabela(nome_tabela, db_path):
     try:
         cursor.execute(f'DROP TABLE IF EXISTS {nome_tabela}')
         conn.commit()
-        print(f'Tabela "{nome_tabela}" deletada com sucesso.')
+        arquivoTxT.atualizar_arquivo(f'Tabela "{nome_tabela}" deletada com sucesso.')
     except Exception as e:
-        print(f'Erro ao deletar a tabela: {e}')
+        arquivoTxT.atualizar_arquivo(f'Erro ao deletar a tabela: {e}')
     finally:
         conn.close()
 
 # Caminho da pasta que você quer escanear
-caminho_diretorio = r"I:\PLANEJAMENTO\UFEM-02\PROPOSTA NOVA UFEM"  # Altere para o seu caminho
-modo = "Arquivos e Pastas"
-tabela = "UFEM-01"
+caminho_diretorio = sys.argv[3]  # Altere para o seu caminho
+modo = sys.argv[1]
+tabela = sys.argv[2]
 arquivoTxT = GerenciadorArquivo("log.txt")
 # Coletando os dados
 
