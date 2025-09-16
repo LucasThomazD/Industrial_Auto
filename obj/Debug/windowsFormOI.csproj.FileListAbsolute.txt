@@ -22,3 +22,4 @@ C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe.config
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.xml
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Disciplinas.resources
