@@ -83,7 +83,7 @@ arquivoTxT = GerenciadorArquivo("log.txt")
 # Coletando os dados
 
 def iniciar_varredura(modo):
-    with open("../config.json", "r", encoding="utf-8") as f:
+    with open("config.json", "r", encoding="utf-8") as f:
             configPDF = json.load(f)
             config = configPDF["Geral"]
     db_path = config["DataBase"]

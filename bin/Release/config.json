@@ -8,9 +8,9 @@
     "Sub2_Espa_Size": "6"
   },
   "Geral": {
-    "tema": "Claro",
-    "Impressora": "\\\\prosub-srv02\\prosub-sp",
-    "DataBase": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Release\\src\\dados_arquivos.db"
+    "tema": null,
+    "Impressora": null,
+    "DataBase": null
   },
   "Salvar": {
     "salvarFornecimento": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Release\\out\\fornecimento",

@@ -60,6 +60,9 @@ namespace windowsFormOI
             CarregarTabelas();
             PCP_01.Checked = true;
             Comparativos_aba.Checked = true;
+            Aba_Ferr_01.Checked = true;
+            Config_Aba_01.Checked = true;
+            CK_PDF_01.Checked = true;
 
 
             this.Paint += new PaintEventHandler(FormPrincipal_Paint);
@@ -74,11 +77,6 @@ namespace windowsFormOI
 
             dataGridView1.KeyDown += dataGridView1_KeyDown;
 
-            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
-            tabControl1.Appearance = TabAppearance.FlatButtons;
-            tabControl1.ItemSize = new Size(0, 1);
-            tabControl1.SizeMode = TabSizeMode.Fixed;
-            tabControl1.BackColor = Color.Transparent;
 
             //Container2.DrawMode = TabDrawMode.OwnerDrawFixed;
             //Container2.Appearance = TabAppearance.FlatButtons;
@@ -92,7 +90,7 @@ namespace windowsFormOI
             Box_Nomear.Enabled = false;
 
             //SetRoundedBorder(15, button1, button2, button3, button4, botUnificar, bArquivo, bAplicarInfo, bUnico, bElet, bCBINC, bMentos, bInst, bTub, bSupTub, bMulti, bConsolidado);
-            SetRoundedBorder(10, panel7, panel8, panel1, panel2);
+            //SetRoundedBorder(10, panel7, panel8, panel2);
         }
 
         private void FormPrincipal_Paint(object sender, PaintEventArgs e)
@@ -484,7 +482,6 @@ namespace windowsFormOI
             excelApp.DisplayAlerts = true; // <- Desativa mensagens de aviso
             excelApp.Quit();
 
-            MessageBox.Show("Arquivo Excel gerado com sucesso em: " + caminho);
         }
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -626,6 +623,26 @@ namespace windowsFormOI
             TA1_Box.Items.Add("TA 40");
             TA1_Box.SelectedIndex = 0;
 
+            TA1_Box2.Items.Add("Selecione");
+            TA1_Box2.Items.Add("TA 24");
+            TA1_Box2.Items.Add("TA 25");
+            TA1_Box2.Items.Add("TA 26");
+            TA1_Box2.Items.Add("TA 27");
+            TA1_Box2.Items.Add("TA 28");
+            TA1_Box2.Items.Add("TA 29");
+            TA1_Box2.Items.Add("TA 30");
+            TA1_Box2.Items.Add("TA 31");
+            TA1_Box2.Items.Add("TA 32");
+            TA1_Box2.Items.Add("TA 33");
+            TA1_Box2.Items.Add("TA 34");
+            TA1_Box2.Items.Add("TA 35");
+            TA1_Box2.Items.Add("TA 36");
+            TA1_Box2.Items.Add("TA 37");
+            TA1_Box2.Items.Add("TA 38");
+            TA1_Box2.Items.Add("TA 39");
+            TA1_Box2.Items.Add("TA 40");
+            TA1_Box2.SelectedIndex = 0;
+
 
 
 
@@ -649,6 +666,26 @@ namespace windowsFormOI
             TA2_Box.Items.Add("TA 39");
             TA2_Box.Items.Add("TA 40");
             TA2_Box.SelectedIndex = 0;
+
+            TA2_Box2.Items.Add("Selecione");
+            TA2_Box2.Items.Add("TA 24");
+            TA2_Box2.Items.Add("TA 25");
+            TA2_Box2.Items.Add("TA 26");
+            TA2_Box2.Items.Add("TA 27");
+            TA2_Box2.Items.Add("TA 28");
+            TA2_Box2.Items.Add("TA 29");
+            TA2_Box2.Items.Add("TA 30");
+            TA2_Box2.Items.Add("TA 31");
+            TA2_Box2.Items.Add("TA 32");
+            TA2_Box2.Items.Add("TA 33");
+            TA2_Box2.Items.Add("TA 34");
+            TA2_Box2.Items.Add("TA 35");
+            TA2_Box2.Items.Add("TA 36");
+            TA2_Box2.Items.Add("TA 37");
+            TA2_Box2.Items.Add("TA 38");
+            TA2_Box2.Items.Add("TA 39");
+            TA2_Box2.Items.Add("TA 40");
+            TA2_Box2.SelectedIndex = 0;
 
 
             area_box.Items.Add("Selecione");
@@ -882,13 +919,16 @@ namespace windowsFormOI
                     worksheet.Cells[2, 2] = textInicio.Text.ToString(); // Célula B2
                     worksheet.Cells[2, 3] = textFim.Text.ToString(); // Célula C2
                     worksheet.Cells[2, 1] = BoxModelo.SelectedItem.ToString(); // Célula A2
+                    worksheet.Cells[2, 4] = boxAbaCSD.Text; // Célula D2
+                    worksheet.Cells[2, 5] = Delimitador_Box.Text; // Célula E2
+                    worksheet.Cells[2, 6] = Box_Nomear.Text; // Célula F2
                     worksheet.Cells[3, 1] = config.Salvar.salvarFornecimento; // Célula A3
                     worksheet.Cells[3, 2] = config.Salvar.SalvarFisico; // Célula B3
                     worksheet.Cells[3, 3] = config.Salvar.SalvarConsolidado; // Célula C3
                     AtualizarStatus($"Informações Atualizadas", 100);
                     System.Threading.Thread.Sleep(2000);
                     AtualizarStatus($"Pronto Para Buscar Arquivos Comparativos", 0);
-                    MessageBox.Show("Informações Atualizadas");
+                   
                     return;
                 }
 
@@ -902,30 +942,82 @@ namespace windowsFormOI
             }
         }
 
+        //private void AbrirMacros()
+        //{
+        //    try
+        //    {
+        //        // Inicializa o Excel apenas se ainda não estiver inicializado
+        //        if (excelApp == null)
+        //        {
+        //            AtualizarStatus($"Iniciando Macro", 25);
+        //            excelApp = new Excel.Application();
+        //            string caminhoMacro = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "macros.xlsm");
+
+        //            // Abre o arquivo Excel
+        //            workbook = excelApp.Workbooks.Open(caminhoMacro);
+        //            AtualizarStatus($"Macro Iniciada", 50);
+
+        //            // Torna o Excel visível (opcional)
+        //            excelApp.Visible = false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro ao Abrir Arquivo Macro: " + ex.Message);
+        //        AtualizarStatus($"Error", 0);
+        //    }
+        //}
+
         private void AbrirMacros()
         {
             try
             {
-                // Inicializa o Excel apenas se ainda não estiver inicializado
-                if (excelApp == null)
+                bool precisaReiniciarExcel = false;
+
+                // Verifica se excelApp está instanciado e funcional
+                if (excelApp != null)
                 {
-                    AtualizarStatus($"Iniciando Macro", 25);
+                    try
+                    {
+                        var test = excelApp.Workbooks.Count; // Testa se o COM ainda responde
+                    }
+                    catch
+                    {
+                        precisaReiniciarExcel = true;
+                    }
+                }
+                else
+                {
+                    precisaReiniciarExcel = true;
+                }
+
+                // Se necessário, reinicia o Excel
+                if (precisaReiniciarExcel)
+                {
+                    AtualizarStatus("Reiniciando Excel...", 10);
+
+                    // Libera recursos antigos, se houver
+                    if (excelApp != null)
+                    {
+                        try { excelApp.Quit(); } catch { }
+                        Marshal.ReleaseComObject(excelApp);
+                        excelApp = null;
+                    }
+
                     excelApp = new Excel.Application();
                     string caminhoMacro = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "macros.xlsm");
-
-                    // Abre o arquivo Excel
                     workbook = excelApp.Workbooks.Open(caminhoMacro);
-                    AtualizarStatus($"Macro Iniciada", 50);
-
-                    // Torna o Excel visível (opcional)
                     excelApp.Visible = false;
+
+                    AtualizarStatus("Macro reiniciada com sucesso", 50);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Abrir Arquivo Macro: " + ex.Message);
-                AtualizarStatus($"Error", 0);
+                MessageBox.Show("Erro ao abrir ou reiniciar o Excel: " + ex.Message);
+                AtualizarStatus("Erro", 0);
             }
+
         }
         private void FecharExcel()
         {
@@ -1206,7 +1298,7 @@ namespace windowsFormOI
             {
 
                 string ver = verificar();
-                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
+                if (ver != "" && BoxTimbrado.Text != "")
                 {
                     AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
                     string imprimirpath = salvarPDF();
@@ -1242,7 +1334,7 @@ namespace windowsFormOI
             {
 
                 string ver = verificar();
-                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
+                if (ver != "" && BoxTimbrado.Text != "")
                 {
                     AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
                     string imprimirpath = salvarPDF();
@@ -1279,7 +1371,7 @@ namespace windowsFormOI
             {
 
                 string ver = verificar();
-                if (ver != "" && BoxTimbrado.SelectedIndex.ToString() != null)
+                if (ver != "" && BoxTimbrado.Text != "")
                 {
                     AtualizarStatus($"Gerando PDF com Modelo {BoxTimbrado.SelectedItem.ToString()}", 0);
                     string imprimirpath = salvarPDF();
@@ -1489,17 +1581,7 @@ namespace windowsFormOI
 
 
         }
-        private void Bt_Organizar_Click(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked == true || radioButton2.Checked == true)
-            {
-                organizarPasta(boxPathOrg);
-            }
-            else
-            {
-                AtualizarStatus("Selecione um dos modos de operação");
-            }
-        }
+      
 
 
 
@@ -1594,101 +1676,148 @@ namespace windowsFormOI
 
         int checarValor = 0;
         string nomeCapa;
-        private void checarMetodo()
+        //private void checarMetodo()
+        //{
+        //    if (ClPropComercial.Checked == true && ClPropTecnica.Checked == true)
+        //    {
+        //        checarValor = 1;
+        //        nomeCapa = "Técnica/Comercial";
+
+
+        //        return;
+        //    }
+        //    else if (ClPropComercial.Checked == true ^ ClPropTecnica.Checked == true)
+        //    {
+        //        checarValor = 2;
+        //        nomeCapa = "Técnica/Comercial";
+
+        //        return;
+        //    }
+        //    else if (checkFornecedor.Checked == true)
+        //    {
+        //        checarValor = 3;
+        //        nomeCapa = "Fornecedores";
+
+        //        return;
+
+        //    }
+        //    else if (ClSubCat.Checked == true)
+        //    {
+
+        //        checarValor = 4;
+        //        nomeCapa = "Sub-Categorias";
+
+        //        return;
+        //    }
+        //}
+
+        private void CK_TC_CheckedChanged(object sender, EventArgs e)
         {
-            if (ClPropComercial.Checked == true && ClPropTecnica.Checked == true)
+            if (CK_TC.Checked == true)
             {
+                richTextBox2.Visible = true;
+                TBPropTecnica.Visible = true;
+                TBPropTecnica.Text = "Proposta Técnica";
+                TBPropComercial.Text = "Proposta Comercial";
                 checarValor = 1;
                 nomeCapa = "Técnica/Comercial";
+                ClPropComercial.Checked = true;
+                ClPropTecnica.Checked = true;
 
 
-                return;
-            }
-            else if (ClPropComercial.Checked == true ^ ClPropTecnica.Checked == true)
-            {
-                checarValor = 2;
-                nomeCapa = "Técnica/Comercial";
-
-                return;
-            }
-            else if (checkFornecedor.Checked == true)
-            {
-                checarValor = 3;
-                nomeCapa = "Fornecedores";
-
-                return;
-
-            }
-            else if (ClSubCat.Checked == true)
-            {
-
-                checarValor = 4;
-                nomeCapa = "Sub-Categorias";
-
-                return;
-            }
-        }
-        private void CBPropComercial_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ClPropComercial.Checked == true)
-            {
-                TBPropComercial.ReadOnly = false;
-                ClSubCat.Checked = false;
-                checkFornecedor.Checked = false;
-
-            }
-            else if (ClPropComercial.Checked == false)
-            {
-                TBPropComercial.ReadOnly = true;
-                TBPropComercial.Text = "Proposta Comercial";
-            }
-        }
-
-        private void CBPropTecnica_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ClPropTecnica.Checked == true)
-            {
-                TBPropTecnica.ReadOnly = false;
-                ClSubCat.Checked = false;
-                checkFornecedor.Checked = false;
-
-            }
-            else if (ClPropTecnica.Checked == false)
-            {
-                TBPropTecnica.ReadOnly = true;
-                TBPropTecnica.Text = "Proposta Técnica";
-            }
-        }
-        private void checkFornecedor_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkFornecedor.Checked == true)
-            {
-                ClSubCat.Checked = false;
-                ClPropTecnica.Checked = false;
-                ClPropComercial.Checked = false;
-                Capa_fornecedores.ReadOnly = false;
-                Capa_fornecedores.Text = "Insira a RM Aqui";
             }
             else
             {
-                Capa_fornecedores.ReadOnly = true;
-                Capa_fornecedores.Text = "Fornecedores";
+                richTextBox2.Visible = false;
+                TBPropTecnica.Visible = false;
+                richTextBox2.Text = "";
+                richTextBox1.Text = "";
+                ClPropTecnica.Checked = false;
+
             }
         }
 
-        private void ClSubCat_CheckedChanged(object sender, EventArgs e)
+        private void CK_Tecnica_CheckedChanged(object sender, EventArgs e)
         {
-            checkFornecedor.Checked = false;
-            ClPropTecnica.Checked = false;
-            ClPropComercial.Checked = false;
+            if (CK_Tecnica.Checked == true)
+            {
+
+                TBPropComercial.Text = "Proposta Técnica";
+                checarValor = 2;
+                nomeCapa = "Técnica/Comercial";
+                ClPropComercial.Checked = true;
+
+
+            }
+            else 
+            {
+                richTextBox1.Text = "";
+            }
         }
 
+        private void CK_Comercial_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CK_Comercial.Checked == true)
+            {
+
+                TBPropComercial.Text = "Proposta Comercial";
+                checarValor = 2;
+                nomeCapa = "Técnica/Comercial";
+                ClPropComercial.Checked = true;
 
 
+            }
+
+        else
+            {
+                richTextBox1.Text = "";
+            }
+        }
+
+        private void CK_SubCat_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CK_SubCat.Checked == true)
+            {
+
+                TBPropComercial.Text = "Sub-Categorias";
+                checarValor = 4;
+                nomeCapa = "Sub-Categorias";
+                ClPropComercial.Checked = true;
+
+
+            }
+
+            else
+            {
+                richTextBox1.Text = "";
+            }
+        }
+
+        private void CK_Fornecedores_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CK_Fornecedores.Checked == true)
+            {
+
+                TBPropComercial.Text = "Inserir RM Aqui";
+                checarValor = 3;
+                nomeCapa = "Fornecedores";
+                ClPropComercial.Checked = true;
+
+                TBPropComercial.ReadOnly = false;
+
+
+            }
+            else
+            {
+                
+                TBPropComercial.ReadOnly = true;
+            }
+        }
 
 
         private void pycapas()
         {
+
             string area = TB_Area.Text;
             string descri = TB_Descri.Text;
             timer1.Start();
@@ -1707,7 +1836,7 @@ namespace windowsFormOI
 
         private void BTCapa_Click(object sender, EventArgs e)
         {
-            if (ClPropComercial.Checked == true || ClPropTecnica.Checked == true || checkFornecedor.Checked == true || ClSubCat.Checked == true)
+            if (ClPropComercial.Checked == true || ClPropTecnica.Checked == true)
             {
                 var categorias = new Dictionary<string, List<string>>();
 
@@ -1734,8 +1863,7 @@ namespace windowsFormOI
                 // Verifica cada bloco
                 AdicionarSeCheckMarcado(ClPropComercial, TBPropComercial, richTextBox1);
                 AdicionarSeCheckMarcado(ClPropTecnica, TBPropTecnica, richTextBox2);
-                AdicionarSeCheckMarcado(checkFornecedor, Capa_fornecedores, richTextBox3);
-                AdicionarSeCheckMarcado(ClSubCat, TxSubCat, richTextBox4);
+
 
                 if (categorias.Count == 0)
                 {
@@ -1746,7 +1874,7 @@ namespace windowsFormOI
                 // Exporta o JSON formatado
                 string json = JsonConvert.SerializeObject(categorias, Formatting.Indented);
                 File.WriteAllText("include/categorias.json", json);
-                checarMetodo();
+                //checarMetodo();
                 pycapas();
                 return;
 
@@ -1775,12 +1903,12 @@ namespace windowsFormOI
 
         private void pDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = PDF_Config;
+            tabControl1.SelectedTab = Geral_Aba;
         }
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = Salvar_Config;
+            tabControl1.SelectedTab = Salvar_Aba;
         }
 
 
@@ -1979,11 +2107,11 @@ namespace windowsFormOI
         {
             try
             {
-                if (BoxModelo.Text != "" && textInicio.Text != "" && textFim.Text != "" && boxAbaCSD.Text != "" && Box_Nomear.Text != "")
+                if (BoxModelo.Text != "" && textInicio.Text != "" && textFim.Text != "" && boxAbaCSD.Text != "")
                 {
 
                     AbrirMacros();
-                    ComboBoxTArea(TA1_Box, TA2_Box, area_box, BoxModelo, textInicio, textFim);
+                    ComboBoxTArea(TA1_Box2, TA2_Box2, area_box, BoxModelo, textInicio, textFim);
                     AtualizarStatus($"Gerando Consolidado", 20);
                     excelApp.Run("ModelosEscolha");
                     AtualizarStatus($"Finalizando Consolidado", 90);
@@ -2088,9 +2216,87 @@ namespace windowsFormOI
                 boxAbaCSD.Enabled = false;
                 textInicio.Text = "1";
                 textFim.Text = "1";
+                boxAbaCSD.Text = "1";
 
             }
         }
+
+        private void Abrir_out_01_Click(object sender, EventArgs e)
+        {
+            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out");
+            AbrirGerenciadorArquivos(caminho);
+        }
+
+        private void Abrir_out_02_Click(object sender, EventArgs e)
+        {
+            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out");
+            AbrirGerenciadorArquivos(caminho);
+        }
+
+        private void PDF_QP_bt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form2 novoForm = new Form2();
+                novoForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao abrir Form2: {ex.Message}");
+            }
+        }
+
+        private void Conversor_N_Click(object sender, EventArgs e)
+        {
+            string appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", "txtConvert.exe");
+
+            if (File.Exists(appPath))
+            {
+                Process.Start(appPath); // Inicia sua aplicação
+            }
+            else
+            {
+                MessageBox.Show("Arquivo não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Unificar_Bt_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (!string.IsNullOrWhiteSpace(textBox2.Text))
+                {
+
+                    unificar(textBox2);
+
+                }
+
+                else
+                {
+                    AtualizarStatus("Por Favor Inserir o Caminho e Tente Novamente!");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                AtualizarStatus($"Erro {ex.Message}");
+            }
+        }
+
+        private void Bt_Organizar_Click_1(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true || radioButton2.Checked == true)
+            {
+                organizarPasta(boxPathOrg);
+            }
+            else
+            {
+                AtualizarStatus("Selecione um dos modos de operação");
+            }
+        }
+
+
 
         // Navegação PCP Aba
 
@@ -2317,62 +2523,217 @@ namespace windowsFormOI
             }
         }
 
-        private void Abrir_out_01_Click(object sender, EventArgs e)
+        // Aba de Ferramentas
+
+        private void resetColorsFerr()
         {
-            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out");
-            AbrirGerenciadorArquivos(caminho);
+            BD_Caminhos.BackColor = Color.FromArgb(62, 131, 140);
+            BD_Caminhos.ForeColor = Color.White;
+            CataMilho_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            CataMilho_Bt.ForeColor = Color.White;
+            FerrAux_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            FerrAux_Bt.ForeColor = Color.White;
+
         }
 
-        private void PDF_QP_bt_Click(object sender, EventArgs e)
+        private void selecionarFerr()
         {
-            try
+            if (Aba_Ferr_01.Checked == true)
             {
-                Form2 novoForm = new Form2();
-                novoForm.Show();
+                resetColorsFerr();
+                BD_Caminhos.BackColor = Color.FromArgb(236, 225, 195);
+                BD_Caminhos.ForeColor = Color.Black;
+
             }
-            catch (Exception ex)
+            else if (Aba_Ferr_02.Checked == true)
             {
-                MessageBox.Show($"Erro ao abrir Form2: {ex.Message}");
+                resetColorsFerr();
+                CataMilho_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                CataMilho_Bt.ForeColor = Color.Black;
+            }
+            else if (Aba_Ferr_03.Checked == true)
+            {
+                resetColorsFerr();
+                FerrAux_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                FerrAux_Bt.ForeColor = Color.Black;
+            }
+            
+
+        }
+        private void BD_Caminhos_Click(object sender, EventArgs e)
+        {
+            Aba_Ferr_01.Checked = true;
+            tabControl2.SelectedTab = DB_Aba;
+        }
+
+        private void CataMilho_Bt_Click(object sender, EventArgs e)
+        {
+            Aba_Ferr_02.Checked = true;
+            tabControl2.SelectedTab = CM_Aba;
+        }
+
+        private void FerrAux_Bt_Click(object sender, EventArgs e)
+        {
+            Aba_Ferr_03.Checked = true;
+            tabControl2.SelectedTab = Aux_Aba;
+        }
+
+        private void Aba_Ferr_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Aba_Ferr_01.Checked == true)
+            {
+                Aba_Ferr_02.Checked = false;
+                Aba_Ferr_03.Checked = false;
+             
+                selecionarFerr();
             }
         }
 
-        private void Conversor_N_Click(object sender, EventArgs e)
+        private void Aba_Ferr_02_CheckedChanged(object sender, EventArgs e)
         {
-            string appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", "txtConvert.exe");
+            if (Aba_Ferr_02.Checked == true)
+            {
+                Aba_Ferr_01.Checked = false;
+                Aba_Ferr_03.Checked = false;
 
-            if (File.Exists(appPath))
-            {
-                Process.Start(appPath); // Inicia sua aplicação
-            }
-            else
-            {
-                MessageBox.Show("Arquivo não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                selecionarFerr();
             }
         }
 
-        private void Unificar_Bt_Click(object sender, EventArgs e)
+        private void Aba_Ferr_03_CheckedChanged(object sender, EventArgs e)
         {
-            try
+            if (Aba_Ferr_03.Checked == true)
             {
+                Aba_Ferr_02.Checked = false;
+                Aba_Ferr_01.Checked = false;
 
-                if (!string.IsNullOrWhiteSpace(textBox2.Text))
-                {
-
-                    unificar(textBox2);
-
-                }
-
-                else
-                {
-                    AtualizarStatus("Por Favor Inserir o Caminho e Tente Novamente!");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                AtualizarStatus($"Erro {ex.Message}");
+                selecionarFerr();
             }
         }
+
+        //Aba de Configuração
+
+        private void resetColorsConfig()
+        {
+            Geral_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            Geral_Bt.ForeColor = Color.White;
+            Salvar_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            Salvar_Bt.ForeColor = Color.White;
+
+        }
+
+        private void selecionarConfig()
+        {
+            if (Config_Aba_01.Checked == true)
+            {
+                resetColorsConfig();
+                Geral_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                Geral_Bt.ForeColor = Color.Black;
+
+            }
+            else if (Config_Aba_02.Checked == true)
+            {
+                resetColorsConfig();
+                Salvar_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                Salvar_Bt.ForeColor = Color.Black;
+            }
+
+
+        }
+
+        private void Geral_Bt_Click(object sender, EventArgs e)
+        {
+            Config_Aba_01.Checked = true;
+            tabControl1.SelectedTab = Geral_Aba;
+        }
+
+        private void Salvar_Bt_Click(object sender, EventArgs e)
+        {
+            Config_Aba_02.Checked = true;
+            tabControl1.SelectedTab = Salvar_Aba;
+        }
+
+        private void Config_Aba_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Config_Aba_01.Checked == true)
+            {
+                Config_Aba_02.Checked = false;
+
+                selecionarConfig();
+            }
+        }
+
+        private void Config_Aba_02_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Config_Aba_02.Checked == true)
+            {
+                Config_Aba_01.Checked = false;
+
+                selecionarConfig();
+            }
+        }
+        //Aba de PDF
+
+        private void resetColorsPDF()
+        {
+            Timbrao_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            Timbrao_Bt.ForeColor = Color.White;
+            Indice_Bt.BackColor = Color.FromArgb(62, 131, 140);
+            Indice_Bt.ForeColor = Color.White;
+
+        }
+
+        private void selecionarPDF()
+        {
+            if (CK_PDF_01.Checked == true)
+            {
+                resetColorsPDF();
+                Timbrao_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                Timbrao_Bt.ForeColor = Color.Black;
+
+            }
+            else if (CK_PDF_02.Checked == true)
+            {
+                resetColorsPDF();
+                Indice_Bt.BackColor = Color.FromArgb(236, 225, 195);
+                Indice_Bt.ForeColor = Color.Black;
+            }
+
+
+        }
+        private void Timbrao_Bt_Click(object sender, EventArgs e)
+        {
+            CK_PDF_01.Checked = true;
+            tabControl3.SelectedTab = Timbrado_Pag;
+        }
+
+        private void Indice_Bt_Click(object sender, EventArgs e)
+        {
+            CK_PDF_02.Checked = true;
+            tabControl3.SelectedTab = Indice_Pag;
+        }
+
+        private void CK_PDF_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CK_PDF_01.Checked == true)
+            {
+                CK_PDF_02.Checked = false;
+
+                selecionarPDF();
+            }
+        }
+
+        private void CK_PDF_02_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CK_PDF_02.Checked == true)
+            {
+                CK_PDF_01.Checked = false;
+
+                selecionarPDF();
+            }
+        }
+
+        
     }
     //public class TabControlSemGuias : System.Windows.Forms.TabControl
     //{

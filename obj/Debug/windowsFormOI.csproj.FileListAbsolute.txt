@@ -1,25 +1,30 @@
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.AssemblyReference.cache
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Form1.resources
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Properties.Resources.resources
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.GenerateResource.cache
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.CoreCompileInputs.cache
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.ResolveComReference.cache
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Newtonsoft.Json.dll
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Newtonsoft.Json.xml
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsF.90F19CC8.Up2Date
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\x64\pdfium.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\x86\pdfium.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.exe.config
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.exe
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.pdb
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.pdb
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\PdfiumViewer.dll
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\PdfiumViewer.xml
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\nl\PdfiumViewer.resources.dll
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Form2.resources
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\ClosedXML.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\PdfiumViewer.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\ClosedXML.pdb
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\ClosedXML.xml
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe.config
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\PdfiumViewer.xml
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.xml
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\nl\PdfiumViewer.resources.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.AssemblyReference.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.ResolveComReference.cache
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Disciplinas.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Form1.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Form2.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.FormPopUp.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.Properties.Resources.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.GenerateResource.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.csproj.CoreCompileInputs.cache
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsF.90F19CC8.Up2Date
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.pdb
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagAdicionar.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagGirar.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe.config

@@ -29,7 +29,14 @@ namespace windowsFormOI
 
         private string caminhoArquivo = "include/log.txt"; // Caminho do arquivo
         private string ultimoStatus = "";
-        
+        private PdfViewer pdfViewer;
+        private System.Windows.Forms.TextBox txtPaginaAtual;
+        string caminhoSalvar;
+        string nomeSalvar;
+        string temporarioSav;
+        bool statusSave = true;
+        bool existencia = false;
+
         private bool ordem;
         Process pythonProcess2;
         public Form2()
@@ -38,19 +45,53 @@ namespace windowsFormOI
             timer1 = new System.Windows.Forms.Timer();
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
-
-            todasBox.CheckedChanged += todasBox_CheckedChanged;
-            HorBox.CheckedChanged += HorBox_CheckedChanged;
-            AntiBox.CheckedChanged += AntiBox_CheckedChanged;
-            c90Box.CheckedChanged += c90Box_CheckedChanged;
-            c180Box.CheckedChanged += c180Box_CheckedChanged;
-            c270Box.CheckedChanged += c270Box_CheckedChanged;
             
+            //todasBox.CheckedChanged += todasBox_CheckedChanged;
+            //HorBox.CheckedChanged += HorBox_CheckedChanged;
+            //AntiBox.CheckedChanged += AntiBox_CheckedChanged;
+            //c90Box.CheckedChanged += c90Box_CheckedChanged;
+            //c180Box.CheckedChanged += c180Box_CheckedChanged;
+            //c270Box.CheckedChanged += c270Box_CheckedChanged;
+
+            inicializarPdfViewer();
+
 
         }
         private void Form2_Load(object sender, EventArgs e)
         {
             //MessageBox.Show("Form carregado!");
+            
+        }
+
+        
+        private void inicializarPdfViewer()
+        {
+            pdfViewer = new PdfViewer
+            {
+                Dock = DockStyle.Fill,
+                
+
+            };
+            PN_PDF.Controls.Add(pdfViewer);
+           // pdfViewer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+
+            // Evento para atualizar página atual
+            // pdfViewer.Renderer.Scroll += Renderer_Scroll;
+        }
+
+        private void AtualizarPaginaAtual()
+        {
+            if (pdfViewer.Document != null)
+            {
+                int paginaAtual = pdfViewer.Renderer.Page + 1; // índice começa em 0
+                txtPaginaAtual.Text = paginaAtual.ToString();
+            }
+        }
+
+        private void Renderer_Scroll(object sender, ScrollEventArgs e)
+        {
+            AtualizarPaginaAtual();
         }
 
         private void BtnAbri_Click(object sender, EventArgs e)
@@ -64,9 +105,40 @@ namespace windowsFormOI
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 resultado = openFileDialog.FileName; // Armazena o caminho do arquivo
-                
+                string nomeOriginal = Path.GetFileName(resultado);
+               
+                caminhoSalvar = resultado;
+                nomeSalvar = nomeOriginal;
+
+                // Caminho da pasta ./src (relativo ao executável)
+                string pastaSrc = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "src");
+
+                // Cria a pasta se não existir
+                if (!Directory.Exists(pastaSrc))
+                    Directory.CreateDirectory(pastaSrc);
+
+                // Nome temporário único
+                string nomeTemporario = Guid.NewGuid().ToString() + ".pdf";
+
+                // Caminho final do arquivo temporário
+                string caminhoTemporario = Path.Combine(pastaSrc, nomeTemporario);
+
+                // Copia o arquivo para a pasta ./src
+                File.Copy(resultado, caminhoTemporario, true);
+                temporarioSav = caminhoTemporario;
+
+
+                // Carrega o PDF
+                var doc = PdfDocument.Load(caminhoTemporario);
+                pdfViewer.Document = doc;
+
+                // Atualiza total de páginas
+                //lblTotalPaginas.Text = $"/ {doc.PageCount}";
+
+                //AtualizarPaginaAtual();
+
             }
-            webBrowser1.Navigate(resultado);
+            //webBrowser1.Navigate(resultado);
         }
 
         private void AtualizarStatus(string mensagem, int progresso = -1)
@@ -102,7 +174,7 @@ namespace windowsFormOI
                     }
                     else if (novoStatus == "Atualizando PDF")
                     {
-                        webBrowser1.Navigate(resultado);
+                       // webBrowser1.Navigate(resultado);
                     }
                     if (novoStatus != ultimoStatus)
                     {
@@ -133,53 +205,41 @@ namespace windowsFormOI
             }
             return resultado;
         }
-        private bool ordemSelect()
-        {
-            
-            if (radioButton1.Checked)
-            {
-                ordem = true;
-            }
-            else if (radioButton2.Checked)
-            {
-                ordem = false;
-            }
-            return ordem;
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (numerBox != null && radioButton2.Checked || radioButton1.Checked)
-            {
-                timer1.Start();
-                int caso = 1;
-                string adicionar = buscarpdf();
-                string pagina = numerBox.Text;
-                bool ordem = ordemSelect();
-                string caminho = resultado;
-                string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "main.py");
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-                startInfo.Arguments = $"\"{scriptpath}\" \"{caso}\" \"{caminho}\" \"{pagina}\" \"{adicionar}\" \"{ordem}\""; // Substitua pelo caminho do seu script Python
-                startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                startInfo.UseShellExecute = false;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.CreateNoWindow = true;
-                if (adicionar != null)
-                {
-                    webBrowser1.Navigate("");
-                    pythonProcess2 = Process.Start(startInfo);
-                }
-                else
-                {
-                    AtualizarStatus("Erro ao Selecionar Arquivo");
-                }
+            //if (numerBox != null && radioButton2.Checked || radioButton1.Checked)
+            //{
+            //    timer1.Start();
+            //    int caso = 1;
+            //    string adicionar = buscarpdf();
+            //    string pagina = numerBox.Text;
+            //    bool ordem = ordemSelect();
+            //    string caminho = resultado;
+            //    string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "main.py");
+            //    ProcessStartInfo startInfo = new ProcessStartInfo();
+            //    startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
+            //    startInfo.Arguments = $"\"{scriptpath}\" \"{caso}\" \"{caminho}\" \"{pagina}\" \"{adicionar}\" \"{ordem}\""; // Substitua pelo caminho do seu script Python
+            //    startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //    startInfo.UseShellExecute = false;
+            //    startInfo.RedirectStandardOutput = true;
+            //    startInfo.CreateNoWindow = true;
+            //    if (adicionar != null)
+            //    {
+            //        //webBrowser1.Navigate("");
+            //        pythonProcess2 = Process.Start(startInfo);
+            //    }
+            //    else
+            //    {
+            //        AtualizarStatus("Erro ao Selecionar Arquivo");
+            //    }
                
-            }
-            else {
-                AtualizarStatus($"Erro Digite o Número da Página ou Selecione {"Antes"} ou {"Depois"}");
-            }
+            //}
+            //else {
+            //    AtualizarStatus($"Erro Digite o Número da Página ou Selecione {"Antes"} ou {"Depois"}");
+            //}
 
         }
 
@@ -201,7 +261,7 @@ namespace windowsFormOI
                 startInfo.RedirectStandardOutput = true;
                 startInfo.CreateNoWindow = true;
                 
-                webBrowser1.Navigate("");
+               // webBrowser1.Navigate("");
                 pythonProcess2 = Process.Start(startInfo);
                 
 
@@ -230,7 +290,7 @@ namespace windowsFormOI
                 startInfo.RedirectStandardOutput = true;
                 startInfo.CreateNoWindow = true;
 
-                webBrowser1.Navigate("");
+               // webBrowser1.Navigate("");
                 pythonProcess2 = Process.Start(startInfo);
 
 
@@ -240,143 +300,126 @@ namespace windowsFormOI
                 AtualizarStatus("Digite o N° da Página!");
             }
         }
-        private int grausSelect() {
-            int graus = 0;
-            if (c90Box.Checked)
-            {
-                graus = 90;
-            }
-            else if (c180Box.Checked) {
-                graus = 180;
-            }
-            else if (c270Box.Checked)
-            {
-                graus = 270;
-            }
-
-            return graus;
-        }
-
-        private string sentindoVirar()
-        {
-            string sentido = null;
-            if (HorBox.Checked)
-            {
-                sentido = "horario";
-            }
-            else if (AntiBox.Checked)
-            {
-                sentido = "anti-horario";
-
-            }
-            return sentido;
-        }
+        
         private void button4_Click(object sender, EventArgs e)
         {
-            int graus = grausSelect();
-            if (numerBox != null && graus != 0 )
-            {
-                timer1.Start();
-                int caso = 4;
-                string pagina = numerBox.Text;
-                string caminho = resultado;                
-                string sentido = sentindoVirar();
-                string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "main.py");
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-                startInfo.Arguments = $"\"{scriptpath}\" \"{caso}\" \"{caminho}\" \"{pagina}\" \"{graus}\" \"{sentido}\""; // Substitua pelo caminho do seu script Python
-                startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                startInfo.UseShellExecute = false;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.CreateNoWindow = true;
+        //    int graus = grausSelect();
+        //    if (numerBox != null && graus != 0 )
+        //    {
+        //        timer1.Start();
+        //        int caso = 4;
+        //        string pagina = numerBox.Text;
+        //        string caminho = resultado;                
+        //        string sentido = sentindoVirar();
+        //        string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "main.py");
+        //        ProcessStartInfo startInfo = new ProcessStartInfo();
+        //        startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
+        //        startInfo.Arguments = $"\"{scriptpath}\" \"{caso}\" \"{caminho}\" \"{pagina}\" \"{graus}\" \"{sentido}\""; // Substitua pelo caminho do seu script Python
+        //        startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        //        startInfo.UseShellExecute = false;
+        //        startInfo.RedirectStandardOutput = true;
+        //        startInfo.CreateNoWindow = true;
 
-                webBrowser1.Navigate("");
-                pythonProcess2 = Process.Start(startInfo);
+        //        //webBrowser1.Navigate("");
+        //        pythonProcess2 = Process.Start(startInfo);
 
 
-            }
-            else
-            {
-                AtualizarStatus("Digite o N° da Página ou Selecione o Grau de Rotação");
-            }
-        }
-
-        private void HorBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (HorBox.Checked)
-            {
-                AntiBox.Checked = false; // Desmarca a outra CheckBox
-                
-
-            }
-        }
-
-        private void AntiBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (AntiBox.Checked)
-            {
-                HorBox.Checked = false; // Desmarca a outra CheckBox
-                
-
-            }
-        }
-
-        private void c90Box_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c90Box.Checked)
-            {
-                c180Box.Checked = false;
-                c270Box.Checked = false;
-               
-          
-
-            }
-        }
-
-        private void c180Box_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c180Box.Checked)
-            {
-                c90Box.Checked = false;
-                c270Box.Checked = false;
-                
-          
-            }
-
-        }
-
-        private void c270Box_CheckedChanged(object sender, EventArgs e)
-        {
-            if (c270Box.Checked)
-            {
-                c180Box.Checked = false;
-                c90Box.Checked = false;
-               
-            }
-
+        //    }
+        //    else
+        //    {
+        //        AtualizarStatus("Digite o N° da Página ou Selecione o Grau de Rotação");
+        //    }
         }
 
        
 
-        private void todasBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (todasBox.Checked)
-            {
-                numerBox.Text = "None";
-                numerBox.Enabled = false;
-
-            }
-            else 
-            {
-                numerBox.Enabled = true;
-                numerBox = null;
-                            
-            }
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Sem Ajuda!");
+        }
+
+        private void Extrair_pag_Click(object sender, EventArgs e)
+        {
+            // Cria o pop-up
+            var Uc = new PagAdicionar();
+            FormPopUp popup = new FormPopUp(Uc, "testando");
+
+            Uc.FormPai = this;
+
+            popup.FormPai = this;
+
+            // Calcula posição do botão na tela
+            var botao = sender as System.Windows.Forms.Button;
+            var posicaoBotao = botao.PointToScreen(System.Drawing.Point.Empty);
+
+            // Define posição do pop-up (à direita do botão)
+            popup.StartPosition = FormStartPosition.Manual;
+            popup.Location = new System.Drawing.Point(
+                posicaoBotao.X + botao.Width,
+                posicaoBotao.Y
+            );
+
+            // Mostra como não modal (para permitir clique fora)
+            popup.Show();
+        }
+
+        private void PN_PDF_SizeChanged(object sender, EventArgs e)
+        {
+            // Mantém a página atual visível
+            int paginaAtual = pdfViewer.Renderer.Page;
+            pdfViewer.Renderer.Page = paginaAtual;
+        }
+
+        private void PN_PDF_Resize(object sender, EventArgs e)
+        {
+            pdfViewer.Size = PN_PDF.ClientSize; // garante que o tamanho seja igual ao do painel
+            pdfViewer.PerformLayout();
+            pdfViewer.Renderer.Invalidate(); // força redesenho
+        }
+
+        private void Abrir_File_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivos de texto (*.pdf)|*.pdf"; // Filtro de arquivos
+            openFileDialog.Title = "Selecione um arquivo";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                resultado = openFileDialog.FileName; // Armazena o caminho do arquivo
+                string nomeOriginal = Path.GetFileName(resultado);
+
+                caminhoSalvar = resultado;
+                nomeSalvar = nomeOriginal;
+
+                // Caminho da pasta ./src (relativo ao executável)
+                string pastaSrc = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "src");
+
+                // Cria a pasta se não existir
+                if (!Directory.Exists(pastaSrc))
+                    Directory.CreateDirectory(pastaSrc);
+
+                // Nome temporário único
+                string nomeTemporario = Guid.NewGuid().ToString() + ".pdf";
+
+                // Caminho final do arquivo temporário
+                string caminhoTemporario = Path.Combine(pastaSrc, nomeTemporario);
+
+                // Copia o arquivo para a pasta ./src
+                File.Copy(resultado, caminhoTemporario, true);
+                temporarioSav = caminhoTemporario;
+
+
+                // Carrega o PDF
+                var doc = PdfDocument.Load(caminhoTemporario);
+                pdfViewer.Document = doc;
+
+                // Atualiza total de páginas
+                //lblTotalPaginas.Text = $"/ {doc.PageCount}";
+
+                //AtualizarPaginaAtual();
+
+            }
+            //webBrowser1.Navigate(resultado);
         }
     }
 }

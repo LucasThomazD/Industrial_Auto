@@ -9,7 +9,7 @@
   },
   "Geral": {
     "tema": "Claro",
-    "Impressora": "\\\\prosub-srv02\\prosub-sp",
+    "Impressora": "\\\\prosub-srv01\\prosub-ch",
     "DataBase": "C:\\Users\\lucasduarte\\source\\repos\\Orçamento_Industrial\\windowsFormOI\\bin\\Debug\\src\\dados_arquivos.db"
   },
   "Salvar": {
