@@ -1214,23 +1214,7 @@ namespace windowsFormOI
             }
         }
 
-        private void unificar(System.Windows.Forms.TextBox PathBox)
-        {
-            timer1.Start();
-            string caminho = PathBox.Text;
-            string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "MesclarPDF.py");
-            AtualizarStatus("", 0);
-
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
-            startInfo.Arguments = $"\"{scriptpath}\" \"{caminho}\""; // Substitua pelo caminho do seu script Python
-            startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            startInfo.UseShellExecute = false;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.CreateNoWindow = true;
-
-            pythonProcess = Process.Start(startInfo);
-        }
+        
 
 
         private void pythonEscolha(string imprimir, string item, int escolha)
@@ -1440,29 +1424,7 @@ namespace windowsFormOI
             }
         }
 
-        private void botUnificar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (!string.IsNullOrWhiteSpace(textBox2.Text))
-                {
-
-                    unificar(textBox2);
-
-                }
-
-                else
-                {
-                    AtualizarStatus("Por Favor Inserir o Caminho e Tente Novamente!");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                AtualizarStatus($"Erro {ex.Message}");
-            }
-        }
+       
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -2260,29 +2222,7 @@ namespace windowsFormOI
             }
         }
 
-        private void Unificar_Bt_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
 
-                if (!string.IsNullOrWhiteSpace(textBox2.Text))
-                {
-
-                    unificar(textBox2);
-
-                }
-
-                else
-                {
-                    AtualizarStatus("Por Favor Inserir o Caminho e Tente Novamente!");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                AtualizarStatus($"Erro {ex.Message}");
-            }
-        }
 
         private void Bt_Organizar_Click_1(object sender, EventArgs e)
         {

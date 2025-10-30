@@ -5,6 +5,8 @@ from manipular import GerenciadorArquivo
 
 
 class LayoutPDF(FPDF):
+
+    
     def __init__(self):
         super().__init__()
         # 1) Registrar a família DejaVu (uni=True)
@@ -12,13 +14,13 @@ class LayoutPDF(FPDF):
         family="DejaVuB",        # nome para usar no set_font
         style="",               # "", "B", "I" ou "BI"
         fname=os.path.join(os.getcwd(),"assets","font","DejaVuSansMNerdFont-Bold.ttf"), # caminho para o arquivo .ttf
-        uni=True                # habilita Unicode
+                        # habilita Unicode
         )
         self.add_font(
         family="DejaVu",        # nome para usar no set_font
         style="",               # "", "B", "I" ou "BI"
         fname=os.path.join(os.getcwd(),"assets","font","DejaVuSansMNerdFont-Regular.ttf"), # caminho para o arquivo .ttf
-        uni=True                # habilita Unicode
+                     # habilita Unicode
         )
     
 
@@ -278,6 +280,7 @@ arquivotxt = GerenciadorArquivo("include/log.txt")
 area = sys.argv[1]
 descri = sys.argv[2]
 modo = int(sys.argv[3])
+
 if __name__ == "__main__":
     main()
     

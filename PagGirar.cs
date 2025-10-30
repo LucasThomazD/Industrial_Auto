@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace windowsFormOI
 {
     public partial class PagGirar : UserControl
+
     {
+        public Form2 FormPai { get; set; }
         public PagGirar()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace windowsFormOI
 
             return graus;
         }
+
+
 
         private string sentindoVirar()
         {
@@ -100,6 +104,36 @@ namespace windowsFormOI
         private void c270Box_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int graus = grausSelect();
+            //if (numerBox != null && graus != 0)
+            //{
+            //    timer1.Start();
+            //    int caso = 4;
+            //    string pagina = numerBox.Text;
+            //    string caminho = resultado;
+            //    string sentido = sentindoVirar();
+            //    string scriptpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "include", "main.py");
+            //    ProcessStartInfo startInfo = new ProcessStartInfo();
+            //    startInfo.FileName = "python.exe"; // Certifique-se de que o Python está no PATH
+            //    startInfo.Arguments = $"\"{scriptpath}\" \"{caso}\" \"{caminho}\" \"{pagina}\" \"{graus}\" \"{sentido}\""; // Substitua pelo caminho do seu script Python
+            //    startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //    startInfo.UseShellExecute = false;
+            //    startInfo.RedirectStandardOutput = true;
+            //    startInfo.CreateNoWindow = true;
+
+            //    //webBrowser1.Navigate("");
+            //    pythonProcess2 = Process.Start(startInfo);
+
+
+            //}
+            //else
+            //{
+            //    AtualizarStatus("Digite o N° da Página ou Selecione o Grau de Rotação");
+            //}
         }
     }
 }

@@ -16,12 +16,14 @@ C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Releas
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\PdfiumViewer.xml
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\nl\PdfiumViewer.resources.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.Form2.resources
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.pdb
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\ClosedXML.xml
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\System.Data.SQLite.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\System.Data.SQLite.xml
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.Disciplinas.resources
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.FormPopUp.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.PagAdicionar.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.PagGirar.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\x64\pdfium.dll
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Release\x86\pdfium.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\Orçamento Industrial.exe.config
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Release\windowsFormOI.AdicionarPag.resources

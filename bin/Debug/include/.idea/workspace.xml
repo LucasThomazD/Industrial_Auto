@@ -2,7 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ff761b2-3941-4914-92fb-255c825299a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/vasculhar.py" beforeDir="false" afterPath="$PROJECT_DIR$/vasculhar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form2.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form2.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Form2.resx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Form2.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PagAdicionar.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PagAdicionar.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PagGirar.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PagGirar.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PagGirar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PagGirar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Orçamento Industrial.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Orçamento Industrial.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Orçamento Industrial.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Orçamento Industrial.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Capas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Capas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excel_PDF_Timbrado.py" beforeDir="false" afterPath="$PROJECT_DIR$/Excel_PDF_Timbrado.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MesclarPDF.py" beforeDir="false" afterPath="$PROJECT_DIR$/MesclarPDF.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF_QuasePro.py" beforeDir="false" afterPath="$PROJECT_DIR$/PDF_QuasePro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categorias.json" beforeDir="false" afterPath="$PROJECT_DIR$/categorias.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teste2.py" beforeDir="false" afterPath="$PROJECT_DIR$/teste2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/0f73c888-577b-42e5-9909-7bc736c81d26.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/118b6347-7097-43a1-86d6-c9f30cb9d02d.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/3d542518-0e7b-474a-a5b2-6c49d61c991a.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/572f84c0-42aa-48ec-8f78-d7e3f64383d8.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/68e3a426-6408-4e22-a914-80023ac4342a.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/a4718dfe-96fd-44e0-8a99-da07dd2f62fe.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/a66fde08-be55-42e9-b2a9-5bb5d80b45dc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/a8626f9f-4b66-45e1-b297-974cf36b04bf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/b699346f-c1c8-411a-bc9b-e7982ef41c7c.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/b9772fed-32ff-42e2-8dfc-cf8c1e0ecfad.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/e853016d-54f2-45cf-a438-ff8c161faf7f.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/f9927f05-d0fc-44a5-9adb-372ee36cb095.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Release/Orçamento Industrial.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Release/Orçamento Industrial.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Release/Orçamento Industrial.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Release/Orçamento Industrial.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/Orçamento Industrial.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/Orçamento Industrial.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/Orçamento Industrial.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/Orçamento Industrial.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.Form2.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.Form2.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Debug/windowsFormOI.csproj.ResolveComReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/Orçamento Industrial.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/Orçamento Industrial.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/Orçamento Industrial.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/Orçamento Industrial.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.AdicionarPag.resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.Form2.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.Form2.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../obj/Release/windowsFormOI.csproj.ResolveComReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../windowsFormOI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../windowsFormOI.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,21 +65,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="32SpNJYJ68puNm1lDk2LNDDgY4u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

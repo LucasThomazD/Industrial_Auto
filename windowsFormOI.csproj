@@ -88,6 +88,37 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PagDividir.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagDividir.Designer.cs">
+      <DependentUpon>PagDividir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagMarca.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagMarca.Designer.cs">
+      <DependentUpon>PagMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagMesclar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagMesclar.Designer.cs">
+      <DependentUpon>PagMesclar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagRCE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagRCE.Designer.cs">
+      <DependentUpon>PagRCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagSequencial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagSequencial.Designer.cs">
+      <DependentUpon>PagSequencial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PipeServer.cs" />
     <Compile Include="TransparentePanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -145,8 +176,23 @@
     <EmbeddedResource Include="FormPopUp.resx">
       <DependentUpon>FormPopUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PagDividir.resx">
+      <DependentUpon>PagDividir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PagGirar.resx">
       <DependentUpon>PagGirar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagMarca.resx">
+      <DependentUpon>PagMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagMesclar.resx">
+      <DependentUpon>PagMesclar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagRCE.resx">
+      <DependentUpon>PagRCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagSequencial.resx">
+      <DependentUpon>PagSequencial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

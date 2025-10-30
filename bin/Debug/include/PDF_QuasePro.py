@@ -1,13 +1,14 @@
-import PyPDF2, sys, os, time
+import  sys, os, time
 from manipular import GerenciadorArquivo
+from pypdf import PdfWriter, PdfReader
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "../libs"))
 
 class alterar_pag:
     def remover_pagina(pdf_entrada, pdf_saida, pagina_remover):
         with open(pdf_entrada, "rb") as arquivo:
-            leitor_pdf = PyPDF2.PdfReader(arquivo)
-            escritor_pdf = PyPDF2.PdfWriter()
+            leitor_pdf = PdfReader(arquivo)
+            escritor_pdf = PdfWriter()
 
             # Adiciona todas as páginas, exceto a que deve ser removida
             for i in range(len(leitor_pdf.pages)):
@@ -27,9 +28,9 @@ class alterar_pag:
         
         # Abrindo os arquivos PDF
         with open(base_pdf, "rb") as base, open(inserir_pdf, "rb") as inserir:
-            base_reader = PyPDF2.PdfReader(base)
-            inserir_reader = PyPDF2.PdfReader(inserir)
-            writer = PyPDF2.PdfWriter()
+            base_reader = PdfReader(base)
+            inserir_reader = PdfReader(inserir)
+            writer = PdfWriter()
 
             # Adicionando páginas antes ou depois da posição especificada
             for i in range(len(base_reader.pages)):
@@ -54,8 +55,8 @@ class alterar_pag:
 
     def copiar_pagina(pdf_entrada, pagina_remover):
         with open(pdf_entrada, "rb") as arquivo:
-            leitor_pdf = PyPDF2.PdfReader(arquivo)
-            escritor_pdf = PyPDF2.PdfWriter()
+            leitor_pdf = PdfReader(arquivo)
+            escritor_pdf = PdfWriter()
 
             # Ajustando índice para começar em 0
             pagina = pagina_remover - 1
@@ -84,8 +85,8 @@ class alterar_pag:
     
     def rotacionar_pdf(pdf_entrada, pdf_saida,  pagina_especifica=None, graus = 90, sentido="horario"):
         with open(pdf_entrada, "rb") as arquivo:
-            leitor_pdf = PyPDF2.PdfReader(arquivo)
-            escritor_pdf = PyPDF2.PdfWriter()
+            leitor_pdf = PdfReader(arquivo)
+            escritor_pdf = PdfWriter()
 
             # Ajustando o sentido da rotação
             if sentido.lower() == "horario":

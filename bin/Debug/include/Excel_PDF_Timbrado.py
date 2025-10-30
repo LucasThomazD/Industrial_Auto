@@ -1,6 +1,6 @@
-import win32com.client, os, sys, json, time, PyPDF2, win32print
+import win32com.client, os, sys, json, time,  win32print
 from manipular import *
-from PyPDF2 import PdfReader, PdfWriter, PageObject
+from pypdf import PdfReader, PdfWriter, PageObject
 
 
 with open("include/layouts_papel.json", "r", encoding="utf-8") as arquivo:
@@ -27,7 +27,7 @@ class Pdf_Bonito:
 
     def ajustar_tamanho_pagina(pagina, tamanho_papel):
         """Redimensiona a página para o tamanho de papel escolhido."""
-        nova_pagina = PyPDF2.PageObject.create_blank_page(width=tamanho_papel[0], height=tamanho_papel[1])
+        nova_pagina = PageObject.create_blank_page(width=tamanho_papel[0], height=tamanho_papel[1])
         nova_pagina.merge_page(pagina)  # Mantém o conteúdo original dentro do novo tamanho
         return nova_pagina
     
@@ -74,9 +74,9 @@ class Pdf_Bonito:
     def aplicar_fundo_preservando_texto(pdf_original, pdf_fundo, pdf_resultado, tamanho_papel):
         """Sobrepõe um PDF de fundo em cada página, preservando o texto e numeração do original."""
         with open(pdf_original, "rb") as arquivo_original, open(pdf_fundo, "rb") as arquivo_fundo:
-            leitor_original = PyPDF2.PdfReader(arquivo_original)
-            leitor_fundo = PyPDF2.PdfReader(arquivo_fundo)
-            escritor = PyPDF2.PdfWriter()
+            leitor_original = PdfReader(arquivo_original)
+            leitor_fundo = PdfReader(arquivo_fundo)
+            escritor = PdfWriter()
 
             if len(leitor_fundo.pages) == 0:
                 raise ValueError("O arquivo de fundo está vazio!")
@@ -85,7 +85,7 @@ class Pdf_Bonito:
 
             for pagina in leitor_original.pages:
                 pagina_ajustada = Pdf_Bonito.ajustar_tamanho_pagina(pagina, tamanho_papel)
-                nova_pagina = PyPDF2.PageObject.create_blank_page(width=tamanho_papel[0], height=tamanho_papel[1])
+                nova_pagina = PageObject.create_blank_page(width=tamanho_papel[0], height=tamanho_papel[1])
                 nova_pagina.merge_page(fundo_pagina)
                 nova_pagina.merge_page(pagina_ajustada)
 
@@ -99,9 +99,9 @@ class Pdf_Bonito:
         try:
             # Abrir os PDFs
             with open(arquivo_principal, "rb") as file_principal, open(arquivo_inserido, "rb") as file_inserido:
-                leitor_principal = PyPDF2.PdfReader(file_principal)
-                leitor_inserido = PyPDF2.PdfReader(file_inserido)
-                escritor = PyPDF2.PdfWriter()
+                leitor_principal = PdfReader(file_principal)
+                leitor_inserido = PdfReader(file_inserido)
+                escritor = PdfWriter()
 
                 # Combina as páginas dos dois PDFs
                 for i in range(len(leitor_principal.pages)):

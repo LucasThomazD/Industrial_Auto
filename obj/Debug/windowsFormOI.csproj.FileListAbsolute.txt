@@ -3,7 +3,6 @@ C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.exe.config
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.exe
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Orçamento Industrial.pdb
-C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\ClosedXML.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\PdfiumViewer.dll
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\bin\Debug\System.Data.SQLite.dll
@@ -28,3 +27,8 @@ C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagAdicionar.resources
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagGirar.resources
 C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\Orçamento Industrial.exe.config
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagMesclar.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagDividir.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagMarca.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagRCE.resources
+C:\Users\lucasduarte\source\repos\Orçamento_Industrial\windowsFormOI\obj\Debug\windowsFormOI.PagSequencial.resources
