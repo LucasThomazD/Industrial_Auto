@@ -88,46 +88,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PagDividir.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagDividir.Designer.cs">
-      <DependentUpon>PagDividir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PagMarca.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagMarca.Designer.cs">
-      <DependentUpon>PagMarca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PagMesclar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagMesclar.Designer.cs">
-      <DependentUpon>PagMesclar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PagRCE.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagRCE.Designer.cs">
-      <DependentUpon>PagRCE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PagSequencial.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagSequencial.Designer.cs">
-      <DependentUpon>PagSequencial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PipeServer.cs" />
-    <Compile Include="TransparentePanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PagAdicionar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagAdicionar.Designer.cs">
-      <DependentUpon>PagAdicionar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Configuracao.cs" />
     <Compile Include="Disciplinas.cs">
       <SubType>UserControl</SubType>
@@ -141,58 +101,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPopUp.Designer.cs">
-      <DependentUpon>FormPopUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PagGirar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PagGirar.Designer.cs">
-      <DependentUpon>PagGirar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PagAdicionar.resx">
-      <DependentUpon>PagAdicionar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Disciplinas.resx">
       <DependentUpon>Disciplinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPopUp.resx">
-      <DependentUpon>FormPopUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagDividir.resx">
-      <DependentUpon>PagDividir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagGirar.resx">
-      <DependentUpon>PagGirar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagMarca.resx">
-      <DependentUpon>PagMarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagMesclar.resx">
-      <DependentUpon>PagMesclar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagRCE.resx">
-      <DependentUpon>PagRCE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PagSequencial.resx">
-      <DependentUpon>PagSequencial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

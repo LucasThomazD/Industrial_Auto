@@ -109,7 +109,6 @@ namespace windowsFormOI
             this.CK_PDF_02 = new System.Windows.Forms.CheckBox();
             this.Abrir_out_02 = new System.Windows.Forms.PictureBox();
             this.Timbrao_Bt = new System.Windows.Forms.Button();
-            this.PDF_QP_bt = new System.Windows.Forms.Button();
             this.Indice_Bt = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tabControl3 = new System.Windows.Forms.TabControl();
@@ -1184,7 +1183,6 @@ namespace windowsFormOI
             this.panel4.Controls.Add(this.CK_PDF_02);
             this.panel4.Controls.Add(this.Abrir_out_02);
             this.panel4.Controls.Add(this.Timbrao_Bt);
-            this.panel4.Controls.Add(this.PDF_QP_bt);
             this.panel4.Controls.Add(this.Indice_Bt);
             this.panel4.Location = new System.Drawing.Point(19, 16);
             this.panel4.Name = "panel4";
@@ -1240,22 +1238,6 @@ namespace windowsFormOI
             this.Timbrao_Bt.Text = "Timbrado";
             this.Timbrao_Bt.UseVisualStyleBackColor = false;
             this.Timbrao_Bt.Click += new System.EventHandler(this.Timbrao_Bt_Click);
-            // 
-            // PDF_QP_bt
-            // 
-            this.PDF_QP_bt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(24)))), ((int)(((byte)(66)))));
-            this.PDF_QP_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PDF_QP_bt.FlatAppearance.BorderSize = 0;
-            this.PDF_QP_bt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PDF_QP_bt.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PDF_QP_bt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PDF_QP_bt.Location = new System.Drawing.Point(26, 120);
-            this.PDF_QP_bt.Name = "PDF_QP_bt";
-            this.PDF_QP_bt.Size = new System.Drawing.Size(108, 38);
-            this.PDF_QP_bt.TabIndex = 2;
-            this.PDF_QP_bt.Text = "PDF Easy";
-            this.PDF_QP_bt.UseVisualStyleBackColor = false;
-            this.PDF_QP_bt.Click += new System.EventHandler(this.PDF_QP_bt_Click);
             // 
             // Indice_Bt
             // 
@@ -3608,7 +3590,6 @@ namespace windowsFormOI
         private System.Windows.Forms.CheckBox CK_PDF_02;
         private System.Windows.Forms.PictureBox Abrir_out_02;
         private System.Windows.Forms.Button Timbrao_Bt;
-        private System.Windows.Forms.Button PDF_QP_bt;
         private System.Windows.Forms.Button Indice_Bt;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.CheckBox Aba_Ferr_01;

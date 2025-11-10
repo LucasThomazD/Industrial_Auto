@@ -1439,19 +1439,7 @@ namespace windowsFormOI
             InitializeComponent();
         }
 
-        private void visualizarPDF_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Form2 novoForm = new Form2();
-                novoForm.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao abrir Form2: {ex.Message}");
-            }
-
-        }
+  
         private void caminhoPDFs_Click(object sender, EventArgs e)
         {
             string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out");
@@ -2195,18 +2183,7 @@ namespace windowsFormOI
             AbrirGerenciadorArquivos(caminho);
         }
 
-        private void PDF_QP_bt_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Form2 novoForm = new Form2();
-                novoForm.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao abrir Form2: {ex.Message}");
-            }
-        }
+
 
         private void Conversor_N_Click(object sender, EventArgs e)
         {
